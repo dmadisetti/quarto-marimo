@@ -1,0 +1,12 @@
+*_files/
+script.py
+script.*
+*.html
+!example-pyscript-header.html
+.quarto/
+_output/
+_site/
+
+__pycache__
+
+/.quarto/

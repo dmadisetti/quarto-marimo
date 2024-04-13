@@ -1,0 +1,35 @@
+name: documentation
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - uses: cachix/install-nix-action@v26
+        with:
+          install_url: https://releases.nixos.org/nix/nix-2.11.1/install
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - uses: DeterminateSystems/magic-nix-cache-action@v3
+
+      - name: Mount docs cache
+        id: docs-cache
+        uses: actions/cache@v1
+        with:
+          path: "/home/runner/_site"
+          key: site_build
+
+      - name: build
+        run: |
+          ./run.sh render
+
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          branch: gh-pages
+          folder: _site

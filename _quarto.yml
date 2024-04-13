@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "marimo-quarto"
+  page-navigation: true
+  back-to-top-navigation: true
+  open-graph: true
+  sidebar:
+    title: false
+    style: "docked"
+    search: true
+    background: "#f8f9fa"
+    contents:
+    - href: intro.qmd
+    - href: plots.qmd
+    - href: ui.qmd
+
+
+format:
+  html:
+    theme: cosmo
+    css: _quarto.css
+    toc: true
+    code-tools: true
+    code-fold: true
+    code-summary: "Show the code"
