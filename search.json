@@ -1,0 +1,152 @@
+[
+  {
+    "objectID": "plots.html",
+    "href": "plots.html",
+    "title": "Plots",
+    "section": "",
+    "text": "marimo supports several popular plotting libraries, including matplotlib, plotly, seaborn, and altair.\nThis tutorial gives examples using matplotlib; other libraries are used similarly.\n\n\nTo show a plot, include it in the last expression of a cell (just like any other output).\n# create the plot in the last line of the cell\nimport matplotlib.pyplot as plt\nplt.plot([1, 2])\n\n\n# create a plot\nplt.plot([1, 2])\n# ... do some work ...\n# make plt.gca() the last line of the cell\nplt.gca()\n\n\nYou can use plt.show() or figure.show() to displayplots in the console area of a cell. Keep in mind that consoleoutputs are not shown in the app view.\n\nA new figure every cell. Every cell starts with an empty figure for the imperative pyplot API.\n\n\n\n\n[]\n\nTo build a figure over multiple cells, use the object-oriented API and create your own axis:\n\n\n\n\n\n\nDraw plots interactively by parametrizing them with UI elements.\nVisualizing powers.\n\n||[f(x) = x||]\n\n\n\n\n\nmarimo also supports these other plotting libraries:\n\nPlotly\nSeaborn\nAltair\n\nJust output their figure objects as the last expression of a cell, or embed them in markdown with mo.as_html.\nIf you would like another library to be integrated into marimo, please get in touch.",
+    "crumbs": [
+      "Plots"
+    ]
+  },
+  {
+    "objectID": "plots.html#matplotlib",
+    "href": "plots.html#matplotlib",
+    "title": "Plots",
+    "section": "",
+    "text": "To show a plot, include it in the last expression of a cell (just like any other output).\n# create the plot in the last line of the cell\nimport matplotlib.pyplot as plt\nplt.plot([1, 2])\n\n\n# create a plot\nplt.plot([1, 2])\n# ... do some work ...\n# make plt.gca() the last line of the cell\nplt.gca()\n\n\nYou can use plt.show() or figure.show() to displayplots in the console area of a cell. Keep in mind that consoleoutputs are not shown in the app view.\n\nA new figure every cell. Every cell starts with an empty figure for the imperative pyplot API.\n\n\n\n\n[]\n\nTo build a figure over multiple cells, use the object-oriented API and create your own axis:\n\n\n\n\n\n\nDraw plots interactively by parametrizing them with UI elements.\nVisualizing powers.\n\n||[f(x) = x||]",
+    "crumbs": [
+      "Plots"
+    ]
+  },
+  {
+    "objectID": "plots.html#other-libraries",
+    "href": "plots.html#other-libraries",
+    "title": "Plots",
+    "section": "",
+    "text": "marimo also supports these other plotting libraries:\n\nPlotly\nSeaborn\nAltair\n\nJust output their figure objects as the last expression of a cell, or embed them in markdown with mo.as_html.\nIf you would like another library to be integrated into marimo, please get in touch.",
+    "crumbs": [
+      "Plots"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Marimo Tutorial",
+    "section": "",
+    "text": "marimo is a reactive Python notebook.\n\n\nThis means that unlike traditional notebooks, marimo notebooks runautomatically when you modify them orinteract with UI elements, like this slider: .\n\n\n\n\n\nA marimo notebook is made up of small blocks of Python code called cells.\nmarimo reads your cells and models the dependencies among them: whenever a cell that defines a global variable is run, marimo automatically runs all cells that reference that variable.\nReactivity keeps your program state and outputs in sync with your code, making for a dynamic programming environment that prevents bugs before they happen.\n🌊 See it in action. In the next cell, change the value of thevariable  changed to True, then click the run button.\n\n\n\nThe order of cells on the page has no bearing onthe order in which cells are executed: marimo knows that a cellreading a variable must run after the cell that  defines it. Thisfrees you to organize your code in the way that makes the mostsense for you.\n\nGlobal names must be unique. To enable reactivity, marimo imposes a constraint on how names appear in cells: no two cells may define the same variable.\nBy encapsulating logic in functions, classes, or Python modules,you can minimize the number of global variables in your notebook.\n\nVariables prefixed with an underscore are \"private\" to a cell, sothey can be defined by multiple cells.\n\n\n\n\nCells can output interactive UI elements. Interacting with a UI element automatically triggers notebook execution: when you interact with a UI element, its value is sent back to Python, and every cell that references that element is re-run.\nmarimo provides a library of UI elements to choose from under marimo.ui.\n🌊 Some UI elements.** Try interacting with the below elements.\n\n\n\n\n(, )\n\n\n\n\n\n\nmarimo cells parse Python (and only Python), and marimo notebooks are stored as pure Python files — outputs are not included. There’s no magical syntax.\nThe Python files generated by marimo are:\n\neasily versioned with git, yielding minimal diffs\nlegible for both humans and machines\nformattable using your tool of choice,\nusable as Python scripts, with UI elements taking their default values, and\nimportable by other modules (more on that in the future).\n\n\n\n\nmarimo notebooks can double as apps. Click the app window icon in the bottom-left to see this notebook in “app view.”\nServe a notebook as an app with marimo run at the command-line. Of course, you can use marimo just to level-up your notebooking, without ever making apps.\n\n\n\nCreating and editing notebooks. Use\nmarimo edit\nin a terminal to create a new marimo notebook, or\nmarimo edit notebook.py\nto create/edit a notebook called notebook.py.\nRunning as apps. Use\nmarimo run notebook.py\nto start a webserver that serves your notebook as an app in read-only mode, with code cells hidden.\nConvert a Jupyter notebook. Convert a Jupyter notebook to a marimo notebook using marimo convert:\nmarimo convert your_notebook.ipynb &gt; your_app.py\nTutorials. marimo comes packaged with tutorials:\n\ndataflow: more on marimo’s automatic execution\nui: how to use UI elements\nmarkdown: how to write markdown, with interpolated values and LaTeX\nplots: how plotting works in marimo\nfileformat: how marimo’s file format works\n\nStart a tutorial with marimo tutorial; for example,\nmarimo tutorial dataflow\nIn addition to tutorials, we have examples in our our GitHub repo.\n\n\n\nHere are some tips to help you get started with the marimo editor.\nSavingName your app using the box at the top of the screen, orwith Ctrl/Cmd+s. You can also create a named app at thecommand line, e.g., marimo edit app_name.py.Save by clicking the save icon on the bottom left, or byinputting Ctrl/Cmd+s. By default marimo is configuredto autosave.Run a cell by clicking the play ( ▷ ) button on the bottomright of a cell, or by inputting Ctrl/Cmd+Enter.Run a stale cell  by clicking the yellow run button to theright of the cell, or by inputting Ctrl/Cmd+Enter. A cell isstale when its code has been modified but not run.Run all stale cells by clicking the play ( ▷ ) button onthe bottom right of the screen, or input Ctrl/Cmd+Shift+r.Console output (e.g., print() statements) is shown below acell.Create a new cell above or below a given one by clickingthe plus button to the left of the cell, which appears onmouse hover.Move a cell up or down by dragging on the handle to theright of the cell, which appears on mouse hover.Delete a cell by clicking the trash bin icon. Bring itback by clicking the undo button on the bottom right of thescreen, or with Ctrl/Cmd+Shift+z.You can disable a cell via the cell context menu (open itby clicking the icon to the right of a cell). marimo willnever run a disabled cell or any cells that depend on it. Thiscan help prevent accidental execution of expensive computationswhen editing a notebook.You can collapse or fold the code in a cell by clicking the arrowicons in the line number column to the left, or by using keyboardshortcuts.Use the command palette (Ctrl/Cmd+k) or a keyboard shortcut toquickly fold or unfold all cells.If you have black installed, you can format a cell withthe keyboard shortcut Ctrl/Cmd+b.Use Ctrl/Cmd+k to open the command palette.Click the keyboard button on the bottom left of the screen (orinput Ctrl/Cmd+Shift+h) to view a list of all keyboardshortcuts.Configure the editor by clicking the gears icon near the top-rightof the screen.\n\n\n\n\nThe name “marimo” is a reference to a type of algae that, under the right conditions, clumps together to form a small sphere called a “marimo moss ball”. Made of just strands of algae, these beloved assemblages are greater than the sum of their parts.",
+    "crumbs": [
+      "Marimo Tutorial"
+    ]
+  },
+  {
+    "objectID": "intro.html#reactive-execution",
+    "href": "intro.html#reactive-execution",
+    "title": "Marimo Tutorial",
+    "section": "",
+    "text": "A marimo notebook is made up of small blocks of Python code called cells.\nmarimo reads your cells and models the dependencies among them: whenever a cell that defines a global variable is run, marimo automatically runs all cells that reference that variable.\nReactivity keeps your program state and outputs in sync with your code, making for a dynamic programming environment that prevents bugs before they happen.\n🌊 See it in action. In the next cell, change the value of thevariable  changed to True, then click the run button.\n\n\n\nThe order of cells on the page has no bearing onthe order in which cells are executed: marimo knows that a cellreading a variable must run after the cell that  defines it. Thisfrees you to organize your code in the way that makes the mostsense for you.\n\nGlobal names must be unique. To enable reactivity, marimo imposes a constraint on how names appear in cells: no two cells may define the same variable.\nBy encapsulating logic in functions, classes, or Python modules,you can minimize the number of global variables in your notebook.\n\nVariables prefixed with an underscore are \"private\" to a cell, sothey can be defined by multiple cells.",
+    "crumbs": [
+      "Marimo Tutorial"
+    ]
+  },
+  {
+    "objectID": "intro.html#ui-elements",
+    "href": "intro.html#ui-elements",
+    "title": "Marimo Tutorial",
+    "section": "",
+    "text": "Cells can output interactive UI elements. Interacting with a UI element automatically triggers notebook execution: when you interact with a UI element, its value is sent back to Python, and every cell that references that element is re-run.\nmarimo provides a library of UI elements to choose from under marimo.ui.\n🌊 Some UI elements.** Try interacting with the below elements.\n\n\n\n\n(, )",
+    "crumbs": [
+      "Marimo Tutorial"
+    ]
+  },
+  {
+    "objectID": "intro.html#marimo-is-just-python",
+    "href": "intro.html#marimo-is-just-python",
+    "title": "Marimo Tutorial",
+    "section": "",
+    "text": "marimo cells parse Python (and only Python), and marimo notebooks are stored as pure Python files — outputs are not included. There’s no magical syntax.\nThe Python files generated by marimo are:\n\neasily versioned with git, yielding minimal diffs\nlegible for both humans and machines\nformattable using your tool of choice,\nusable as Python scripts, with UI elements taking their default values, and\nimportable by other modules (more on that in the future).",
+    "crumbs": [
+      "Marimo Tutorial"
+    ]
+  },
+  {
+    "objectID": "intro.html#running-notebooks-as-apps",
+    "href": "intro.html#running-notebooks-as-apps",
+    "title": "Marimo Tutorial",
+    "section": "",
+    "text": "marimo notebooks can double as apps. Click the app window icon in the bottom-left to see this notebook in “app view.”\nServe a notebook as an app with marimo run at the command-line. Of course, you can use marimo just to level-up your notebooking, without ever making apps.",
+    "crumbs": [
+      "Marimo Tutorial"
+    ]
+  },
+  {
+    "objectID": "intro.html#the-marimo-command-line-tool",
+    "href": "intro.html#the-marimo-command-line-tool",
+    "title": "Marimo Tutorial",
+    "section": "",
+    "text": "Creating and editing notebooks. Use\nmarimo edit\nin a terminal to create a new marimo notebook, or\nmarimo edit notebook.py\nto create/edit a notebook called notebook.py.\nRunning as apps. Use\nmarimo run notebook.py\nto start a webserver that serves your notebook as an app in read-only mode, with code cells hidden.\nConvert a Jupyter notebook. Convert a Jupyter notebook to a marimo notebook using marimo convert:\nmarimo convert your_notebook.ipynb &gt; your_app.py\nTutorials. marimo comes packaged with tutorials:\n\ndataflow: more on marimo’s automatic execution\nui: how to use UI elements\nmarkdown: how to write markdown, with interpolated values and LaTeX\nplots: how plotting works in marimo\nfileformat: how marimo’s file format works\n\nStart a tutorial with marimo tutorial; for example,\nmarimo tutorial dataflow\nIn addition to tutorials, we have examples in our our GitHub repo.",
+    "crumbs": [
+      "Marimo Tutorial"
+    ]
+  },
+  {
+    "objectID": "intro.html#the-marimo-editor",
+    "href": "intro.html#the-marimo-editor",
+    "title": "Marimo Tutorial",
+    "section": "",
+    "text": "Here are some tips to help you get started with the marimo editor.\nSavingName your app using the box at the top of the screen, orwith Ctrl/Cmd+s. You can also create a named app at thecommand line, e.g., marimo edit app_name.py.Save by clicking the save icon on the bottom left, or byinputting Ctrl/Cmd+s. By default marimo is configuredto autosave.Run a cell by clicking the play ( ▷ ) button on the bottomright of a cell, or by inputting Ctrl/Cmd+Enter.Run a stale cell  by clicking the yellow run button to theright of the cell, or by inputting Ctrl/Cmd+Enter. A cell isstale when its code has been modified but not run.Run all stale cells by clicking the play ( ▷ ) button onthe bottom right of the screen, or input Ctrl/Cmd+Shift+r.Console output (e.g., print() statements) is shown below acell.Create a new cell above or below a given one by clickingthe plus button to the left of the cell, which appears onmouse hover.Move a cell up or down by dragging on the handle to theright of the cell, which appears on mouse hover.Delete a cell by clicking the trash bin icon. Bring itback by clicking the undo button on the bottom right of thescreen, or with Ctrl/Cmd+Shift+z.You can disable a cell via the cell context menu (open itby clicking the icon to the right of a cell). marimo willnever run a disabled cell or any cells that depend on it. Thiscan help prevent accidental execution of expensive computationswhen editing a notebook.You can collapse or fold the code in a cell by clicking the arrowicons in the line number column to the left, or by using keyboardshortcuts.Use the command palette (Ctrl/Cmd+k) or a keyboard shortcut toquickly fold or unfold all cells.If you have black installed, you can format a cell withthe keyboard shortcut Ctrl/Cmd+b.Use Ctrl/Cmd+k to open the command palette.Click the keyboard button on the bottom left of the screen (orinput Ctrl/Cmd+Shift+h) to view a list of all keyboardshortcuts.Configure the editor by clicking the gears icon near the top-rightof the screen.",
+    "crumbs": [
+      "Marimo Tutorial"
+    ]
+  },
+  {
+    "objectID": "intro.html#finally-a-fun-fact",
+    "href": "intro.html#finally-a-fun-fact",
+    "title": "Marimo Tutorial",
+    "section": "",
+    "text": "The name “marimo” is a reference to a type of algae that, under the right conditions, clumps together to form a small sphere called a “marimo moss ball”. Made of just strands of algae, these beloved assemblages are greater than the sum of their parts.",
+    "crumbs": [
+      "Marimo Tutorial"
+    ]
+  },
+  {
+    "objectID": "ui.html",
+    "href": "ui.html",
+    "title": "UI Elements",
+    "section": "",
+    "text": "One of marimo’s most powerful features is its first-class support for interactive user interface (UI) elements: interacting with a UI element will automatically run cells that reference it.\n\n\nThe marimo.ui module has a library of pre-built elements.For example, here's a slider: \n\nand here's its value: 1.\n\n\n\nWhenever you interact with a UI element, its value is sent back to Python. When this happens, all cells that reference the global variable bound to the UI element, but don’t define it, will run.\nThis simple rule lets you use UI elements to drive the execution of your program, letting you build interactive notebooks and tools for yourselves and others.\nInteracting with a displayed UI element will onlytrigger reactive execution if the UI element is assignedto a global variable.Every UI element has a value attribute that you can access inPython.You can embed UI elements in markdown using f-strings.For example, we can render the slider here: \n\n\n\n\nmarimo has a large library of simple UI elements: \n\n\n\n\n\n\n\nComposite elements are advanced elementslet you build UI elements out of other UI elements.Use these powerful elements to logically group together related elements,create a dynamic set of UI elements, or reduce the number of globalvariables in your program.Select a composite element: \n\n\n\n\n\n\n\n\n\n\n\n“” Heads up!\nThe rest of this tutorial covers state, an advanced topic. Feel free\nto return here later, if or when you find yourself\nlimited in building interactive stateful apps.\n\"\"\"\n).callout(kind=“warn\nYou can build powerful interactive notebooks and apps using just mo.ui and reactivity.\nSometimes, however, you might want interactions to mutate state. Maybe you’re building a checklist, and you want to maintain a list of action items. Or maybe you want to tie two different UI elements, so that updating one updates the other.\nFor these and other cases, marimo provides the function mo.state, which creates state returns a getter function and a setter function. When you call the setter function in one cell, all other cells that reference the getter via a global variable are automatically run (similar to UI elements).\ndef state(value: T, allow_self_loops: bool = False) -&gt; tuple[State[T],Callable[[T], None]]:Mutable reactive stateThis function takes an initial value and returns:a getter function that reads the state valuea setter function to set the state's valueWhen you call the setter function and update the state value in one cell,all other cells that read any global variables assigned to the getterwill automatically run. By default, the cell that called the setterfunction won't be re-run, even if it references the getter; to allow astate setter to possibly run the caller cell, use the keyword argumentallow_self_loops=True.You can use this function in conjunction with UIElement on_changehandlers to trigger side-effects when an element's value is updated. Forexample, you can tie multiple UI elements to derive their values fromshared state.Basic Usage.Create state:get_count, set_count = mo.state(0)Read the value:get_count()Update the state:set_count(1)Update the state based on the current value:set_count(lambda value: value + 1)Note: Never mutate the state directly. You should only change itsvalue through its setter.Synchronizing multiple UI elements.get_state, set_state = mo.state(0)# updating the state through the slider will recreate the number (below)slider = mo.ui.slider(0, 100, value=get_state(), on_change=set_state)# updating the state through the number will recreate the slider (above)number = mo.ui.number(0, 100, value=get_state(), on_change=set_state)# slider and number are synchronized to have the same value (try it!)[slider, number]Warning. Do not store marimo.ui elements in state; doing so canlead to hard-to-diagnose bugs.Args:value: initial value of the stateallow_self_loops: if True, if a cell calls a state setterand also references its getter, the caller cell will be re-run;defaults to False.Returns:getter function that retrieves the state valuesetter function that takes a new value, or a function taking the currentvalue as its argument and returning a new value\n\n\n\nmo.state takes an initial state value as its argument, and returns\n\na function that returns the state value;\na function that updates the state value.\n\nFor exaxmple,\nget_counter, set_counter = mo.state(0)\n\n\nCalling a state's setter function will onlytrigger reactive execution if the corresponding getter isassigned to and referenced via a global variable.You can get far using just mo.ui, without state. That said,judiciously using state can simplify the implementation of highlyinteractive notebooks/apps, and also enables new use cases.\n\nAccess the value of the state via its getter: get_counter()returned 0\n\n\n\n\nSet an element’s state by calling its setter function.\n\nCall it with a new value: set_counter(1)\nCall it with a function that takes the current value and returns a new one: set_counter(lambda count: count + 1)\n\nState updates are reactive. When you call a state’s setter in one cell, all other cells that reference the state getter via a global variable are automatically run with the new state value. This is similar to how interacting with a UI element automatically runs all cells that use the element.\nThe on_change callback. Every UI element takes an optional on_change callback, a function that takes the new value of the element and does anything with it. You can use the setter function in an on_change callback to mutate state.\n🌊 Try it! Click the button below and watch what happens.\n\n\nThe counter's current value is 0!This cell runs automatically on button click, even though itdoesn't reference either button.\n\nCalling a state's setter in one cell won't ever cause that samecell to re-execute, even if it reads that state getter. Thisprevents accidental infinite loops and makes some things, liketying elements, easier.\"\n\n\n\n\nUse state to tie two UI elements to the same value.\n\n\n\n\n\n\n[, ]\n\nTo tie elements, you must mo.state, and the tied elementsmust be created in different cells (since self-loops with stateare not allowed).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo tasks! 🎉\n\n\n\n\n\nThe remaining cells are helper data structures and functions. You can look at their code if you’re curious how certain parts of this tutorial were implemented.",
+    "crumbs": [
+      "UI Elements"
+    ]
+  },
+  {
+    "objectID": "ui.html#marimo.ui",
+    "href": "ui.html#marimo.ui",
+    "title": "UI Elements",
+    "section": "",
+    "text": "The marimo.ui module has a library of pre-built elements.For example, here's a slider: \n\nand here's its value: 1.\n\n\n\nWhenever you interact with a UI element, its value is sent back to Python. When this happens, all cells that reference the global variable bound to the UI element, but don’t define it, will run.\nThis simple rule lets you use UI elements to drive the execution of your program, letting you build interactive notebooks and tools for yourselves and others.\nInteracting with a displayed UI element will onlytrigger reactive execution if the UI element is assignedto a global variable.Every UI element has a value attribute that you can access inPython.You can embed UI elements in markdown using f-strings.For example, we can render the slider here: \n\n\n\n\nmarimo has a large library of simple UI elements: \n\n\n\n\n\n\n\nComposite elements are advanced elementslet you build UI elements out of other UI elements.Use these powerful elements to logically group together related elements,create a dynamic set of UI elements, or reduce the number of globalvariables in your program.Select a composite element:",
+    "crumbs": [
+      "UI Elements"
+    ]
+  },
+  {
+    "objectID": "ui.html#state",
+    "href": "ui.html#state",
+    "title": "UI Elements",
+    "section": "",
+    "text": "“” Heads up!\nThe rest of this tutorial covers state, an advanced topic. Feel free\nto return here later, if or when you find yourself\nlimited in building interactive stateful apps.\n\"\"\"\n).callout(kind=“warn\nYou can build powerful interactive notebooks and apps using just mo.ui and reactivity.\nSometimes, however, you might want interactions to mutate state. Maybe you’re building a checklist, and you want to maintain a list of action items. Or maybe you want to tie two different UI elements, so that updating one updates the other.\nFor these and other cases, marimo provides the function mo.state, which creates state returns a getter function and a setter function. When you call the setter function in one cell, all other cells that reference the getter via a global variable are automatically run (similar to UI elements).\ndef state(value: T, allow_self_loops: bool = False) -&gt; tuple[State[T],Callable[[T], None]]:Mutable reactive stateThis function takes an initial value and returns:a getter function that reads the state valuea setter function to set the state's valueWhen you call the setter function and update the state value in one cell,all other cells that read any global variables assigned to the getterwill automatically run. By default, the cell that called the setterfunction won't be re-run, even if it references the getter; to allow astate setter to possibly run the caller cell, use the keyword argumentallow_self_loops=True.You can use this function in conjunction with UIElement on_changehandlers to trigger side-effects when an element's value is updated. Forexample, you can tie multiple UI elements to derive their values fromshared state.Basic Usage.Create state:get_count, set_count = mo.state(0)Read the value:get_count()Update the state:set_count(1)Update the state based on the current value:set_count(lambda value: value + 1)Note: Never mutate the state directly. You should only change itsvalue through its setter.Synchronizing multiple UI elements.get_state, set_state = mo.state(0)# updating the state through the slider will recreate the number (below)slider = mo.ui.slider(0, 100, value=get_state(), on_change=set_state)# updating the state through the number will recreate the slider (above)number = mo.ui.number(0, 100, value=get_state(), on_change=set_state)# slider and number are synchronized to have the same value (try it!)[slider, number]Warning. Do not store marimo.ui elements in state; doing so canlead to hard-to-diagnose bugs.Args:value: initial value of the stateallow_self_loops: if True, if a cell calls a state setterand also references its getter, the caller cell will be re-run;defaults to False.Returns:getter function that retrieves the state valuesetter function that takes a new value, or a function taking the currentvalue as its argument and returning a new value\n\n\n\nmo.state takes an initial state value as its argument, and returns\n\na function that returns the state value;\na function that updates the state value.\n\nFor exaxmple,\nget_counter, set_counter = mo.state(0)\n\n\nCalling a state's setter function will onlytrigger reactive execution if the corresponding getter isassigned to and referenced via a global variable.You can get far using just mo.ui, without state. That said,judiciously using state can simplify the implementation of highlyinteractive notebooks/apps, and also enables new use cases.\n\nAccess the value of the state via its getter: get_counter()returned 0\n\n\n\n\nSet an element’s state by calling its setter function.\n\nCall it with a new value: set_counter(1)\nCall it with a function that takes the current value and returns a new one: set_counter(lambda count: count + 1)\n\nState updates are reactive. When you call a state’s setter in one cell, all other cells that reference the state getter via a global variable are automatically run with the new state value. This is similar to how interacting with a UI element automatically runs all cells that use the element.\nThe on_change callback. Every UI element takes an optional on_change callback, a function that takes the new value of the element and does anything with it. You can use the setter function in an on_change callback to mutate state.\n🌊 Try it! Click the button below and watch what happens.\n\n\nThe counter's current value is 0!This cell runs automatically on button click, even though itdoesn't reference either button.\n\nCalling a state's setter in one cell won't ever cause that samecell to re-execute, even if it reads that state getter. Thisprevents accidental infinite loops and makes some things, liketying elements, easier.\"\n\n\n\n\nUse state to tie two UI elements to the same value.\n\n\n\n\n\n\n[, ]\n\nTo tie elements, you must mo.state, and the tied elementsmust be created in different cells (since self-loops with stateare not allowed).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo tasks! 🎉",
+    "crumbs": [
+      "UI Elements"
+    ]
+  },
+  {
+    "objectID": "ui.html#appendix",
+    "href": "ui.html#appendix",
+    "title": "UI Elements",
+    "section": "",
+    "text": "The remaining cells are helper data structures and functions. You can look at their code if you’re curious how certain parts of this tutorial were implemented.",
+    "crumbs": [
+      "UI Elements"
+    ]
+  }
+]
