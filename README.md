@@ -6,23 +6,23 @@
 ```mermaid
 graph TD
     A[run.sh] --Spawns (server.py)--> B[Flask server]
-    A --> C[Runs Quarto (_extension/marimo/quarto)]
-    C --> F1[Filter 1: marimo-register]
-    subgraph F1
+    A --> C[Runs Quarto]
+    C --> F1
+    subgraph F1[Filter 1: marimo-register]
         D[`marimo-register:CodeBlock`]
         E[`marimo-register:Pandoc`]
     end
     D --sends cells to build--> B[Builds all the cells]
     D --replaces: `{marimo}` code blocks with {marimo-id} stubs--> E
     E --Signals server to run on cell objects--> B
-    F1 --> F2[Filter 2: marimo-execute]
-    subgraph F2
+    F1 --> F2
+    subgraph F2[Filter 2: marimo-execute]
         G[`marimo-execute:CodeBlock`]
         H[`marimo-execute:Pandoc`]
     end
     B --Sends code outputs--> G
     G --Replaces stubs with outputs--> H
-    H -->Provides relevant HTML headers to make things work--> I[Out]
+    H --Provides relevant headers to make things work--> Out
 ```
 
 Run `run.sh`. This spawns the Flask server in `server.py` and runs a quarto action.
