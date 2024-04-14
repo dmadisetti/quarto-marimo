@@ -4,7 +4,6 @@
 import marimo
 from flask import Flask, request, jsonify
 
-from glob import glob
 import re
 import os
 
@@ -27,37 +26,39 @@ app = Flask(__name__)
 sources = {}
 lookups = {}
 
-@app.route('/run', methods=['POST'])
+
+@app.route("/run", methods=["POST"])
 def run():
     data = request.get_json()
-    code = data.get('code', None)
-    key = data.get('key', None).strip()
+    code = data.get("code", None)
+    key = data.get("key", None).strip()
     print("run", key, code)
     if code is None or key is None:
         return jsonify({"error": "No code provided"}), 400
     sources[key] = code
     return ""
 
-@app.route('/lookup', methods=['POST'])
+
+@app.route("/lookup", methods=["POST"])
 def lookup():
     data = request.get_json()
-    key = data.get('key', None).strip()
+    key = data.get("key", None).strip()
     if key is None or key not in lookups:
-      return jsonify({"type":"html", "value":"error: No key provided"}), 400
+        return jsonify({"type": "html", "value": "error: No key provided"}), 400
     if lookups[key] is None:
-      return jsonify({"type":"html", "value":""})
+        return jsonify({"type": "html", "value": ""})
 
     data = lookups[key]
     output = try_format(data)
     # Ideally handle this client side, but just a sanity check
     if output.mimetype == "image/png":
-        return jsonify({"type": "figure", "value":f"{output.data}"})
+        return jsonify({"type": "figure", "value": f"{output.data}"})
 
     # Default to whatever the output was, assuming html
     return jsonify({"type": "html", "value": f"{mo.as_html(data)}"})
 
 
-@app.route('/execute', methods=['GET'])
+@app.route("/execute", methods=["GET"])
 def execute():
 
     keys, code = list(zip(*sources.items()))
@@ -66,39 +67,37 @@ def execute():
         keys,
         [CellConfig() for _ in range(len(sources))],
     )
-    with tempfile.NamedTemporaryFile(
-        mode="w", suffix=".py") as f:
-        tempfile_name = f.name
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".py") as f:
         f.write(generated)
         f.seek(0)
         app = codegen.get_app(f.name)
 
     register_formatters()
     for key, output in zip(keys, app.run()[0]):
-      lookups[key] = output
+        lookups[key] = output
     return ""
 
 
-@app.route('/flush', methods=['GET'])
+@app.route("/flush", methods=["GET"])
 def flush():
-  lookups.clear()
-  sources.clear()
-  return ""
+    lookups.clear()
+    sources.clear()
+    return ""
 
 
-@app.route('/assets', methods=['GET'])
+@app.route("/assets", methods=["GET"])
 def assets():
-  # Read the HTML file
-  with open(f"{marimo.__path__[0]}/_static/index.html", 'r') as file:
-      html_content = file.read()
-  js, = re.findall(r'index-.*\.js', html_content)
-  css, = re.findall(r'index-.*\.css', html_content)
-  base = f"https://cdn.jsdelivr.net/npm/@marimo-team/frontend@{marimo.__version__}/dist/assets/"
-  dev_server = os.environ.get("QUARTO_MARIMO_DEBUG_ENDPOINT")
-  js = f"{base}{js}"
-  if dev_server:
-    js = f"http://{dev_server}/src/main.tsx"
-  return f"""
+    # Read the HTML file
+    with open(f"{marimo.__path__[0]}/_static/index.html", "r") as file:
+        html_content = file.read()
+    (js,) = re.findall(r"index-.*\.js", html_content)
+    (css,) = re.findall(r"index-.*\.css", html_content)
+    base = f"https://cdn.jsdelivr.net/npm/@marimo-team/frontend@{marimo.__version__}/dist/assets/"
+    dev_server = os.environ.get("QUARTO_MARIMO_DEBUG_ENDPOINT")
+    js = f"{base}{js}"
+    if dev_server:
+        js = f"http://{dev_server}/src/main.tsx"
+    return f"""
       <div id="root" style="display:none"></div>
       <marimo-mode data-mode="read" hidden=""></marimo-mode>
       <marimo-filename hidden="">quarto app</marimo-filename>
@@ -121,5 +120,5 @@ def assets():
   """
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True, port=6000)
