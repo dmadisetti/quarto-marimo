@@ -32,8 +32,8 @@ mo.md(f"and here's its value: **{slider.value}**.")
 
 ### How interactions run cells
 
-Whenever you interact with a UI element, its value is sent back to
-Python. When this happens, all cells that reference the global variable
+Whenever you interact with a UI element, its value is sent back to 
+Python. When this happens, all cells that reference the global variable 
 bound to the UI element, but don't define it, will run.
 
 This simple rule lets you use UI elements to
@@ -46,14 +46,14 @@ mo.accordion(
     {
         "Tip: assign UI elements to global variables": (
             """
-            Interacting with a displayed UI element will only
+            Interacting with a displayed UI element will only 
             trigger reactive execution if the UI element is assigned
             to a global variable.
             """
         ),
         "Tip: accessing an element's value": (
             """
-            Every UI element has a value attribute that you can access in
+            Every UI element has a value attribute that you can access in 
             Python.
             """
         ),
@@ -96,10 +96,10 @@ documentation(basic_ui_elements.value)
 mo.md(
     f"""### Composite elements
 
-    Composite elements are advanced elements
+    Composite elements are advanced elements 
     let you build UI elements out of other UI elements.
-    Use these powerful elements to logically group together related elements,
-    create a dynamic set of UI elements, or reduce the number of global
+    Use these powerful elements to logically group together related elements, 
+    create a dynamic set of UI elements, or reduce the number of global 
     variables in your program.
 
     Select a composite element: {composite_elements}
@@ -120,27 +120,31 @@ value(composite_element)
 documentation(composite_elements.value)
 ```
 ## State
-""
+
+```{marimo}
+mo.md(
+    """
     **Heads up!**
 
     The rest of this tutorial covers state, an advanced topic. Feel free
     to return here later, if or when you find yourself
     limited in building interactive stateful apps.
     """
-).callout(kind="warn
+).callout("warn")
+```
 
 You can build powerful interactive notebooks and apps using just
 `mo.ui` and reactivity.
 
-Sometimes, however, you might want interactions to mutate **state**.
+Sometimes, however, you might want interactions to mutate **state**. 
 Maybe you're building a checklist, and you want to maintain a list
-of action items. Or maybe you want to tie two different UI elements, so
-that updating one updates the other.
+of action items. Or maybe you want to tie two different UI elements, so 
+that updating one updates the other. 
 
 For these and other cases, marimo provides the function `mo.state`, which
-creates state returns a getter function and a setter function. When you
-call the setter function in one cell, all other
-cells that reference the getter via a global variable are automatically
+creates state returns a getter function and a setter function. When you 
+call the setter function in one cell, all other 
+cells that reference the getter via a global variable are automatically 
 run (similar to UI elements).
 
 
@@ -171,15 +175,15 @@ mo.accordion(
     {
         "Tip: assign state getters to global variables": (
             """
-            Calling a state's setter function will only
-            trigger reactive execution if the corresponding getter is
+            Calling a state's setter function will only 
+            trigger reactive execution if the corresponding getter is 
             assigned to and referenced via a global variable.
             """
         ),
         "Tip: use state sparingly": (
             """
             You can get far using just `mo.ui`, without state. That said,
-            judiciously using state can simplify the implementation of highly
+            judiciously using state can simplify the implementation of highly 
             interactive notebooks/apps, and also enables new use cases.
             """
         ),
@@ -190,7 +194,7 @@ mo.accordion(
 ```{marimo}
 mo.md(
     f"""
-    Access the value of the state via its getter: `get_counter()`
+    Access the value of the state via its getter: `get_counter()` 
     returned **{get_counter()}**
     """
 )
@@ -201,17 +205,17 @@ mo.md(
 Set an element's state by calling its setter function.
 
 - Call it with a new value: `set_counter(1)`
-- Call it with a function that takes the current value and returns a new
+- Call it with a function that takes the current value and returns a new 
   one: `set_counter(lambda count: count + 1)`
 
 **State updates are reactive.** When you call a state's setter in one
-cell, _all other cells that reference the state getter via a global
+cell, _all other cells that reference the state getter via a global 
 variable_ are automatically
 run with the new state value. This is similar to how interacting with
 a UI element automatically runs all cells that use the element.
 
 
-**The `on_change` callback.** Every UI element takes an optional
+**The `on_change` callback.** Every UI element takes an optional 
 `on_change` callback, a function
 that takes the new value of the element and does anything with it. You can
 use the setter function in an `on_change` callback to mutate state.
@@ -238,8 +242,8 @@ mo.md(
     f"""
     The counter's current value is **{get_counter()}**!
 
-    This cell runs automatically on button click, even though it
-    doesn't reference either button.
+    This cell runs automatically on button click, even though it 
+    doesn't reference either button. 
     """
 )
 ```
@@ -250,7 +254,7 @@ mo.accordion(
         "Tip: no self-loops": (
             """
             Calling a state's setter in one cell won't ever cause that same
-            cell to re-execute, even if it reads that state getter. This
+            cell to re-execute, even if it reads that state getter. This 
             prevents accidental infinite loops and makes some things, like
             tying elements, easier."
             """
@@ -371,7 +375,7 @@ mo.as_html(task_list) if task_list.value else mo.md("No tasks! 🎉")
 
 ## Appendix
 The remaining cells are helper data structures and functions.
-You can look at their code if you're curious how certain parts of this
+You can look at their code if you're curious how certain parts of this 
 tutorial were implemented.
 
 
