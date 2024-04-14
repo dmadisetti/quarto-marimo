@@ -161,6 +161,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">UI Elements</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./plots-pdf.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plots PDF example</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -210,11 +216,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Welcome to marimo! 🌊🍃</h1>
 <p>marimo is a <strong>reactive</strong> Python notebook.</p>
 
-
-<span class="markdown"><span class="paragraph">This means that unlike traditional notebooks, marimo notebooks <strong>runautomatically</strong> when you modify them orinteract with UI elements, like this slider: <marimo-ui-element object-id="3c9756e8-5a91-4d86-ae96-a476fd17db7c" random-id="3c9756e8-5a91-4d86-ae96-a476fd17db7c"><marimo-slider data-initial-value="1" data-label="null" data-start="1" data-stop="22" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false"></marimo-slider></marimo-ui-element>.</span><h2 id="_1" class="anchored" data-anchor-id="welcome-to-marimo">🍃</h2></span>
-
+<span class="markdown"><span class="paragraph">This means that unlike traditional notebooks, marimo notebooks <strong>runautomatically</strong> when you modify them orinteract with UI elements, like this slider: <marimo-ui-element object-id="f53c5464-9b89-4aff-8b5c-74af728d415a" random-id="f53c5464-9b89-4aff-8b5c-74af728d415a"><marimo-slider data-initial-value="1" data-label="null" data-start="1" data-stop="22" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false"></marimo-slider></marimo-ui-element>.</span><h2 id="_1" class="anchored" data-anchor-id="welcome-to-marimo">🍃</h2></span>
 <marimo-callout-output data-html="&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Tip: This is a tutorial notebook. You can create your own notebooks\nby entering <code>marimo edit</code> at the command line.</span></span>&quot;" data-kind="&quot;neutral&quot;"></marimo-callout-output>
-
 <section id="reactive-execution" class="level2">
 <h2 class="anchored" data-anchor-id="reactive-execution">1. Reactive execution</h2>
 <p>A marimo notebook is made up of small blocks of Python code called cells.</p>
@@ -222,15 +225,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Reactivity keeps your program state and outputs in sync with your code, making for a dynamic programming environment that prevents bugs before they happen.</p>
 <span class="markdown"><span class="paragraph"><strong>🌊 See it in action.</strong> In the next cell, change the value of thevariable  <code>changed</code> to <code>True</code>, then click the run button.</span></span>
 
-
-
 <marimo-accordion data-labels="[&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Tip: execution order</span></span>&quot;]" data-multiple="false"><div><span class="markdown"><span class="paragraph">The order of cells on the page has no bearing onthe order in which cells are executed: marimo knows that a cellreading a variable must run after the cell that  defines it. Thisfrees you to organize your code in the way that makes the mostsense for you.</span></span></div></marimo-accordion>
-
 <p><strong>Global names must be unique.</strong> To enable reactivity, marimo imposes a constraint on how names appear in cells: no two cells may define the same variable.</p>
 <marimo-accordion data-labels="[&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Tip: encapsulation</span></span>&quot;]" data-multiple="false"><div><span class="markdown"><span class="paragraph">By encapsulating logic in functions, classes, or Python modules,you can minimize the number of global variables in your notebook.</span></span></div></marimo-accordion>
-
 <marimo-accordion data-labels="[&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Tip: private variables</span></span>&quot;]" data-multiple="false"><div><span class="markdown"><span class="paragraph">Variables prefixed with an underscore are "private" to a cell, sothey can be defined by multiple cells.</span></span></div></marimo-accordion>
-
 </section>
 <section id="ui-elements" class="level2">
 <h2 class="anchored" data-anchor-id="ui-elements">2. UI elements</h2>
@@ -239,13 +237,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>🌊 Some UI elements.** Try interacting with the below elements.</p>
 
 
-
-
-(<marimo._plugins.ui._impl.input.dropdown object="" at="" 0x7f73e0cf7f50="">, <marimo._plugins.ui._impl.input.slider object="" at="" 0x7f73e0292a10="">)
-
+<marimo-json-output data-json-data="[&quot;text/html:<marimo-ui-element object-id='394e4ab4-5bb3-43ad-a5d4-22908d28ed61' random-id='394e4ab4-5bb3-43ad-a5d4-22908d28ed61'><marimo-dropdown data-initial-value='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;]' data-label='null' data-options='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;, &amp;quot;&amp;#92;ud83c&amp;#92;udf0a&amp;quot;, &amp;quot;&amp;#92;u2728&amp;quot;]' data-allow-select-none='false' data-full-width='false'></marimo-dropdown></marimo-ui-element>&quot;, &quot;text/html:<marimo-ui-element object-id='25356a61-495f-4dc0-ac9a-1ca5d8b79d80' random-id='25356a61-495f-4dc0-ac9a-1ca5d8b79d80'><marimo-slider data-initial-value='1' data-label='&amp;quot;&amp;lt;span class=&amp;#92;&amp;quot;markdown&amp;#92;&amp;quot;&amp;gt;&amp;lt;span class=&amp;#92;&amp;quot;paragraph&amp;#92;&amp;quot;&amp;gt;number of &amp;#92;ud83c&amp;#92;udf43: &amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;quot;' data-start='1' data-stop='16' data-debounce='false' data-orientation='&amp;quot;horizontal&amp;quot;' data-show-value='false'></marimo-slider></marimo-ui-element>&quot;]"></marimo-json-output>
 <span class="markdown"><h1 id="_1">🍃</h1></span>
-
-</marimo._plugins.ui._impl.input.slider></marimo._plugins.ui._impl.input.dropdown></section>
+</section>
 <section id="marimo-is-just-python" class="level2">
 <h2 class="anchored" data-anchor-id="marimo-is-just-python">3. marimo is just Python</h2>
 <p>marimo cells parse Python (and only Python), and marimo notebooks are stored as pure Python files — outputs are <em>not</em> included. There’s no magical syntax.</p>
@@ -291,13 +285,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="the-marimo-editor">6. The marimo editor</h2>
 <p>Here are some tips to help you get started with the marimo editor.</p>
 <marimo-accordion data-labels="[&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Saving</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Running</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Console Output</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Creating, Moving, and Deleting Cells</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Disabling Cells</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Code Folding</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Code Formatting</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Command Palette</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Keyboard Shortcuts</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Configuration</span></span>&quot;]" data-multiple="false"><div><span class="markdown"><span class="paragraph"><strong>Saving</strong></span><ul><li><span class="paragraph"><em>Name</em> your app using the box at the top of the screen, orwith <code>Ctrl/Cmd+s</code>. You can also create a named app at thecommand line, e.g., <code>marimo edit app_name.py</code>.</span></li><li><span class="paragraph"><em>Save</em> by clicking the save icon on the bottom left, or byinputting <code>Ctrl/Cmd+s</code>. By default marimo is configuredto autosave.</span></li></ul></span></div><div><span class="markdown"><ol><li><span class="paragraph"><em>Run a cell</em> by clicking the play ( ▷ ) button on the bottomright of a cell, or by inputting <code>Ctrl/Cmd+Enter</code>.</span></li><li><span class="paragraph"><em>Run a stale cell</em>  by clicking the yellow run button to theright of the cell, or by inputting <code>Ctrl/Cmd+Enter</code>. A cell isstale when its code has been modified but not run.</span></li><li><span class="paragraph"><em>Run all stale cells</em> by clicking the play ( ▷ ) button onthe bottom right of the screen, or input <code>Ctrl/Cmd+Shift+r</code>.</span></li></ol></span></div><div><span class="markdown"><span class="paragraph">Console output (e.g., <code>print()</code> statements) is shown below acell.</span></span></div><div><span class="markdown"><ol><li><span class="paragraph"><em>Create</em> a new cell above or below a given one by clickingthe plus button to the left of the cell, which appears onmouse hover.</span></li><li><span class="paragraph"><em>Move</em> a cell up or down by dragging on the handle to theright of the cell, which appears on mouse hover.</span></li><li><span class="paragraph"><em>Delete</em> a cell by clicking the trash bin icon. Bring itback by clicking the undo button on the bottom right of thescreen, or with <code>Ctrl/Cmd+Shift+z</code>.</span></li></ol></span></div><div><span class="markdown"><span class="paragraph">You can disable a cell via the cell context menu (open itby clicking the icon to the right of a cell). marimo willnever run a disabled cell or any cells that depend on it. Thiscan help prevent accidental execution of expensive computationswhen editing a notebook.</span></span></div><div><span class="markdown"><span class="paragraph">You can collapse or fold the code in a cell by clicking the arrowicons in the line number column to the left, or by using keyboardshortcuts.</span><span class="paragraph">Use the command palette (<code>Ctrl/Cmd+k</code>) or a keyboard shortcut toquickly fold or unfold all cells.</span></span></div><div><span class="markdown"><span class="paragraph">If you have <a href="https://github.com/psf/black" rel="noopener" target="_blank">black</a> installed, you can format a cell withthe keyboard shortcut <code>Ctrl/Cmd+b</code>.</span></span></div><div><span class="markdown"><span class="paragraph">Use <code>Ctrl/Cmd+k</code> to open the command palette.</span></span></div><div><span class="markdown"><span class="paragraph">Click the keyboard button on the bottom left of the screen (orinput <code>Ctrl/Cmd+Shift+h</code>) to view a list of all keyboardshortcuts.</span></span></div><div><span class="markdown"><span class="paragraph">Configure the editor by clicking the gears icon near the top-rightof the screen.</span></span></div></marimo-accordion>
-
 </section>
 <section id="finally-a-fun-fact" class="level2">
 <h2 class="anchored" data-anchor-id="finally-a-fun-fact">Finally, a fun fact</h2>
 <p>The name “marimo” is a reference to a type of algae that, under the right conditions, clumps together to form a small sphere called a “marimo moss ball”. Made of just strands of algae, these beloved assemblages are greater than the sum of their parts.</p>
-
-
 
 
 
@@ -1137,22 +1128,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       <div id="root" style="display:none"></div>
       <marimo-mode data-mode="read" hidden=""></marimo-mode>
       <marimo-filename hidden="">quarto app</marimo-filename>
-      <marimo-version data-version="0.3.9" hidden=""></marimo-version>
+      <marimo-version data-version="0.3.12" hidden=""></marimo-version>
       <marimo-user-config data-config="{}" hidden=""> </marimo-user-config>
       <marimo-app-config data-config="{}"> </marimo-app-config>
       <script data-marimo="true">
         window.__MARIMO_STATIC__ = {};
-        window.__MARIMO_STATIC__.version = "0.3.9";
+        window.__MARIMO_STATIC__.version = "0.3.12";
         window.__MARIMO_STATIC__.notebookState = {};
-        window.__MARIMO_STATIC__.assetUrl = "https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.3.9/dist/assets/";
+        window.__MARIMO_STATIC__.assetUrl = "https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.3.12/dist/assets/";
         window.__MARIMO_STATIC__.files = {};
       </script>
 
       <marimo-code hidden="">
       </marimo-code>
 
-      <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.3.9/dist/assets/index-CyHipq39.css">
-      <script type="module" crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.3.9/dist/assets/index-CEF9hIqL.js"></script>
+      <link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.3.12/dist/assets/index-BULECYIi.css">
+      <script type="module" crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.3.12/dist/assets/index-DmiHxgl3.js"></script>
   
 
 
