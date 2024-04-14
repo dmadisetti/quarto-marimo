@@ -1,8 +1,9 @@
 ---
-title: Plots
-format: html
+title: Plots PDF example
+format: pdf
 filters:
   - marimo/quarto
+extract-media: _site/media
 ---
 
 # Plotting
@@ -79,7 +80,6 @@ create your own axis:
 _, axis = plt.subplots()
 axis.plot(x, x)
 axis.plot(x, x**2)
-axis
 ```
 
 

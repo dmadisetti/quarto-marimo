@@ -10,3 +10,8 @@ _site/
 __pycache__
 
 /.quarto/
+
+*.aux
+*.log
+*.pdf
+*.tex

@@ -5,8 +5,3 @@ contributes:
   filters:
     - marimo-register.lua
     - marimo-execute.lua
-  formats:
-    common:
-      filters:
-        - 0-marimo-register.lua
-        - 1-marimo-execute.lua

@@ -16,6 +16,7 @@ from marimo._output.formatters.formatters import (
     register_formatters,
 )
 from marimo._output.formatting import try_format
+import marimo as mo
 
 # Maybe do over sockets instead of web?
 # Feels very hacky
@@ -42,18 +43,18 @@ def lookup():
     data = request.get_json()
     key = data.get('key', None).strip()
     if key is None or key not in lookups:
-        return jsonify({"error": "No key provided"}), 400
+      return jsonify({"type":"html", "value":"error: No key provided"}), 400
     if lookups[key] is None:
-        return ""
+      return jsonify({"type":"html", "value":""})
 
     data = lookups[key]
     output = try_format(data)
     # Ideally handle this client side, but just a sanity check
     if output.mimetype == "image/png":
-        return f"<img src='{output.data}' />"
+        return jsonify({"type": "figure", "value":f"{output.data}"})
 
-    # Default to whatever the output was
-    return f"{data}"
+    # Default to whatever the output was, assuming html
+    return jsonify({"type": "html", "value": f"{mo.as_html(data)}"})
 
 
 @app.route('/execute', methods=['GET'])
