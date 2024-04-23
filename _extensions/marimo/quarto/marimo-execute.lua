@@ -34,15 +34,20 @@ function Pandoc(doc)
     return doc
   end
 
+  quarto.doc.include_text(
+      "in-header",
+      "<base href='/' />")
+
   -- For local testing we can connect to the frontend webserver
   local dev_server = os.getenv("QUARTO_MARIMO_DEBUG_ENDPOINT")
   if dev_server ~= nil then
     quarto.doc.include_text(
       "in-header",
-      '<script type="module">import { injectIntoGlobalHook } from "' .. dev_server ..
+      '<meta name="referrer" content="unsafe-url" />' ..
+      '<script type="module" crossorigin="anonymous">import { injectIntoGlobalHook } from "' .. dev_server ..
       '/@react-refresh";injectIntoGlobalHook(window); window.$RefreshReg$ = () => {};' ..
       'window.$RefreshSig$ = () => (type) => type;</script>' ..
-      '<script type="module" src="' .. dev_server ..
+      '<script type="module" crossorigin="anonymous" src="' .. dev_server ..
       '/@vite/client"></script>'
     )
   end

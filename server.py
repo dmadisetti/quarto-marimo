@@ -1,15 +1,15 @@
 #! /usr/bin/env nix-shell
 #! nix-shell -i python3 -p python3Packages.marimo python3Packages.flask python3Packages.matplotlib
 
-import marimo
 from flask import Flask, request, jsonify
 
 import re
 import os
+import tempfile
+import urllib.parse
 
 from marimo._ast import codegen
 from marimo._ast.cell import CellConfig
-import tempfile
 
 from marimo._output.formatters.formatters import (
     register_formatters,
@@ -80,39 +80,49 @@ def execute():
 
 @app.route("/flush", methods=["GET"])
 def flush():
-    lookups.clear()
-    sources.clear()
     return ""
 
 
 @app.route("/assets", methods=["GET"])
 def assets():
+    keys, code = list(zip(*sources.items()))
+    generated = codegen.generate_filecontents(
+        code,
+        keys,
+        [CellConfig() for _ in range(len(sources))],
+    )
     # Read the HTML file
-    with open(f"{marimo.__path__[0]}/_static/index.html", "r") as file:
+    with open(f"{mo.__path__[0]}/_static/index.html", "r") as file:
         html_content = file.read()
     (js,) = re.findall(r"index-.*\.js", html_content)
     (css,) = re.findall(r"index-.*\.css", html_content)
-    base = f"https://cdn.jsdelivr.net/npm/@marimo-team/frontend@{marimo.__version__}/dist/assets/"
+    base = f"https://cdn.jsdelivr.net/npm/@marimo-team/frontend@{mo.__version__}/dist/assets/"
     dev_server = os.environ.get("QUARTO_MARIMO_DEBUG_ENDPOINT")
     js = f"{base}{js}"
     if dev_server:
-        js = f"http://{dev_server}/src/main.tsx"
+        js = f"{dev_server}/src/main.tsx"
+
+    lookups.clear()
+    sources.clear()
     return f"""
       <div id="root" style="display:none"></div>
       <marimo-mode data-mode="read" hidden=""></marimo-mode>
       <marimo-filename hidden="">quarto app</marimo-filename>
-      <marimo-version data-version="{marimo.__version__}" hidden=""></marimo-version>
+      <marimo-version data-version="{mo.__version__}" hidden=""></marimo-version>
       <marimo-user-config data-config="{{}}" hidden=""> </marimo-user-config>
       <marimo-app-config data-config="{{}}"> </marimo-app-config>
       <script data-marimo="true">
         window.__MARIMO_STATIC__ = {{}};
-        window.__MARIMO_STATIC__.version = "{marimo.__version__}";
-        window.__MARIMO_STATIC__.notebookState = {{}};
+        window.__MARIMO_STATIC__.version = "{mo.__version__}";
+        window.__MARIMO_STATIC__.notebookState = {{"cellIds": {list(lookups.values())},
+        "cellData": {lookups}}};
         window.__MARIMO_STATIC__.assetUrl = "{base}";
         window.__MARIMO_STATIC__.files = {{}};
       </script>
 
+      <marimo-wasm hidden=""></marimo-wasm>
       <marimo-code hidden="">
+      {urllib.parse.quote(generated)}
       </marimo-code>
 
       <link rel="stylesheet" crossorigin="anonymous" href="{base}{css}">
