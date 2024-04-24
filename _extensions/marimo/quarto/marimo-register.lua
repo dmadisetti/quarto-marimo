@@ -1,11 +1,19 @@
 local file_path = debug.getinfo(1, "S").source:sub(2)
 local file_dir = file_path:match("(.*[/\\])")
-local endpoint_path = file_dir .. "endpoint.py"
+local endpoint_script = file_dir .. "endpoint.py"
 local missingMarimoCell = true
 
+function from_endpoint(endpoint, text)
+  text = text or ""
+  return pandoc.pipe("python", {endpoint_script, key, endpoint}, text)
+end
+
+key = quarto.doc.input_file
+
+-- Hook functions to pandoc
 function CodeBlock(el)
   if el.attr and el.attr.classes:find_if(function (c) return string.match(c, "{?marimo}?") end) then
-      converted_code = pandoc.pipe("python", {endpoint_path, "run"}, el.text)
+      converted_code = from_endpoint("run", el.text)
       missingMarimoCell = false
       local block = pandoc.CodeBlock(converted_code)
       block.classes:insert("{marimo-key}")
@@ -22,7 +30,7 @@ function Pandoc(doc)
 
   -- Set the marimo app runnning after each cell
   -- is visited and we have collected all the content.
-  pandoc.pipe("python", {endpoint_path, "execute"}, "")
+  from_endpoint("execute")
 
   return doc
 end

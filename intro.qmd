@@ -13,7 +13,6 @@ marimo is a **reactive** Python notebook.
 slider = mo.ui.slider(1, 22)
 ```
 
-
 ```{marimo}
 mo.md(
     f"""
@@ -34,7 +33,6 @@ mo.md(
     """
 ).callout()
 ```
-
 
 ## 1. Reactive execution
 
@@ -148,11 +146,22 @@ icon = mo.ui.dropdown(["🍃", "🌊", "✨"], value="🍃")
 repetitions = mo.ui.slider(1, 16, label=f"number of {icon.value}: ")
 ```
 
+FIXME: Multi-outputs seem broken
 
 ```{marimo}
+# Broken
 icon, repetitions
 ```
 
+```{marimo}
+# Works
+icon
+```
+
+```{marimo}
+# Works
+repetitions
+```
 
 ```{marimo}
 mo.md("# " + icon.value * repetitions.value)

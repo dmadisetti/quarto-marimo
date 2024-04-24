@@ -3,11 +3,18 @@ local file_dir = file_path:match("(.*[/\\])")
 local endpoint_script = file_dir .. "endpoint.py"
 local missingMarimoCell = true
 
+-- needs to be unique to process
+key = quarto.doc.input_file
+function from_endpoint(endpoint, text)
+  text = text or ""
+  return pandoc.pipe("python", {endpoint_script, key, endpoint}, text)
+end
 
+-- Hook functions to pandoc
 function CodeBlock(el)
   if el.attr and el.attr.classes:find_if(function (c) return string.match(c, "{?marimo%-key}?") end) then
       missingMarimoCell = false
-      cell_output = pandoc.pipe("python", {endpoint_script, "lookup"}, el.text)
+      cell_output = from_endpoint("lookup", el.text)
       cell_table = quarto.json.decode(cell_output)
       if cell_table.type == "figure" then
         -- for latex/pdf, has to be run with --extract-media=media flag
@@ -26,8 +33,6 @@ function Pandoc(doc)
   if missingMarimoCell then
     return doc
   end
-  -- Flush the endpoint such that dupe cells are not registered
-  pandoc.pipe("python", {endpoint_script, "flush"}, "")
 
   -- Don't add assets to non-html documents
   if not quarto.doc.is_format("html") then
@@ -53,7 +58,7 @@ function Pandoc(doc)
   end
 
   -- Web assets, seems best way
-  assets = pandoc.pipe("python", {endpoint_script, "assets"}, "")
+  assets = from_endpoint("assets")
   quarto.doc.include_text(
     "after-body", assets
   )

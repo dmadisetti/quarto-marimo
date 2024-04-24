@@ -420,6 +420,7 @@ basic_ui_elements = mo.ui.dropdown(
 ```
 
 ```{marimo}
+# FIXME: Dedent hack
 def construct_element(value):
     if value == mo.ui.array:
         return mo.ui.array(
@@ -499,12 +500,14 @@ def construct_element(value):
 ```
 
 ```{marimo}
+# FIXME: Dedent hack
 def show_element(element):
     if element is not None:
         return mo.hstack([element], "center")
 ```
 
 ```{marimo}
+# FIXME: Dedent hack
 def value(element):
     if element is not None:
         v = (
@@ -520,6 +523,7 @@ def value(element):
 ```
 
 ```{marimo}
+# FIXME: Dedent hack
 def documentation(element):
     if element is not None:
         return mo.accordion(

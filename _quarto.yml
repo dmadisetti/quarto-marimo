@@ -16,8 +16,6 @@ website:
     - href: intro.qmd
     - href: plots.qmd
     - href: ui.qmd
-    - href: plots-pdf.qmd
-
 
 format:
   html:

@@ -3,7 +3,10 @@ import requests
 import random
 import string
 
-def post(data, endpoint):
+def post(app_id, endpoint, data=None):
+    if data is None:
+        data = {}
+    data |= {"app": app_id}
     # Define the URL for the /run endpoint
     url = f"http://localhost:6000/{endpoint}"
     headers = {'Content-Type': 'application/json'}
@@ -12,18 +15,13 @@ def post(data, endpoint):
     return response
 
 
-def get(endpoint):
-    url = f"http://localhost:6000/{endpoint}"
-    return requests.get(url).text
+def lookup(app_id, key):
+    return post(app_id, "lookup", {"key": key}).text
 
 
-def lookup(key):
-    return post({"key": key}, "lookup").text
-
-
-def run(code):
+def run(app_id, code):
     key = ''.join(random.choices(string.ascii_letters, k=5))
-    post({"code": code, "key": key}, "run")
+    post(app_id, "run", {"code": code, "key": key})
     return key
 
 callbacks = {
@@ -33,10 +31,11 @@ callbacks = {
 
 # Stream to allow for data
 if __name__=="__main__":
-    assert len(sys.argv) == 2, "Unexpected call format"
-    endpoint = sys.argv[1]
+    assert len(sys.argv) == 3, "Unexpected call format"
+    app_id = sys.argv[1]
+    endpoint = sys.argv[2]
     if endpoint in callbacks:
       payload = sys.stdin.read()
-      print(callbacks[endpoint](payload))
+      print(callbacks[endpoint](app_id, payload))
     else:
-      print(get(endpoint))
+      print(post(app_id, endpoint).text)
