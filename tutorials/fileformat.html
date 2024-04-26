@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>marimo-quarto - Fileformat</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../tutorials/markdown_format.html" rel="next">
+<link href="../tutorials/layout.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.5.2/dist/main.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.5.2/dist/style.css" rel="stylesheet" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Lora&amp;family=PT+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+
+
+<meta property="og:title" content="marimo-quarto - Fileformat">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="marimo-quarto">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/index.html">Tutorials</a></li><li class="breadcrumb-item"><a href="../tutorials/fileformat.html">Fileformat</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">marimo-quarto</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">marimo + quarto</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tutorials/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/dataflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dataflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/ui.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ui</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/layout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Layout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/fileformat.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Fileformat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/markdown_format.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/for_jupyter_users.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">marimo for Jupyter users</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/example-pdf.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PDF example</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#properties" id="toc-properties" class="nav-link active" data-scroll-target="#properties">Properties</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/index.html">Tutorials</a></li><li class="breadcrumb-item"><a href="../tutorials/fileformat.html">Fileformat</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Fileformat</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<marimo-island data-app-id="main" data-cell-id="Hbol" data-reactive="true">
+            <marimo-cell-output>
+            <span class="markdown"><h1 id="file-format">File Format</h1>
+<span class="paragraph">marimo apps are stored as pure Python files.</span>
+<span class="paragraph">These files are:</span>
+<ul>
+<li>easily versioned with git, producing small diffs</li>
+<li>legible for both humans and machines</li>
+<li>formattable using your tool of choice</li>
+<li>usable as Python  scripts, with UI  elements taking their default values</li>
+</ul></span>
+            </marimo-cell-output>
+            <marimo-cell-code hidden="">mo.md(intro)</marimo-cell-code>
+        </marimo-island>
+<marimo-island data-app-id="main" data-cell-id="MJUe" data-reactive="true">
+            <marimo-cell-output>
+            <marimo-accordion data-labels="[&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Tip: hide this tutorial's code</span></span>&quot;]" data-multiple="false"><div><span class="markdown"><span class="paragraph">Click the app window icon in the bottom-left to hide this app's code,
+or use the "fold code" shortcut to fold all code cells.</span></span></div></marimo-accordion>
+            </marimo-cell-output>
+            <marimo-cell-code hidden="">mo.accordion(%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22Tip%3A%20hide%20this%20tutorial's%20code%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20Click%20the%20app%20window%20icon%20in%20the%20bottom-left%20to%20hide%20this%20app's%20code%2C%0A%20%20%20%20%20%20%20%20or%20use%20the%20%22fold%20code%22%20shortcut%20to%20fold%20all%20code%20cells.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%7D%0A)</marimo-cell-code>
+        </marimo-island>
+<marimo-island data-app-id="main" data-cell-id="vblA" data-reactive="true">
+            <marimo-cell-output>
+            <span class="markdown"><h2 id="example" class="anchored">Example</h2>
+<span class="paragraph">Consider a marimo notebook with the following three cells.</span>
+<span class="paragraph">First cell:
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div></span>
+<span class="paragraph">Second cell:
+<div class="codehilite"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="n">mo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"Hello, World!"</span><span class="p">)</span>
+<span class="n">text</span>
+</code></pre></div></span>
+<span class="paragraph">Third cell:
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">marimo</span> <span class="k">as</span> <span class="nn">mo</span>
+</code></pre></div></span></span>
+            </marimo-cell-output>
+            <marimo-cell-code hidden="">mo.md(example_program)</marimo-cell-code>
+        </marimo-island>
+<marimo-island data-app-id="main" data-cell-id="bkHC" data-reactive="true">
+            <marimo-cell-output>
+            <span class="markdown"><span class="paragraph">For the above example, marimo would generate the following file 
+contents:</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">marimo</span>
+<span class="n">__generated_with</span> <span class="o">=</span> <span class="s2">"0.5.2"</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">marimo</span><span class="o">.</span><span class="n">App</span><span class="p">()</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+<span class="k">def</span> <span class="nf">__</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+<span class="k">def</span> <span class="nf">__</span><span class="p">(</span><span class="n">mo</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">mo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"Hello, World!"</span><span class="p">)</span>
+    <span class="n">text</span>
+    <span class="k">return</span> <span class="n">text</span><span class="p">,</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+<span class="k">def</span> <span class="nf">__</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">marimo</span> <span class="k">as</span> <span class="nn">mo</span>
+    <span class="k">return</span> <span class="n">mo</span><span class="p">,</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<span class="paragraph">As you can see, this is <em>pure Python</em>. This is part of the reason why
+marimo's generated files are <strong>git-friendly</strong>: small changes made using 
+the marimo editor result in small changes to the file that marimo 
+generates.</span></span>
+            </marimo-cell-output>
+            <marimo-cell-code hidden="">mo.md(file_contents)</marimo-cell-code>
+        </marimo-island>
+<section id="properties" class="level2">
+<h2 class="anchored" data-anchor-id="properties">Properties</h2>
+<p>marimo’s file format was designed to be easy to read and easy to work with, while also serving the needs of the marimo library. You can even edit the generated file’s cells directly, using your favorite text editor, and format the file with your favorite code formatter.</p>
+<p>We explain some properties of marimo’s file format below.</p>
+<marimo-island data-app-id="main" data-cell-id="lEQa" data-reactive="true">
+            <marimo-cell-output>
+            <marimo-accordion data-labels="[&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Cells are functions</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Cells are stored in presentation order</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Text formatting is preserved</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Cell functions can have names</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>No magical tokens</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Helpful error messages</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>The <code>app</code> object</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Runnable as a script</span></span>&quot;]" data-multiple="false"><div><span class="markdown"><span class="paragraph">In the <code>dataflow</code> tutorial, we saw that cells are like functions mapping 
+their refs (the global  variables they uses but don't define) to their 
+defs (the global variables they define). The generated code makes this 
+analogy explicit.</span>
+<span class="paragraph">In the generated code, there is a function for each cell. The arguments 
+of  the function are the cell's refs , and its returned variables are 
+its defs.</span>
+<span class="paragraph">For example, the code</span>
+<div class="codehilite"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+<span class="k">def</span> <span class="nf">__</span><span class="p">(</span><span class="n">mo</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">mo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"Hello, World!"</span><span class="p">)</span>
+    <span class="n">text</span>
+    <span class="k">return</span> <span class="n">text</span><span class="p">,</span>
+</code></pre></div>
+<span class="paragraph">says that the cell takes as input a variable called <code>mo</code>, and it creates
+a global variable called <code>text</code>.</span>
+<span class="paragraph">In contrast, the code</span>
+<div class="codehilite"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+<span class="k">def</span> <span class="nf">__</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">marimo</span> <span class="k">as</span> <span class="nn">mo</span>
+    <span class="k">return</span> <span class="n">mo</span><span class="p">,</span>
+</code></pre></div>
+<span class="paragraph">says that the cell doesn't depend on any other cells (its argument list 
+is  empty), though it does create the variable <code>mo</code> which the previous 
+cell requires as input.</span></span></div><div><span class="markdown"><span class="paragraph">Cells are stored in the order that they are arranged in the marimo 
+editor. So if you want to rearrange
+your cells using your favorite text editor, just rearrange the
+order that they're defined in the file.</span></span></div><div><span class="markdown"><span class="paragraph">marimo guarantees that however your source code was
+formatted in the marimo editor is exactly how it will be stored in
+the generated code. For example, whitespace, line breaks, and so on are
+all preserved exactly. This means that you can touch up formatting in
+your text editor, either manually or using automated formatters like 
+Black, and be confident that your changes will be preserved.</span></span></div><div><span class="markdown"><span class="paragraph">If you want to, you can replace the default names for cell functions 
+with meaningful ones.</span>
+<span class="paragraph">For example, change</span>
+<div class="codehilite"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+<span class="k">def</span> <span class="nf">__</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span>
+</code></pre></div>
+<span class="paragraph">to </span>
+<div class="codehilite"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">cell</span>
+<span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span>
+</code></pre></div>
+<span class="paragraph">This can make the generated code more readable.</span></span></div><div><span class="markdown"><span class="paragraph">marimo's generated code is pure Python; no magical syntax.</span></span></div><div><span class="markdown"><span class="paragraph">If when editing a cell, you forget to include all a cell's refs in its
+argument list, or all its defs in its returns, marimo will raise a 
+helpful error message the next time you try to open it in the marimo 
+editor. So don't worry that you'll botch a cell's signature when editing 
+it.</span></span></div><div><span class="markdown"><span class="paragraph">At the top of the generated code, a variable named <code>app</code> is created. 
+This object collects the cells into a dataflow graph, using the <code>cell</code> 
+decorator. </span></span></div><div><span class="markdown"><span class="paragraph">You can run marimo apps as scripts at the command line,
+using Python. This will execute the cells in a
+topologically sorted order, just as they would run if you opened the app 
+with <code>marimo edit</code>.</span>
+<span class="paragraph">For example: running our example as a script would print <code>Hello 
+World!</code> to the console.</span></span></div></marimo-accordion>
+            </marimo-cell-output>
+            <marimo-cell-code hidden="">mo.accordion(properties)</marimo-cell-code>
+        </marimo-island>
+<marimo-island data-app-id="main" data-cell-id="PKri" data-reactive="true">
+    <marimo-cell-output>
+    </marimo-cell-output>
+    <marimo-cell-code hidden="">intro%20%3D%20%22%22%22%0A%23%20File%20Format%0A%0Amarimo%20apps%20are%20stored%20as%20pure%20Python%20files.%0A%0AThese%20files%20are%3A%0A%0A-%20easily%20versioned%20with%20git%2C%20producing%20small%20diffs%0A-%20legible%20for%20both%20humans%20and%20machines%0A-%20formattable%20using%20your%20tool%20of%20choice%0A-%20usable%20as%20Python%20%20scripts%2C%20with%20UI%20%20elements%20taking%20their%20default%20values%0A%22%22%22</marimo-cell-code>
+</marimo-island>
+<marimo-island data-app-id="main" data-cell-id="Xref" data-reactive="true">
+    <marimo-cell-output>
+    </marimo-cell-output>
+    <marimo-cell-code hidden="">file_contents%20%3D%20f%22%22%22%0A%20%20%20%20For%20the%20above%20example%2C%20marimo%20would%20generate%20the%20following%20file%20%0A%20%20%20%20contents%3A%0A%0A%20%20%20%20%60%60%60python3%0A%20%20%20%20import%20marimo%0A%0A%20%20%20%20__generated_with%20%3D%20%22%7Bmo.__version__%7D%22%0A%20%20%20%20app%20%3D%20marimo.App()%0A%0A%20%20%20%20%40app.cell%0A%20%20%20%20def%20__(text)%3A%0A%20%20%20%20%20%20%20%20print(text.value)%0A%20%20%20%20%20%20%20%20return%0A%0A%20%20%20%20%40app.cell%0A%20%20%20%20def%20__(mo)%3A%0A%20%20%20%20%20%20%20%20text%20%3D%20mo.ui.text(value%3D%22Hello%2C%20World!%22)%0A%20%20%20%20%20%20%20%20text%0A%20%20%20%20%20%20%20%20return%20text%2C%0A%0A%20%20%20%20%40app.cell%0A%20%20%20%20def%20__()%3A%0A%20%20%20%20%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20%20%20%20%20return%20mo%2C%0A%0A%20%20%20%20if%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%20%20%20%20app.run()%0A%20%20%20%20%60%60%60%0A%0A%20%20%20%20As%20you%20can%20see%2C%20this%20is%20_pure%20Python_.%20This%20is%20part%20of%20the%20reason%20why%0A%20%20%20%20marimo's%20generated%20files%20are%20**git-friendly**%3A%20small%20changes%20made%20using%20%0A%20%20%20%20the%20marimo%20editor%20result%20in%20small%20changes%20to%20the%20file%20that%20marimo%20%0A%20%20%20%20generates.%0A%22%22%22</marimo-cell-code>
+</marimo-island>
+<marimo-island data-app-id="main" data-cell-id="SFPL" data-reactive="true">
+    <marimo-cell-output>
+    </marimo-cell-output>
+    <marimo-cell-code hidden="">example_program%20%3D%20%22%22%22%0A%23%23%20Example%0A%0AConsider%20a%20marimo%20notebook%20with%20the%20following%20three%20cells.%0A%0AFirst%20cell%3A%0A%60%60%60python3%0Aprint(text.value)%0A%60%60%60%0A%0ASecond%20cell%3A%0A%60%60%60python3%0Atext%20%3D%20mo.ui.text(value%3D%22Hello%2C%20World!%22)%0Atext%0A%60%60%60%0A%0AThird%20cell%3A%0A%60%60%60python3%0Aimport%20marimo%20as%20mo%0A%60%60%60%0A%22%22%22</marimo-cell-code>
+</marimo-island>
+<marimo-island data-app-id="main" data-cell-id="BYtC" data-reactive="true">
+    <marimo-cell-output>
+    </marimo-cell-output>
+    <marimo-cell-code hidden="">properties%20%3D%20%7B%0A%20%20%20%20%22Cells%20are%20functions%22%3A%20%22%22%22%0A%20%20%20%20In%20the%20%60dataflow%60%20tutorial%2C%20we%20saw%20that%20cells%20are%20like%20functions%20mapping%20%0A%20%20%20%20their%20refs%20(the%20global%20%20variables%20they%20uses%20but%20don't%20define)%20to%20their%20%0A%20%20%20%20defs%20(the%20global%20variables%20they%20define).%20The%20generated%20code%20makes%20this%20%0A%20%20%20%20analogy%20explicit.%0A%0A%20%20%20%20In%20the%20generated%20code%2C%20there%20is%20a%20function%20for%20each%20cell.%20The%20arguments%20%0A%20%20%20%20of%20%20the%20function%20are%20the%20cell's%20refs%20%2C%20and%20its%20returned%20variables%20are%20%0A%20%20%20%20its%20defs.%0A%0A%20%20%20%20For%20example%2C%20the%20code%0A%0A%20%20%20%20%60%60%60python3%0A%20%20%20%20%40app.cell%0A%20%20%20%20def%20__(mo)%3A%0A%20%20%20%20%20%20%20%20text%20%3D%20mo.ui.text(value%3D%22Hello%2C%20World!%22)%0A%20%20%20%20%20%20%20%20text%0A%20%20%20%20%20%20%20%20return%20text%2C%0A%20%20%20%20%60%60%60%0A%0A%20%20%20%20says%20that%20the%20cell%20takes%20as%20input%20a%20variable%20called%20%60mo%60%2C%20and%20it%20creates%0A%20%20%20%20a%20global%20variable%20called%20%60text%60.%0A%0A%20%20%20%20In%20contrast%2C%20the%20code%0A%0A%20%20%20%20%60%60%60python3%0A%20%20%20%20%40app.cell%0A%20%20%20%20def%20__()%3A%0A%20%20%20%20%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20%20%20%20%20return%20mo%2C%0A%20%20%20%20%60%60%60%0A%0A%20%20%20%20says%20that%20the%20cell%20doesn't%20depend%20on%20any%20other%20cells%20(its%20argument%20list%20%0A%20%20%20%20is%20%20empty)%2C%20though%20it%20does%20create%20the%20variable%20%60mo%60%20which%20the%20previous%20%0A%20%20%20%20cell%20requires%20as%20input.%0A%20%20%20%20%22%22%22%2C%0A%20%20%20%20%22Cells%20are%20stored%20in%20presentation%20order%22%3A%20%22%22%22%0A%20%20%20%20Cells%20are%20stored%20in%20the%20order%20that%20they%20are%20arranged%20in%20the%20marimo%20%0A%20%20%20%20editor.%20So%20if%20you%20want%20to%20rearrange%0A%20%20%20%20your%20cells%20using%20your%20favorite%20text%20editor%2C%20just%20rearrange%20the%0A%20%20%20%20order%20that%20they're%20defined%20in%20the%20file.%0A%20%20%20%20%22%22%22%2C%0A%20%20%20%20%22Text%20formatting%20is%20preserved%22%3A%20%22%22%22%0A%20%20%20%20marimo%20guarantees%20that%20however%20your%20source%20code%20was%0A%20%20%20%20formatted%20in%20the%20marimo%20editor%20is%20exactly%20how%20it%20will%20be%20stored%20in%0A%20%20%20%20the%20generated%20code.%20For%20example%2C%20whitespace%2C%20line%20breaks%2C%20and%20so%20on%20are%0A%20%20%20%20all%20preserved%20exactly.%20This%20means%20that%20you%20can%20touch%20up%20formatting%20in%0A%20%20%20%20your%20text%20editor%2C%20either%20manually%20or%20using%20automated%20formatters%20like%20%0A%20%20%20%20Black%2C%20and%20be%20confident%20that%20your%20changes%20will%20be%20preserved.%0A%20%20%20%20%22%22%22%2C%0A%20%20%20%20%22Cell%20functions%20can%20have%20names%22%3A%20%22%22%22%0A%20%20%20%20If%20you%20want%20to%2C%20you%20can%20replace%20the%20default%20names%20for%20cell%20functions%20%0A%20%20%20%20with%20meaningful%20ones.%0A%0A%20%20%20%20For%20example%2C%20change%0A%0A%20%20%20%20%60%60%60python3%0A%20%20%20%20%40app.cell%0A%20%20%20%20def%20__(text)%3A%0A%20%20%20%20%20%20%20%20print(text.value)%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%60%60%60%0A%0A%20%20%20%20to%20%0A%0A%20%20%20%20%60%60%60python3%0A%20%20%20%20%40app.cell%0A%20%20%20%20def%20echo(text)%3A%0A%20%20%20%20%20%20%20%20print(text.value)%0A%20%20%20%20%20%20%20%20return%0A%20%20%20%20%60%60%60%0A%0A%20%20%20%20This%20can%20make%20the%20generated%20code%20more%20readable.%0A%20%20%20%20%22%22%22%2C%0A%20%20%20%20%22No%20magical%20tokens%22%3A%20%22%22%22%0A%20%20%20%20marimo's%20generated%20code%20is%20pure%20Python%3B%20no%20magical%20syntax.%0A%20%20%20%20%22%22%22%2C%0A%20%20%20%20%22Helpful%20error%20messages%22%3A%20%22%22%22%0A%20%20%20%20If%20when%20editing%20a%20cell%2C%20you%20forget%20to%20include%20all%20a%20cell's%20refs%20in%20its%0A%20%20%20%20argument%20list%2C%20or%20all%20its%20defs%20in%20its%20returns%2C%20marimo%20will%20raise%20a%20%0A%20%20%20%20helpful%20error%20message%20the%20next%20time%20you%20try%20to%20open%20it%20in%20the%20marimo%20%0A%20%20%20%20editor.%20So%20don't%20worry%20that%20you'll%20botch%20a%20cell's%20signature%20when%20editing%20%0A%20%20%20%20it.%0A%20%20%20%20%22%22%22%2C%0A%20%20%20%20%22The%20%60app%60%20object%22%3A%20%22%22%22%0A%20%20%20%20At%20the%20top%20of%20the%20generated%20code%2C%20a%20variable%20named%20%60app%60%20is%20created.%20%0A%20%20%20%20This%20object%20collects%20the%20cells%20into%20a%20dataflow%20graph%2C%20using%20the%20%60cell%60%20%0A%20%20%20%20decorator.%20%0A%20%20%20%20%22%22%22%2C%0A%20%20%20%20%22Runnable%20as%20a%20script%22%3A%20%22%22%22%0A%20%20%20%20You%20can%20run%20marimo%20apps%20as%20scripts%20at%20the%20command%20line%2C%0A%20%20%20%20using%20Python.%20This%20will%20execute%20the%20cells%20in%20a%0A%20%20%20%20topologically%20sorted%20order%2C%20just%20as%20they%20would%20run%20if%20you%20opened%20the%20app%20%0A%20%20%20%20with%20%60marimo%20edit%60.%0A%0A%20%20%20%20For%20example%3A%20running%20our%20example%20as%20a%20script%20would%20print%20%60Hello%20%0A%20%20%20%20World!%60%20to%20the%20console.%0A%20%20%20%20%22%22%22%2C%0A%7D</marimo-cell-code>
+</marimo-island>
+<marimo-island data-app-id="main" data-cell-id="RGSE" data-reactive="true">
+    <marimo-cell-output>
+    </marimo-cell-output>
+    <marimo-cell-code hidden="">import%20marimo%20as%20mo</marimo-cell-code>
+</marimo-island>
+
+
+<!-- -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("github:dmadisetti\/quarto-marimo\.git");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../tutorials/layout.html" class="pagination-link" aria-label="Layout">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Layout</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../tutorials/markdown_format.html" class="pagination-link" aria-label="Markdown">
+        <span class="nav-page-text">Markdown</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Fileformat</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">marimo-version:</span><span class="co"> 0.5.2</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - marimo/quarto</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{.python.marimo hide_code="true"}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">mo.md(intro)</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{.python.marimo hide_code="true"}</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">mo.accordion(</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="in">    {</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="in">        "Tip: hide this tutorial's code": (</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="in">        Click the app window icon in the bottom-left to hide this app's code,</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="in">        or use the "fold code" shortcut to fold all code cells.</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="in">        )</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{.python.marimo hide_code="true"}</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="in">mo.md(example_program)</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{.python.marimo hide_code="true"}</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="in">mo.md(file_contents)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Properties</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>marimo's file format was designed to be easy to read and easy</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>to work with, while also serving the needs of the marimo library. You can</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>even edit the generated file's cells directly, using your favorite text</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>editor, and format the file with your favorite code formatter.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>We explain some properties of marimo's file format below.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{.python.marimo hide_code="true"}</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="in">mo.accordion(properties)</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{.python.marimo hide_code="true"}</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="in">intro = """</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="in"># File Format</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="in">marimo apps are stored as pure Python files.</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">These files are:</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="in">- easily versioned with git, producing small diffs</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="in">- legible for both humans and machines</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="in">- formattable using your tool of choice</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="in">- usable as Python  scripts, with UI  elements taking their default values</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="in">"""</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="in">````{.python.marimo hide_code="true"}</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="in">file_contents = f"""</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="in">    For the above example, marimo would generate the following file </span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="in">    contents:</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="in">    ```python3</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="in">    import marimo</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="in">    __generated_with = "{mo.__version__}"</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="in">    app = marimo.App()</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="in">    @app.cell</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="in">    def __(text):</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="in">        print(text.value)</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="in">        return</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="in">    @app.cell</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="in">    def __(mo):</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="in">        text = mo.ui.text(value="Hello, World!")</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="in">        text</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="in">        return text,</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="in">    @app.cell</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="in">    def __():</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="in">        import marimo as mo</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="in">        return mo,</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="in">    if __name__ == "__main__":</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="in">        app.run()</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="in">    As you can see, this is _pure Python_. This is part of the reason why</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="in">    marimo's generated files are **git-friendly**: small changes made using </span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="in">    the marimo editor result in small changes to the file that marimo </span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">    generates.</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="in">"""</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="in">````{.python.marimo hide_code="true"}</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="in">example_program = """</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="in">## Example</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="in">Consider a marimo notebook with the following three cells.</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="in">First cell:</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="in">```python3</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">print(text.value)</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">Second cell:</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="in">```python3</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">text = mo.ui.text(value="Hello, World!")</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="in">text</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="in">Third cell:</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="in">```python3</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="in">import marimo as mo</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="in">"""</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">````{.python.marimo hide_code="true"}</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="in">properties = {</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="in">    "Cells are functions": """</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="in">    In the `dataflow` tutorial, we saw that cells are like functions mapping </span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="in">    their refs (the global  variables they uses but don't define) to their </span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">    defs (the global variables they define). The generated code makes this </span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in">    analogy explicit.</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">    In the generated code, there is a function for each cell. The arguments </span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="in">    of  the function are the cell's refs , and its returned variables are </span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in">    its defs.</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="in">    For example, the code</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="in">    ```python3</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="in">    @app.cell</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="in">    def __(mo):</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="in">        text = mo.ui.text(value="Hello, World!")</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="in">        text</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="in">        return text,</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="in">    says that the cell takes as input a variable called `mo`, and it creates</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="in">    a global variable called `text`.</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">    In contrast, the code</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="in">    ```python3</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="in">    @app.cell</span></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="in">    def __():</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="in">        import marimo as mo</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="in">        return mo,</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="in">    says that the cell doesn't depend on any other cells (its argument list </span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="in">    is  empty), though it does create the variable `mo` which the previous </span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="in">    cell requires as input.</span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="in">    """,</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="in">    "Cells are stored in presentation order": """</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="in">    Cells are stored in the order that they are arranged in the marimo </span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="in">    editor. So if you want to rearrange</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="in">    your cells using your favorite text editor, just rearrange the</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="in">    order that they're defined in the file.</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="in">    """,</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="in">    "Text formatting is preserved": """</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="in">    marimo guarantees that however your source code was</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="in">    formatted in the marimo editor is exactly how it will be stored in</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="in">    the generated code. For example, whitespace, line breaks, and so on are</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="in">    all preserved exactly. This means that you can touch up formatting in</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="in">    your text editor, either manually or using automated formatters like </span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="in">    Black, and be confident that your changes will be preserved.</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="in">    """,</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="in">    "Cell functions can have names": """</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="in">    If you want to, you can replace the default names for cell functions </span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="in">    with meaningful ones.</span></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="in">    For example, change</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="in">    ```python3</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="in">    @app.cell</span></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="in">    def __(text):</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="in">        print(text.value)</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="in">        return</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="in">    to </span></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="in">    ```python3</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="in">    @app.cell</span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="in">    def echo(text):</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="in">        print(text.value)</span></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="in">        return</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="in">    This can make the generated code more readable.</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="in">    """,</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="in">    "No magical tokens": """</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="in">    marimo's generated code is pure Python; no magical syntax.</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="in">    """,</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="in">    "Helpful error messages": """</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="in">    If when editing a cell, you forget to include all a cell's refs in its</span></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="in">    argument list, or all its defs in its returns, marimo will raise a </span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="in">    helpful error message the next time you try to open it in the marimo </span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="in">    editor. So don't worry that you'll botch a cell's signature when editing </span></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="in">    it.</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="in">    """,</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="in">    "The `app` object": """</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="in">    At the top of the generated code, a variable named `app` is created. </span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="in">    This object collects the cells into a dataflow graph, using the `cell` </span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="in">    decorator. </span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="in">    """,</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="in">    "Runnable as a script": """</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="in">    You can run marimo apps as scripts at the command line,</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="in">    using Python. This will execute the cells in a</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="in">    topologically sorted order, just as they would run if you opened the app </span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="in">    with `marimo edit`.</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="in">    For example: running our example as a script would print `Hello </span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="in">    World!` to the console.</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="in">    """,</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="in">````</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{.python.marimo}</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="in">import marimo as mo</span></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

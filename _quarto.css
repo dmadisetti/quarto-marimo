@@ -1,11 +1,5 @@
-.sidebar-logo {
-    margin-bottom: 25px;
-    width: 100%;
-    max-width: 100%;
-    border-radius: 5px;
-}
-
-/*Override Marimo*/
+/*Override Marimo
 .collapse {
   visibility: visible !important;
 }
+*/

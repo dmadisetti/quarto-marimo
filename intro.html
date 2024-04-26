@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>marimo-quarto - Marimo Tutorial</title>
+<title>marimo-quarto - Intro</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./plots.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -101,87 +100,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<base href="/">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.4.9-dev1/dist/main.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.4.9-dev1/dist/style.css" rel="stylesheet" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Lora&amp;family=PT+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="_quarto.css">
-<meta property="og:title" content="marimo-quarto - Marimo Tutorial">
+<meta property="og:title" content="marimo-quarto - Intro">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="marimo-quarto">
 </head>
 
-<body class="nav-sidebar docked">
+<body>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Marimo Tutorial</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">marimo-quarto</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Marimo Tutorial</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./plots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plots</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ui.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UI Elements</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-marimo" id="toc-welcome-to-marimo" class="nav-link active" data-scroll-target="#welcome-to-marimo">Welcome to marimo! 🌊🍃</a>
-  <ul class="collapse">
-  <li><a href="#reactive-execution" id="toc-reactive-execution" class="nav-link" data-scroll-target="#reactive-execution">1. Reactive execution</a></li>
+  <li><a href="#reactive-execution" id="toc-reactive-execution" class="nav-link active" data-scroll-target="#reactive-execution">1. Reactive execution</a></li>
   <li><a href="#ui-elements" id="toc-ui-elements" class="nav-link" data-scroll-target="#ui-elements">2. UI elements</a></li>
   <li><a href="#marimo-is-just-python" id="toc-marimo-is-just-python" class="nav-link" data-scroll-target="#marimo-is-just-python">3. marimo is just Python</a></li>
   <li><a href="#running-notebooks-as-apps" id="toc-running-notebooks-as-apps" class="nav-link" data-scroll-target="#running-notebooks-as-apps">4. Running notebooks as apps</a></li>
-  <li><a href="#the-marimo-command-line-tool" id="toc-the-marimo-command-line-tool" class="nav-link" data-scroll-target="#the-marimo-command-line-tool">5. The <code>marimo</code> command-line tool</a></li>
   <li><a href="#the-marimo-editor" id="toc-the-marimo-editor" class="nav-link" data-scroll-target="#the-marimo-editor">6. The marimo editor</a></li>
   <li><a href="#finally-a-fun-fact" id="toc-finally-a-fun-fact" class="nav-link" data-scroll-target="#finally-a-fun-fact">Finally, a fun fact</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -190,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Marimo Tutorial</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Intro</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -207,57 +156,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="welcome-to-marimo" class="level1">
-<h1>Welcome to marimo! 🌊🍃</h1>
-<p>marimo is a <strong>reactive</strong> Python notebook.</p>
-<marimo-island data-app-id="main" data-cell-id="Hbol">
+<marimo-island data-app-id="main" data-cell-id="Hbol" data-reactive="true">
+    <marimo-cell-output>
+    <span class="markdown"><h1 id="welcome-to-marimo">Welcome to marimo! 🌊🍃</h1></span>
+    </marimo-cell-output>
+    <marimo-cell-code hidden="">import%20marimo%20as%20mo%0A%0Amo.md(%22%23%20Welcome%20to%20marimo!%20%F0%9F%8C%8A%F0%9F%8D%83%22)</marimo-cell-code>
+</marimo-island>
+<marimo-island data-app-id="main" data-cell-id="MJUe" data-reactive="true">
     <marimo-cell-output>
     </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    slider%20%3D%20mo.ui.slider(1%2C%2022)
-    </marimo-cell-code>
+    <marimo-cell-code hidden="">slider%20%3D%20mo.ui.slider(1%2C%2022)</marimo-cell-code>
 </marimo-island>
-<marimo-island data-app-id="main" data-cell-id="MJUe">
+<marimo-island data-app-id="main" data-cell-id="vblA" data-reactive="true">
             <marimo-cell-output>
-            <span class="markdown"><span class="paragraph">This means that unlike traditional notebooks, marimo notebooks <strong>run
+            <span class="markdown"><span class="paragraph">marimo is a <strong>reactive</strong> Python notebook.</span>
+<span class="paragraph">This means that unlike traditional notebooks, marimo notebooks <strong>run
 automatically</strong> when you modify them or
-interact with UI elements, like this slider: <marimo-ui-element object-id="Hbol-0" random-id="bf6f901f-0859-4fbd-9adb-fd7132fce230"><marimo-slider data-initial-value="1" data-label="null" data-start="1" data-stop="22" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false" data-full-width="false"></marimo-slider></marimo-ui-element>.</span>
-<h2 id="_1" class="anchored" data-anchor-id="welcome-to-marimo">🍃</h2></span>
+interact with UI elements, like this slider: <marimo-ui-element object-id="MJUe-0" random-id="cec37adc-af06-4191-ad7a-084967b4d7dd"><marimo-slider data-initial-value="1" data-label="null" data-start="1" data-stop="22" data-steps="[]" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false" data-full-width="false"></marimo-slider></marimo-ui-element>.</span>
+<h2 id="_1" class="anchored">🍃</h2></span>
             </marimo-cell-output>
-            <marimo-cell-code hidden="">
-            mo.md(%0A%20%20%20%20f%22%22%22%0A%20%20%20%20This%20means%20that%20unlike%20traditional%20notebooks%2C%20marimo%20notebooks%20**run%0A%20%20%20%20automatically**%20when%20you%20modify%20them%20or%0A%20%20%20%20interact%20with%20UI%20elements%2C%20like%20this%20slider%3A%20%7Bslider%7D.%0A%0A%20%20%20%20%7B%22%23%23%22%20%2B%20%22%F0%9F%8D%83%22%20*%20slider.value%7D%0A%20%20%20%20%22%22%22%0A)
-            </marimo-cell-code>
+            <marimo-cell-code hidden="">mo.md(%0A%20%20%20%20f%22%22%22%0A%20%20%20%20marimo%20is%20a%20**reactive**%20Python%20notebook.%0A%0A%20%20%20%20This%20means%20that%20unlike%20traditional%20notebooks%2C%20marimo%20notebooks%20**run%0A%20%20%20%20automatically**%20when%20you%20modify%20them%20or%0A%20%20%20%20interact%20with%20UI%20elements%2C%20like%20this%20slider%3A%20%7Bslider%7D.%0A%0A%20%20%20%20%7B%22%23%23%22%20%2B%20%22%F0%9F%8D%83%22%20*%20slider.value%7D%0A%20%20%20%20%22%22%22%0A)</marimo-cell-code>
         </marimo-island>
-<marimo-island data-app-id="main" data-cell-id="vblA">
+<marimo-island data-app-id="main" data-cell-id="bkHC" data-reactive="true">
     <marimo-cell-output>
     <marimo-callout-output data-html="&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Tip: This is a tutorial notebook. You can create your own notebooks\nby entering <code>marimo edit</code> at the command line.</span></span>&quot;" data-kind="&quot;neutral&quot;"></marimo-callout-output>
     </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    mo.md(%0A%20%20%20%20%22%22%22%0A%20%20%20%20Tip%3A%20This%20is%20a%20tutorial%20notebook.%20You%20can%20create%20your%20own%20notebooks%0A%20%20%20%20by%20entering%20%60marimo%20edit%60%20at%20the%20command%20line.%0A%20%20%20%20%22%22%22%0A).callout()
-    </marimo-cell-code>
+    <marimo-cell-code hidden="">mo.md(%0A%20%20%20%20%22%22%22%0A%20%20%20%20Tip%3A%20This%20is%20a%20tutorial%20notebook.%20You%20can%20create%20your%20own%20notebooks%0A%20%20%20%20by%20entering%20%60marimo%20edit%60%20at%20the%20command%20line.%0A%20%20%20%20%22%22%22%0A).callout()</marimo-cell-code>
 </marimo-island>
 <section id="reactive-execution" class="level2">
 <h2 class="anchored" data-anchor-id="reactive-execution">1. Reactive execution</h2>
-<p>A marimo notebook is made up of small blocks of Python code called cells.</p>
-<p>marimo reads your cells and models the dependencies among them: whenever a cell that defines a global variable is run, marimo <strong>automatically runs</strong> all cells that reference that variable.</p>
-<p>Reactivity keeps your program state and outputs in sync with your code, making for a dynamic programming environment that prevents bugs before they happen.</p>
-<marimo-island data-app-id="main" data-cell-id="bkHC">
+<p>A marimo notebook is made up of small blocks of Python code called cells. marimo reads your cells and models the dependencies among them: whenever a cell that defines a global variable is run, marimo <strong>automatically runs</strong> all cells that reference that variable. Reactivity keeps your program state and outputs in sync with your code, making for a dynamic programming environment that prevents bugs before they happen.</p>
+<marimo-island data-app-id="main" data-cell-id="lEQa" data-reactive="true">
             <marimo-cell-output>
             <span class="markdown"><span class="paragraph"><strong>🌊 See it in action.</strong> In the next cell, change the value of the
 variable  <code>changed</code> to <code>True</code>, then click the run button.</span></span>
             </marimo-cell-output>
-            <marimo-cell-code hidden="">
-            (%0A%20%20%20%20mo.md(%0A%20%20%20%20%20%20%20%20f%22%22%22%0A%20%20%20%20%20%20%20%20**%E2%9C%A8%20Nice!**%20The%20value%20of%20%60changed%60%20is%20now%20%7Bchanged%7D.%0A%0A%20%20%20%20%20%20%20%20When%20you%20updated%20the%20value%20of%20the%20variable%20%60changed%60%2C%20marimo%0A%20%20%20%20%20%20%20%20**reacted**%20by%20running%20this%20cell%20automatically%2C%20because%20this%20cell%0A%20%20%20%20%20%20%20%20references%20the%20global%20variable%20%60changed%60.%0A%0A%20%20%20%20%20%20%20%20Reactivity%20ensures%20that%20your%20notebook%20state%20is%20always%0A%20%20%20%20%20%20%20%20consistent%2C%20which%20is%20crucial%20for%20doing%20good%20science%3B%20it's%20also%20what%0A%20%20%20%20%20%20%20%20enables%20marimo%20notebooks%20to%20double%20as%20tools%20and%20%20apps.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%0A%20%20%20%20if%20changed%0A%20%20%20%20else%20mo.md(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20**%F0%9F%8C%8A%20See%20it%20in%20action.**%20In%20the%20next%20cell%2C%20change%20the%20value%20of%20the%0A%20%20%20%20%20%20%20%20variable%20%20%60changed%60%20to%20%60True%60%2C%20then%20click%20the%20run%20button.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%0A)
-            </marimo-cell-code>
+            <marimo-cell-code hidden="">(%0A%20%20%20%20mo.md(%0A%20%20%20%20%20%20%20%20f%22%22%22%0A%20%20%20%20%20%20%20%20**%E2%9C%A8%20Nice!**%20The%20value%20of%20%60changed%60%20is%20now%20%7Bchanged%7D.%0A%0A%20%20%20%20%20%20%20%20When%20you%20updated%20the%20value%20of%20the%20variable%20%60changed%60%2C%20marimo%0A%20%20%20%20%20%20%20%20**reacted**%20by%20running%20this%20cell%20automatically%2C%20because%20this%20cell%0A%20%20%20%20%20%20%20%20references%20the%20global%20variable%20%60changed%60.%0A%0A%20%20%20%20%20%20%20%20Reactivity%20ensures%20that%20your%20notebook%20state%20is%20always%0A%20%20%20%20%20%20%20%20consistent%2C%20which%20is%20crucial%20for%20doing%20good%20science%3B%20it's%20also%20what%0A%20%20%20%20%20%20%20%20enables%20marimo%20notebooks%20to%20double%20as%20tools%20and%20%20apps.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%0A%20%20%20%20if%20changed%0A%20%20%20%20else%20mo.md(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20**%F0%9F%8C%8A%20See%20it%20in%20action.**%20In%20the%20next%20cell%2C%20change%20the%20value%20of%20the%0A%20%20%20%20%20%20%20%20variable%20%20%60changed%60%20to%20%60True%60%2C%20then%20click%20the%20run%20button.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%0A)</marimo-cell-code>
         </marimo-island>
-<marimo-island data-app-id="main" data-cell-id="lEQa">
+<marimo-island data-app-id="main" data-cell-id="PKri" data-reactive="true">
     <marimo-cell-output>
     </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    changed%20%3D%20False
-    </marimo-cell-code>
+    <marimo-cell-code hidden="">changed%20%3D%20False</marimo-cell-code>
 </marimo-island>
-<marimo-island data-app-id="main" data-cell-id="PKri">
+<marimo-island data-app-id="main" data-cell-id="Xref" data-reactive="true">
             <marimo-cell-output>
             <marimo-accordion data-labels="[&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Tip: execution order</span></span>&quot;]" data-multiple="false"><div><span class="markdown"><span class="paragraph">The order of cells on the page has no bearing on
 the order in which cells are executed: marimo knows that a cell
@@ -265,127 +206,71 @@ reading a variable must run after the cell that  defines it. This
 frees you to organize your code in the way that makes the most
 sense for you.</span></span></div></marimo-accordion>
             </marimo-cell-output>
-            <marimo-cell-code hidden="">
-            mo.accordion(%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22Tip%3A%20execution%20order%22%3A%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20%20%20%20%20The%20order%20of%20cells%20on%20the%20page%20has%20no%20bearing%20on%0A%20%20%20%20%20%20%20%20%20%20%20%20the%20order%20in%20which%20cells%20are%20executed%3A%20marimo%20knows%20that%20a%20cell%0A%20%20%20%20%20%20%20%20%20%20%20%20reading%20a%20variable%20must%20run%20after%20the%20cell%20that%20%20defines%20it.%20This%0A%20%20%20%20%20%20%20%20%20%20%20%20frees%20you%20to%20organize%20your%20code%20in%20the%20way%20that%20makes%20the%20most%0A%20%20%20%20%20%20%20%20%20%20%20%20sense%20for%20you.%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%7D%0A)
-            </marimo-cell-code>
+            <marimo-cell-code hidden="">mo.accordion(%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22Tip%3A%20execution%20order%22%3A%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20%20%20%20%20The%20order%20of%20cells%20on%20the%20page%20has%20no%20bearing%20on%0A%20%20%20%20%20%20%20%20%20%20%20%20the%20order%20in%20which%20cells%20are%20executed%3A%20marimo%20knows%20that%20a%20cell%0A%20%20%20%20%20%20%20%20%20%20%20%20reading%20a%20variable%20must%20run%20after%20the%20cell%20that%20%20defines%20it.%20This%0A%20%20%20%20%20%20%20%20%20%20%20%20frees%20you%20to%20organize%20your%20code%20in%20the%20way%20that%20makes%20the%20most%0A%20%20%20%20%20%20%20%20%20%20%20%20sense%20for%20you.%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%7D%0A)</marimo-cell-code>
         </marimo-island>
 <p><strong>Global names must be unique.</strong> To enable reactivity, marimo imposes a constraint on how names appear in cells: no two cells may define the same variable.</p>
-<marimo-island data-app-id="main" data-cell-id="Xref">
+<marimo-island data-app-id="main" data-cell-id="SFPL" data-reactive="true">
             <marimo-cell-output>
             <marimo-accordion data-labels="[&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Tip: encapsulation</span></span>&quot;]" data-multiple="false"><div><span class="markdown"><span class="paragraph">By encapsulating logic in functions, classes, or Python modules,
 you can minimize the number of global variables in your notebook.</span></span></div></marimo-accordion>
             </marimo-cell-output>
-            <marimo-cell-code hidden="">
-            mo.accordion(%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22Tip%3A%20encapsulation%22%3A%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20%20%20%20%20By%20encapsulating%20logic%20in%20functions%2C%20classes%2C%20or%20Python%20modules%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20you%20can%20minimize%20the%20number%20of%20global%20variables%20in%20your%20notebook.%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%7D%0A)
-            </marimo-cell-code>
+            <marimo-cell-code hidden="">mo.accordion(%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22Tip%3A%20encapsulation%22%3A%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20%20%20%20%20By%20encapsulating%20logic%20in%20functions%2C%20classes%2C%20or%20Python%20modules%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20you%20can%20minimize%20the%20number%20of%20global%20variables%20in%20your%20notebook.%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%7D%0A)</marimo-cell-code>
         </marimo-island>
-<marimo-island data-app-id="main" data-cell-id="SFPL">
+<marimo-island data-app-id="main" data-cell-id="BYtC" data-reactive="true">
             <marimo-cell-output>
             <marimo-accordion data-labels="[&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Tip: private variables</span></span>&quot;]" data-multiple="false"><div><span class="markdown"><span class="paragraph">Variables prefixed with an underscore are "private" to a cell, so
 they can be defined by multiple cells.</span></span></div></marimo-accordion>
             </marimo-cell-output>
-            <marimo-cell-code hidden="">
-            mo.accordion(%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22Tip%3A%20private%20variables%22%3A%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20%20%20%20%20Variables%20prefixed%20with%20an%20underscore%20are%20%22private%22%20to%20a%20cell%2C%20so%0A%20%20%20%20%20%20%20%20%20%20%20%20they%20can%20be%20defined%20by%20multiple%20cells.%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%7D%0A)
-            </marimo-cell-code>
+            <marimo-cell-code hidden="">mo.accordion(%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%22Tip%3A%20private%20variables%22%3A%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20%20%20%20%20Variables%20prefixed%20with%20an%20underscore%20are%20%22private%22%20to%20a%20cell%2C%20so%0A%20%20%20%20%20%20%20%20%20%20%20%20they%20can%20be%20defined%20by%20multiple%20cells.%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%7D%0A)</marimo-cell-code>
         </marimo-island>
 </section>
 <section id="ui-elements" class="level2">
 <h2 class="anchored" data-anchor-id="ui-elements">2. UI elements</h2>
-<p>Cells can output interactive UI elements. Interacting with a UI element <strong>automatically triggers notebook execution</strong>: when you interact with a UI element, its value is sent back to Python, and every cell that references that element is re-run.</p>
-<p>marimo provides a library of UI elements to choose from under <code>marimo.ui</code>.</p>
-<p>🌊 Some UI elements.** Try interacting with the below elements.</p>
-<marimo-island data-app-id="main" data-cell-id="BYtC">
+<p>Cells can output interactive UI elements. Interacting with a UI element <strong>automatically triggers notebook execution</strong>: when you interact with a UI element, its value is sent back to Python, and every cell that references that element is re-run. marimo provides a library of UI elements to choose from under <code>marimo.ui</code>. <strong>🌊 Some UI elements.</strong> Try interacting with the below elements.</p>
+<marimo-island data-app-id="main" data-cell-id="RGSE" data-reactive="true">
     <marimo-cell-output>
     </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    icon%20%3D%20mo.ui.dropdown(%5B%22%F0%9F%8D%83%22%2C%20%22%F0%9F%8C%8A%22%2C%20%22%E2%9C%A8%22%5D%2C%20value%3D%22%F0%9F%8D%83%22)
-    </marimo-cell-code>
+    <marimo-cell-code hidden="">icon%20%3D%20mo.ui.dropdown(%5B%22%F0%9F%8D%83%22%2C%20%22%F0%9F%8C%8A%22%2C%20%22%E2%9C%A8%22%5D%2C%20value%3D%22%F0%9F%8D%83%22)</marimo-cell-code>
 </marimo-island>
-<marimo-island data-app-id="main" data-cell-id="RGSE">
+<marimo-island data-app-id="main" data-cell-id="Kclp" data-reactive="true">
     <marimo-cell-output>
     </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    repetitions%20%3D%20mo.ui.slider(1%2C%2016%2C%20label%3Df%22number%20of%20%7Bicon.value%7D%3A%20%22)
-    </marimo-cell-code>
+    <marimo-cell-code hidden="">repetitions%20%3D%20mo.ui.slider(1%2C%2016%2C%20label%3Df%22number%20of%20%7Bicon.value%7D%3A%20%22)</marimo-cell-code>
 </marimo-island>
-<marimo-island data-app-id="main" data-cell-id="Kclp">
+<marimo-island data-app-id="main" data-cell-id="emfo" data-reactive="true">
     <marimo-cell-output>
-    <marimo-json-output data-json-data="&quot;[\&quot;text/html:<marimo-ui-element object-id='BYtC-0' random-id='0a1ed127-7991-40ed-92a7-cd2da029b593'><marimo-dropdown data-initial-value='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;]' data-label='null' data-options='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;, &amp;quot;&amp;#92;ud83c&amp;#92;udf0a&amp;quot;, &amp;quot;&amp;#92;u2728&amp;quot;]' data-allow-select-none='false' data-full-width='false'></marimo-dropdown></marimo-ui-element>\&quot;, \&quot;text/html:<marimo-ui-element object-id='RGSE-0' random-id='68507e1a-1724-4d3d-b5e2-30e5b16b13a4'><marimo-slider data-initial-value='1' data-label='&amp;quot;&amp;lt;span class=&amp;#92;&amp;quot;markdown&amp;#92;&amp;quot;&amp;gt;&amp;lt;span class=&amp;#92;&amp;quot;paragraph&amp;#92;&amp;quot;&amp;gt;number of &amp;#92;ud83c&amp;#92;udf43: &amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;quot;' data-start='1' data-stop='16' data-debounce='false' data-orientation='&amp;quot;horizontal&amp;quot;' data-show-value='false' data-full-width='false'></marimo-slider></marimo-ui-element>\&quot;, \&quot;text/html:<marimo-ui-element object-id='BYtC-0' random-id='0a1ed127-7991-40ed-92a7-cd2da029b593'><marimo-dropdown data-initial-value='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;]' data-label='null' data-options='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;, &amp;quot;&amp;#92;ud83c&amp;#92;udf0a&amp;quot;, &amp;quot;&amp;#92;u2728&amp;quot;]' data-allow-select-none='false' data-full-width='false'></marimo-dropdown></marimo-ui-element>\&quot;]&quot;"></marimo-json-output>
+    <marimo-json-output data-json-data="[&quot;text/html:<marimo-ui-element object-id='RGSE-0' random-id='50b1fc06-7bcd-415b-a52a-367fa46fa394'><marimo-dropdown data-initial-value='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;]' data-label='null' data-options='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;, &amp;quot;&amp;#92;ud83c&amp;#92;udf0a&amp;quot;, &amp;quot;&amp;#92;u2728&amp;quot;]' data-allow-select-none='false' data-full-width='false'></marimo-dropdown></marimo-ui-element>&quot;, &quot;text/html:<marimo-ui-element object-id='Kclp-0' random-id='721f47f4-a04b-4c3c-ad41-647d2789b82e'><marimo-slider data-initial-value='1' data-label='&amp;quot;&amp;lt;span class=&amp;#92;&amp;quot;markdown&amp;#92;&amp;quot;&amp;gt;&amp;lt;span class=&amp;#92;&amp;quot;paragraph&amp;#92;&amp;quot;&amp;gt;number of &amp;#92;ud83c&amp;#92;udf43: &amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;quot;' data-start='1' data-stop='16' data-steps='[]' data-debounce='false' data-orientation='&amp;quot;horizontal&amp;quot;' data-show-value='false' data-full-width='false'></marimo-slider></marimo-ui-element>&quot;]"></marimo-json-output>
     </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    icon%2C%20repetitions%2C%20icon
-    </marimo-cell-code>
+    <marimo-cell-code hidden="">icon%2C%20repetitions</marimo-cell-code>
 </marimo-island>
-<marimo-island data-app-id="main" data-cell-id="emfo">
-    <marimo-cell-output>
-    <marimo-json-output data-json-data="&quot;[\&quot;text/html:<marimo-ui-element object-id='BYtC-0' random-id='0a1ed127-7991-40ed-92a7-cd2da029b593'><marimo-dropdown data-initial-value='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;]' data-label='null' data-options='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;, &amp;quot;&amp;#92;ud83c&amp;#92;udf0a&amp;quot;, &amp;quot;&amp;#92;u2728&amp;quot;]' data-allow-select-none='false' data-full-width='false'></marimo-dropdown></marimo-ui-element>\&quot;, \&quot;text/html:<marimo-ui-element object-id='BYtC-0' random-id='0a1ed127-7991-40ed-92a7-cd2da029b593'><marimo-dropdown data-initial-value='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;]' data-label='null' data-options='[&amp;quot;&amp;#92;ud83c&amp;#92;udf43&amp;quot;, &amp;quot;&amp;#92;ud83c&amp;#92;udf0a&amp;quot;, &amp;quot;&amp;#92;u2728&amp;quot;]' data-allow-select-none='false' data-full-width='false'></marimo-dropdown></marimo-ui-element>\&quot;]&quot;"></marimo-json-output>
-    </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    icon%2Cicon
-    </marimo-cell-code>
-</marimo-island>
-<marimo-island data-app-id="main" data-cell-id="Hstk">
-    <marimo-cell-output>
-    <marimo-ui-element object-id="RGSE-0" random-id="68507e1a-1724-4d3d-b5e2-30e5b16b13a4"><marimo-slider data-initial-value="1" data-label="&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>number of \ud83c\udf43: </span></span>&quot;" data-start="1" data-stop="16" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false" data-full-width="false"></marimo-slider></marimo-ui-element>
-    </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    repetitions
-    </marimo-cell-code>
-</marimo-island>
-<marimo-island data-app-id="main" data-cell-id="nWHF">
+<marimo-island data-app-id="main" data-cell-id="Hstk" data-reactive="true">
     <marimo-cell-output>
     <span class="markdown"><h1 id="_1">🍃</h1></span>
     </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    mo.md(%22%23%20%22%20%2B%20icon.value%20*%20repetitions.value)
-    </marimo-cell-code>
+    <marimo-cell-code hidden="">mo.md(%22%23%20%22%20%2B%20icon.value%20*%20repetitions.value)</marimo-cell-code>
 </marimo-island>
 </section>
 <section id="marimo-is-just-python" class="level2">
 <h2 class="anchored" data-anchor-id="marimo-is-just-python">3. marimo is just Python</h2>
-<p>marimo cells parse Python (and only Python), and marimo notebooks are stored as pure Python files — outputs are <em>not</em> included. There’s no magical syntax.</p>
-<p>The Python files generated by marimo are:</p>
-<ul>
-<li>easily versioned with git, yielding minimal diffs</li>
-<li>legible for both humans and machines</li>
-<li>formattable using your tool of choice,</li>
-<li>usable as Python scripts, with UI elements taking their default values, and</li>
-<li>importable by other modules (more on that in the future).</li>
-</ul>
+<p>marimo cells parse Python (and only Python), and marimo notebooks are stored as pure Python files — outputs are <em>not</em> included. There’s no magical syntax. The Python files generated by marimo are: - easily versioned with git, yielding minimal diffs - legible for both humans and machines - formattable using your tool of choice, - usable as Python scripts, with UI elements taking their default values, and - importable by other modules (more on that in the future).</p>
 </section>
 <section id="running-notebooks-as-apps" class="level2">
 <h2 class="anchored" data-anchor-id="running-notebooks-as-apps">4. Running notebooks as apps</h2>
-<p>marimo notebooks can double as apps. Click the app window icon in the bottom-left to see this notebook in “app view.”</p>
-<p>Serve a notebook as an app with <code>marimo run</code> at the command-line. Of course, you can use marimo just to level-up your notebooking, without ever making apps.</p>
-</section>
-<section id="the-marimo-command-line-tool" class="level2">
-<h2 class="anchored" data-anchor-id="the-marimo-command-line-tool">5. The <code>marimo</code> command-line tool</h2>
-<p><strong>Creating and editing notebooks.</strong> Use</p>
+<p>marimo notebooks can double as apps. Click the app window icon in the bottom-left to see this notebook in “app view.” Serve a notebook as an app with <code>marimo run</code> at the command-line. Of course, you can use marimo just to level-up your notebooking, without ever making apps. ## 5. The <code>marimo</code> command-line tool <strong>Creating and editing notebooks.</strong> Use</p>
 <pre><code>marimo edit</code></pre>
-<p>in a terminal to create a new marimo notebook, or</p>
-<pre><code>marimo edit notebook.py</code></pre>
-<p>to create/edit a notebook called <code>notebook.py</code>.</p>
+<p>in a terminal to start the marimo notebook server. From here you can create a new notebook or edit existing ones.</p>
 <p><strong>Running as apps.</strong> Use</p>
 <pre><code>marimo run notebook.py</code></pre>
-<p>to start a webserver that serves your notebook as an app in read-only mode, with code cells hidden.</p>
-<p><strong>Convert a Jupyter notebook.</strong> Convert a Jupyter notebook to a marimo notebook using <code>marimo convert</code>:</p>
+<p>to start a webserver that serves your notebook as an app in read-only mode, with code cells hidden. <strong>Convert a Jupyter notebook.</strong> Convert a Jupyter notebook to a marimo notebook using <code>marimo convert</code>:</p>
 <pre><code>marimo convert your_notebook.ipynb &gt; your_app.py</code></pre>
-<p><strong>Tutorials.</strong> marimo comes packaged with tutorials:</p>
-<ul>
-<li><code>dataflow</code>: more on marimo’s automatic execution</li>
-<li><code>ui</code>: how to use UI elements</li>
-<li><code>markdown</code>: how to write markdown, with interpolated values and LaTeX</li>
-<li><code>plots</code>: how plotting works in marimo</li>
-<li><code>fileformat</code>: how marimo’s file format works</li>
-</ul>
-<p>Start a tutorial with <code>marimo tutorial</code>; for example,</p>
+<p><strong>Tutorials.</strong> marimo comes packaged with tutorials: - <code>dataflow</code>: more on marimo’s automatic execution - <code>ui</code>: how to use UI elements - <code>markdown</code>: how to write markdown, with interpolated values and LaTeX - <code>plots</code>: how plotting works in marimo - <code>fileformat</code>: how marimo’s file format works Start a tutorial with <code>marimo tutorial</code>; for example,</p>
 <pre><code>marimo tutorial dataflow</code></pre>
 <p>In addition to tutorials, we have examples in our <a href="https://www.github.com/marimo-team/marimo/tree/main/examples">our GitHub repo</a>.</p>
 </section>
 <section id="the-marimo-editor" class="level2">
 <h2 class="anchored" data-anchor-id="the-marimo-editor">6. The marimo editor</h2>
 <p>Here are some tips to help you get started with the marimo editor.</p>
-<marimo-island data-app-id="main" data-cell-id="iLit">
+<marimo-island data-app-id="main" data-cell-id="nWHF" data-reactive="true">
             <marimo-cell-output>
             <marimo-accordion data-labels="[&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Saving</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Running</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Console Output</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Creating, Moving, and Deleting Cells</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Disabling Cells</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Code Folding</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Code Formatting</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Command Palette</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Keyboard Shortcuts</span></span>&quot;, &quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;>Configuration</span></span>&quot;]" data-multiple="false"><div><span class="markdown"><span class="paragraph"><strong>Saving</strong></span>
 <ul>
@@ -421,7 +306,7 @@ cell.</span></span></div><div><span class="markdown"><ol>
     mouse hover.</span>
 </li>
 <li>
-<span class="paragraph"><em>Move</em> a cell up or down by dragging on the handle to the
+<span class="paragraph"><em>Move</em> a cell up or down by dragging on the handle to the 
     right of the cell, which appears on mouse hover.</span>
 </li>
 <li>
@@ -443,33 +328,21 @@ input <code>Ctrl/Cmd+Shift+h</code>) to view a list of all keyboard
 shortcuts.</span></span></div><div><span class="markdown"><span class="paragraph">Configure the editor by clicking the gears icon near the top-right
 of the screen.</span></span></div></marimo-accordion>
             </marimo-cell-output>
-            <marimo-cell-code hidden="">
-            mo.accordion(tips)
-            </marimo-cell-code>
+            <marimo-cell-code hidden="">mo.accordion(tips)</marimo-cell-code>
         </marimo-island>
 </section>
 <section id="finally-a-fun-fact" class="level2">
 <h2 class="anchored" data-anchor-id="finally-a-fun-fact">Finally, a fun fact</h2>
 <p>The name “marimo” is a reference to a type of algae that, under the right conditions, clumps together to form a small sphere called a “marimo moss ball”. Made of just strands of algae, these beloved assemblages are greater than the sum of their parts.</p>
-<marimo-island data-app-id="main" data-cell-id="ZHCJ">
+<marimo-island data-app-id="main" data-cell-id="iLit" data-reactive="true">
     <marimo-cell-output>
     </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    tips%20%3D%20%7B%0A%20%20%20%20%22Saving%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20**Saving**%0A%0A%20%20%20%20%20%20%20%20-%20_Name_%20your%20app%20using%20the%20box%20at%20the%20top%20of%20the%20screen%2C%20or%0A%20%20%20%20%20%20%20%20%20%20with%20%60Ctrl%2FCmd%2Bs%60.%20You%20can%20also%20create%20a%20named%20app%20at%20the%0A%20%20%20%20%20%20%20%20%20%20command%20line%2C%20e.g.%2C%20%60marimo%20edit%20app_name.py%60.%0A%0A%20%20%20%20%20%20%20%20-%20_Save_%20by%20clicking%20the%20save%20icon%20on%20the%20bottom%20left%2C%20or%20by%0A%20%20%20%20%20%20%20%20%20%20inputting%20%60Ctrl%2FCmd%2Bs%60.%20By%20default%20marimo%20is%20configured%0A%20%20%20%20%20%20%20%20%20%20to%20autosave.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Running%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%201.%20_Run%20a%20cell_%20by%20clicking%20the%20play%20(%20%E2%96%B7%20)%20button%20on%20the%20bottom%0A%20%20%20%20%20%20%20%20right%20of%20a%20cell%2C%20or%20by%20inputting%20%60Ctrl%2FCmd%2BEnter%60.%0A%0A%20%20%20%20%20%20%20%202.%20_Run%20a%20stale%20cell_%20%20by%20clicking%20the%20yellow%20run%20button%20to%20the%0A%20%20%20%20%20%20%20%20right%20of%20the%20cell%2C%20or%20by%20inputting%20%60Ctrl%2FCmd%2BEnter%60.%20A%20cell%20is%0A%20%20%20%20%20%20%20%20stale%20when%20its%20code%20has%20been%20modified%20but%20not%20run.%0A%0A%20%20%20%20%20%20%20%203.%20_Run%20all%20stale%20cells_%20by%20clicking%20the%20play%20(%20%E2%96%B7%20)%20button%20on%0A%20%20%20%20%20%20%20%20the%20bottom%20right%20of%20the%20screen%2C%20or%20input%20%60Ctrl%2FCmd%2BShift%2Br%60.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Console%20Output%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20Console%20output%20(e.g.%2C%20%60print()%60%20statements)%20is%20shown%20below%20a%0A%20%20%20%20%20%20%20%20cell.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Creating%2C%20Moving%2C%20and%20Deleting%20Cells%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%201.%20_Create_%20a%20new%20cell%20above%20or%20below%20a%20given%20one%20by%20clicking%0A%20%20%20%20%20%20%20%20%20%20%20%20the%20plus%20button%20to%20the%20left%20of%20the%20cell%2C%20which%20appears%20on%0A%20%20%20%20%20%20%20%20%20%20%20%20mouse%20hover.%0A%0A%20%20%20%20%20%20%20%202.%20_Move_%20a%20cell%20up%20or%20down%20by%20dragging%20on%20the%20handle%20to%20the%0A%20%20%20%20%20%20%20%20%20%20%20%20right%20of%20the%20cell%2C%20which%20appears%20on%20mouse%20hover.%0A%0A%20%20%20%20%20%20%20%203.%20_Delete_%20a%20cell%20by%20clicking%20the%20trash%20bin%20icon.%20Bring%20it%0A%20%20%20%20%20%20%20%20%20%20%20%20back%20by%20clicking%20the%20undo%20button%20on%20the%20bottom%20right%20of%20the%0A%20%20%20%20%20%20%20%20%20%20%20%20screen%2C%20or%20with%20%60Ctrl%2FCmd%2BShift%2Bz%60.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Disabling%20Cells%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20You%20can%20disable%20a%20cell%20via%20the%20cell%20context%20menu%20(open%20it%0A%20%20%20%20%20%20%20%20by%20clicking%20the%20icon%20to%20the%20right%20of%20a%20cell).%20marimo%20will%0A%20%20%20%20%20%20%20%20never%20run%20a%20disabled%20cell%20or%20any%20cells%20that%20depend%20on%20it.%20This%0A%20%20%20%20%20%20%20%20can%20help%20prevent%20accidental%20execution%20of%20expensive%20computations%0A%20%20%20%20%20%20%20%20when%20editing%20a%20notebook.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Code%20Folding%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20You%20can%20collapse%20or%20fold%20the%20code%20in%20a%20cell%20by%20clicking%20the%20arrow%0A%20%20%20%20%20%20%20%20icons%20in%20the%20line%20number%20column%20to%20the%20left%2C%20or%20by%20using%20keyboard%0A%20%20%20%20%20%20%20%20shortcuts.%0A%0A%20%20%20%20%20%20%20%20Use%20the%20command%20palette%20(%60Ctrl%2FCmd%2Bk%60)%20or%20a%20keyboard%20shortcut%20to%0A%20%20%20%20%20%20%20%20quickly%20fold%20or%20unfold%20all%20cells.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Code%20Formatting%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20If%20you%20have%20%5Bblack%5D(https%3A%2F%2Fgithub.com%2Fpsf%2Fblack)%20installed%2C%20you%20can%20format%20a%20cell%20with%0A%20%20%20%20%20%20%20%20the%20keyboard%20shortcut%20%60Ctrl%2FCmd%2Bb%60.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Command%20Palette%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20Use%20%60Ctrl%2FCmd%2Bk%60%20to%20open%20the%20command%20palette.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Keyboard%20Shortcuts%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20Click%20the%20keyboard%20button%20on%20the%20bottom%20left%20of%20the%20screen%20(or%0A%20%20%20%20%20%20%20%20input%20%60Ctrl%2FCmd%2BShift%2Bh%60)%20to%20view%20a%20list%20of%20all%20keyboard%0A%20%20%20%20%20%20%20%20shortcuts.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Configuration%22%3A%20(%0A%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20Configure%20the%20editor%20by%20clicking%20the%20gears%20icon%20near%20the%20top-right%0A%20%20%20%20%20%20%20of%20the%20screen.%0A%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%7D
-    </marimo-cell-code>
-</marimo-island>
-<marimo-island data-app-id="main" data-cell-id="ROlb">
-    <marimo-cell-output>
-    </marimo-cell-output>
-    <marimo-cell-code hidden="">
-    import%20marimo%20as%20mo
-    </marimo-cell-code>
+    <marimo-cell-code hidden="">tips%20%3D%20%7B%0A%20%20%20%20%22Saving%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20**Saving**%0A%0A%20%20%20%20%20%20%20%20-%20_Name_%20your%20app%20using%20the%20box%20at%20the%20top%20of%20the%20screen%2C%20or%0A%20%20%20%20%20%20%20%20%20%20with%20%60Ctrl%2FCmd%2Bs%60.%20You%20can%20also%20create%20a%20named%20app%20at%20the%0A%20%20%20%20%20%20%20%20%20%20command%20line%2C%20e.g.%2C%20%60marimo%20edit%20app_name.py%60.%0A%0A%20%20%20%20%20%20%20%20-%20_Save_%20by%20clicking%20the%20save%20icon%20on%20the%20bottom%20left%2C%20or%20by%0A%20%20%20%20%20%20%20%20%20%20inputting%20%60Ctrl%2FCmd%2Bs%60.%20By%20default%20marimo%20is%20configured%0A%20%20%20%20%20%20%20%20%20%20to%20autosave.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Running%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%201.%20_Run%20a%20cell_%20by%20clicking%20the%20play%20(%20%E2%96%B7%20)%20button%20on%20the%20bottom%0A%20%20%20%20%20%20%20%20right%20of%20a%20cell%2C%20or%20by%20inputting%20%60Ctrl%2FCmd%2BEnter%60.%0A%0A%20%20%20%20%20%20%20%202.%20_Run%20a%20stale%20cell_%20%20by%20clicking%20the%20yellow%20run%20button%20to%20the%0A%20%20%20%20%20%20%20%20right%20of%20the%20cell%2C%20or%20by%20inputting%20%60Ctrl%2FCmd%2BEnter%60.%20A%20cell%20is%0A%20%20%20%20%20%20%20%20stale%20when%20its%20code%20has%20been%20modified%20but%20not%20run.%0A%0A%20%20%20%20%20%20%20%203.%20_Run%20all%20stale%20cells_%20by%20clicking%20the%20play%20(%20%E2%96%B7%20)%20button%20on%0A%20%20%20%20%20%20%20%20the%20bottom%20right%20of%20the%20screen%2C%20or%20input%20%60Ctrl%2FCmd%2BShift%2Br%60.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Console%20Output%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20Console%20output%20(e.g.%2C%20%60print()%60%20statements)%20is%20shown%20below%20a%0A%20%20%20%20%20%20%20%20cell.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Creating%2C%20Moving%2C%20and%20Deleting%20Cells%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%201.%20_Create_%20a%20new%20cell%20above%20or%20below%20a%20given%20one%20by%20clicking%0A%20%20%20%20%20%20%20%20%20%20%20%20the%20plus%20button%20to%20the%20left%20of%20the%20cell%2C%20which%20appears%20on%0A%20%20%20%20%20%20%20%20%20%20%20%20mouse%20hover.%0A%0A%20%20%20%20%20%20%20%202.%20_Move_%20a%20cell%20up%20or%20down%20by%20dragging%20on%20the%20handle%20to%20the%20%0A%20%20%20%20%20%20%20%20%20%20%20%20right%20of%20the%20cell%2C%20which%20appears%20on%20mouse%20hover.%0A%0A%20%20%20%20%20%20%20%203.%20_Delete_%20a%20cell%20by%20clicking%20the%20trash%20bin%20icon.%20Bring%20it%0A%20%20%20%20%20%20%20%20%20%20%20%20back%20by%20clicking%20the%20undo%20button%20on%20the%20bottom%20right%20of%20the%0A%20%20%20%20%20%20%20%20%20%20%20%20screen%2C%20or%20with%20%60Ctrl%2FCmd%2BShift%2Bz%60.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Disabling%20Cells%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20You%20can%20disable%20a%20cell%20via%20the%20cell%20context%20menu%20(open%20it%0A%20%20%20%20%20%20%20%20by%20clicking%20the%20icon%20to%20the%20right%20of%20a%20cell).%20marimo%20will%0A%20%20%20%20%20%20%20%20never%20run%20a%20disabled%20cell%20or%20any%20cells%20that%20depend%20on%20it.%20This%0A%20%20%20%20%20%20%20%20can%20help%20prevent%20accidental%20execution%20of%20expensive%20computations%0A%20%20%20%20%20%20%20%20when%20editing%20a%20notebook.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Code%20Folding%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20You%20can%20collapse%20or%20fold%20the%20code%20in%20a%20cell%20by%20clicking%20the%20arrow%0A%20%20%20%20%20%20%20%20icons%20in%20the%20line%20number%20column%20to%20the%20left%2C%20or%20by%20using%20keyboard%0A%20%20%20%20%20%20%20%20shortcuts.%0A%0A%20%20%20%20%20%20%20%20Use%20the%20command%20palette%20(%60Ctrl%2FCmd%2Bk%60)%20or%20a%20keyboard%20shortcut%20to%0A%20%20%20%20%20%20%20%20quickly%20fold%20or%20unfold%20all%20cells.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Code%20Formatting%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20If%20you%20have%20%5Bblack%5D(https%3A%2F%2Fgithub.com%2Fpsf%2Fblack)%20installed%2C%20you%20can%20format%20a%20cell%20with%0A%20%20%20%20%20%20%20%20the%20keyboard%20shortcut%20%60Ctrl%2FCmd%2Bb%60.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Command%20Palette%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20Use%20%60Ctrl%2FCmd%2Bk%60%20to%20open%20the%20command%20palette.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Keyboard%20Shortcuts%22%3A%20(%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20Click%20the%20keyboard%20button%20on%20the%20bottom%20left%20of%20the%20screen%20(or%0A%20%20%20%20%20%20%20%20input%20%60Ctrl%2FCmd%2BShift%2Bh%60)%20to%20view%20a%20list%20of%20all%20keyboard%0A%20%20%20%20%20%20%20%20shortcuts.%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%20%20%20%20%22Configuration%22%3A%20(%0A%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20Configure%20the%20editor%20by%20clicking%20the%20gears%20icon%20near%20the%20top-right%0A%20%20%20%20%20%20%20of%20the%20screen.%0A%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20)%2C%0A%7D</marimo-cell-code>
 </marimo-island>
 
 
 <!-- -->
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -605,7 +478,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("github:dmadisetti\/quarto-marimo\.git");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -932,390 +805,328 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./plots.html" class="pagination-link" aria-label="Plots">
-        <span class="nav-page-text">Plots</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Marimo Tutorial</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - marimo/quarto</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># Welcome to marimo! 🌊🍃</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>marimo is a **reactive** Python notebook.</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="in">slider = mo.ui.slider(1, 22)</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="in">mo.md(</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="in">    f"""</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="in">    This means that unlike traditional notebooks, marimo notebooks **run</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="in">    automatically** when you modify them or</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="in">    interact with UI elements, like this slider: {slider}.</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="in">    {"##" + "🍃" * slider.value}</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="in">    """</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="in">mo.md(</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="in">    """</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="in">    Tip: This is a tutorial notebook. You can create your own notebooks</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="in">    by entering `marimo edit` at the command line.</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="in">    """</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="in">).callout()</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Reactive execution</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>A marimo notebook is made up of small blocks of Python code called</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>cells.</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>marimo reads your cells and models the dependencies among them: whenever</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>a cell that defines a global variable  is run, marimo</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>**automatically runs** all cells that reference that variable.</span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>Reactivity keeps your program state and outputs in sync with your code,</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>making for a dynamic programming environment that prevents bugs before they</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>happen.</span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="in">(</span></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="in">    mo.md(</span></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="in">        f"""</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="in">        **✨ Nice!** The value of `changed` is now {changed}.</span></span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a><span class="in">        When you updated the value of the variable `changed`, marimo</span></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="in">        **reacted** by running this cell automatically, because this cell</span></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="in">        references the global variable `changed`.</span></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="in">        Reactivity ensures that your notebook state is always</span></span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="in">        consistent, which is crucial for doing good science; it's also what</span></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="in">        enables marimo notebooks to double as tools and  apps.</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="in">    if changed</span></span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="in">    else mo.md(</span></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="in">        **🌊 See it in action.** In the next cell, change the value of the</span></span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="in">        variable  `changed` to `True`, then click the run button.</span></span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a><span class="in">changed = False</span></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="in">mo.accordion(</span></span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="in">    {</span></span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="in">        "Tip: execution order": (</span></span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="in">            The order of cells on the page has no bearing on</span></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="in">            the order in which cells are executed: marimo knows that a cell</span></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="in">            reading a variable must run after the cell that  defines it. This</span></span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="in">            frees you to organize your code in the way that makes the most</span></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a><span class="in">            sense for you.</span></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a><span class="in">        )</span></span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>**Global names must be unique.** To enable reactivity, marimo imposes a</span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>constraint on how names appear in cells: no two cells may define the same</span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>variable.</span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="in">mo.accordion(</span></span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="in">    {</span></span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="in">        "Tip: encapsulation": (</span></span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
-<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="in">            By encapsulating logic in functions, classes, or Python modules,</span></span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="in">            you can minimize the number of global variables in your notebook.</span></span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="in">        )</span></span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="in">mo.accordion(</span></span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="in">    {</span></span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="in">        "Tip: private variables": (</span></span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a><span class="in">            Variables prefixed with an underscore are "private" to a cell, so</span></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a><span class="in">            they can be defined by multiple cells.</span></span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a><span class="in">        )</span></span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. UI elements</span></span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>Cells can output interactive UI elements. Interacting with a UI</span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>element **automatically triggers notebook execution**: when</span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>you interact with a UI element, its value is sent back to Python, and</span>
-<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>every cell that references that element is re-run.</span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>marimo provides a library of UI elements to choose from under</span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="in">`marimo.ui`</span>.</span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>🌊 Some UI elements.** Try interacting with the below elements.</span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a><span class="in">icon = mo.ui.dropdown(["🍃", "🌊", "✨"], value="🍃")</span></span>
-<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a><span class="in">repetitions = mo.ui.slider(1, 16, label=f"number of {icon.value}: ")</span></span>
-<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a><span class="in">icon, repetitions, icon</span></span>
-<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a><span class="in">icon,icon</span></span>
-<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a><span class="in">repetitions</span></span>
-<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a><span class="in">mo.md("# " + icon.value * repetitions.value)</span></span>
-<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. marimo is just Python</span></span>
-<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>marimo cells parse Python (and only Python), and marimo notebooks are</span>
-<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a>stored as pure Python files — outputs are _not_ included. There's no</span>
-<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a>magical syntax.</span>
-<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>The Python files generated by marimo are:</span>
-<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>easily versioned with git, yielding minimal diffs</span>
-<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>legible for both humans and machines</span>
-<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>formattable using your tool of choice,</span>
-<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>usable as Python  scripts, with UI  elements taking their default</span>
-<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a>values, and</span>
-<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>importable by other modules (more on that in the future).</span>
-<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Running notebooks as apps</span></span>
-<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a>marimo notebooks can double as apps. Click the app window icon in the</span>
-<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a>bottom-left to see this notebook in "app view."</span>
-<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a>Serve a notebook as an app with <span class="in">`marimo run`</span> at the command-line.</span>
-<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a>Of course, you can use marimo just to level-up your</span>
-<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a>notebooking, without ever making apps.</span>
-<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. The `marimo` command-line tool</span></span>
-<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a>**Creating and editing notebooks.** Use</span>
-<span id="cb6-223"><a href="#cb6-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-224"><a href="#cb6-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-225"><a href="#cb6-225" aria-hidden="true" tabindex="-1"></a><span class="in">marimo edit</span></span>
-<span id="cb6-226"><a href="#cb6-226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-227"><a href="#cb6-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-228"><a href="#cb6-228" aria-hidden="true" tabindex="-1"></a>in a terminal to create a new marimo notebook, or</span>
-<span id="cb6-229"><a href="#cb6-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-230"><a href="#cb6-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-231"><a href="#cb6-231" aria-hidden="true" tabindex="-1"></a><span class="in">marimo edit notebook.py</span></span>
-<span id="cb6-232"><a href="#cb6-232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-233"><a href="#cb6-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-234"><a href="#cb6-234" aria-hidden="true" tabindex="-1"></a>to create/edit a notebook called <span class="in">`notebook.py`</span>.</span>
-<span id="cb6-235"><a href="#cb6-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-236"><a href="#cb6-236" aria-hidden="true" tabindex="-1"></a>**Running as apps.** Use</span>
-<span id="cb6-237"><a href="#cb6-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-238"><a href="#cb6-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-239"><a href="#cb6-239" aria-hidden="true" tabindex="-1"></a><span class="in">marimo run notebook.py</span></span>
-<span id="cb6-240"><a href="#cb6-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-241"><a href="#cb6-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-242"><a href="#cb6-242" aria-hidden="true" tabindex="-1"></a>to start a webserver that serves your notebook as an app in read-only mode,</span>
-<span id="cb6-243"><a href="#cb6-243" aria-hidden="true" tabindex="-1"></a>with code cells hidden.</span>
-<span id="cb6-244"><a href="#cb6-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-245"><a href="#cb6-245" aria-hidden="true" tabindex="-1"></a>**Convert a Jupyter notebook.** Convert a Jupyter notebook to a marimo</span>
-<span id="cb6-246"><a href="#cb6-246" aria-hidden="true" tabindex="-1"></a>notebook using <span class="in">`marimo convert`</span>:</span>
-<span id="cb6-247"><a href="#cb6-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-248"><a href="#cb6-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-249"><a href="#cb6-249" aria-hidden="true" tabindex="-1"></a><span class="in">marimo convert your_notebook.ipynb &gt; your_app.py</span></span>
-<span id="cb6-250"><a href="#cb6-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-251"><a href="#cb6-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-252"><a href="#cb6-252" aria-hidden="true" tabindex="-1"></a>**Tutorials.** marimo comes packaged with tutorials:</span>
-<span id="cb6-253"><a href="#cb6-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-254"><a href="#cb6-254" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dataflow`</span>: more on marimo's automatic execution</span>
-<span id="cb6-255"><a href="#cb6-255" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ui`</span>: how to use UI elements</span>
-<span id="cb6-256"><a href="#cb6-256" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`markdown`</span>: how to write markdown, with interpolated values and</span>
-<span id="cb6-257"><a href="#cb6-257" aria-hidden="true" tabindex="-1"></a>   LaTeX</span>
-<span id="cb6-258"><a href="#cb6-258" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`plots`</span>: how plotting works in marimo</span>
-<span id="cb6-259"><a href="#cb6-259" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fileformat`</span>: how marimo's file format works</span>
-<span id="cb6-260"><a href="#cb6-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-261"><a href="#cb6-261" aria-hidden="true" tabindex="-1"></a>Start a tutorial with <span class="in">`marimo tutorial`</span>; for example,</span>
-<span id="cb6-262"><a href="#cb6-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-263"><a href="#cb6-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-264"><a href="#cb6-264" aria-hidden="true" tabindex="-1"></a><span class="in">marimo tutorial dataflow</span></span>
-<span id="cb6-265"><a href="#cb6-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-266"><a href="#cb6-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-267"><a href="#cb6-267" aria-hidden="true" tabindex="-1"></a>In addition to tutorials, we have examples in our</span>
-<span id="cb6-268"><a href="#cb6-268" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">our GitHub repo</span><span class="co">](https://www.github.com/marimo-team/marimo/tree/main/examples)</span>.</span>
-<span id="cb6-269"><a href="#cb6-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-270"><a href="#cb6-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-271"><a href="#cb6-271" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. The marimo editor</span></span>
-<span id="cb6-272"><a href="#cb6-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-273"><a href="#cb6-273" aria-hidden="true" tabindex="-1"></a>Here are some tips to help you get started with the marimo editor.</span>
-<span id="cb6-274"><a href="#cb6-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-275"><a href="#cb6-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-278"><a href="#cb6-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-279"><a href="#cb6-279" aria-hidden="true" tabindex="-1"></a><span class="in">mo.accordion(tips)</span></span>
-<span id="cb6-280"><a href="#cb6-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-281"><a href="#cb6-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-282"><a href="#cb6-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-283"><a href="#cb6-283" aria-hidden="true" tabindex="-1"></a><span class="fu">## Finally, a fun fact</span></span>
-<span id="cb6-284"><a href="#cb6-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-285"><a href="#cb6-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-286"><a href="#cb6-286" aria-hidden="true" tabindex="-1"></a>The name "marimo" is a reference to a type of algae that, under</span>
-<span id="cb6-287"><a href="#cb6-287" aria-hidden="true" tabindex="-1"></a>the right conditions, clumps together to form a small sphere</span>
-<span id="cb6-288"><a href="#cb6-288" aria-hidden="true" tabindex="-1"></a>called a "marimo moss ball". Made of just strands of algae, these</span>
-<span id="cb6-289"><a href="#cb6-289" aria-hidden="true" tabindex="-1"></a>beloved assemblages are greater than the sum of their parts.</span>
-<span id="cb6-290"><a href="#cb6-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-293"><a href="#cb6-293" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-294"><a href="#cb6-294" aria-hidden="true" tabindex="-1"></a><span class="in">tips = {</span></span>
-<span id="cb6-295"><a href="#cb6-295" aria-hidden="true" tabindex="-1"></a><span class="in">    "Saving": (</span></span>
-<span id="cb6-296"><a href="#cb6-296" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-297"><a href="#cb6-297" aria-hidden="true" tabindex="-1"></a><span class="in">        **Saving**</span></span>
-<span id="cb6-298"><a href="#cb6-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-299"><a href="#cb6-299" aria-hidden="true" tabindex="-1"></a><span class="in">        - _Name_ your app using the box at the top of the screen, or</span></span>
-<span id="cb6-300"><a href="#cb6-300" aria-hidden="true" tabindex="-1"></a><span class="in">          with `Ctrl/Cmd+s`. You can also create a named app at the</span></span>
-<span id="cb6-301"><a href="#cb6-301" aria-hidden="true" tabindex="-1"></a><span class="in">          command line, e.g., `marimo edit app_name.py`.</span></span>
-<span id="cb6-302"><a href="#cb6-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-303"><a href="#cb6-303" aria-hidden="true" tabindex="-1"></a><span class="in">        - _Save_ by clicking the save icon on the bottom left, or by</span></span>
-<span id="cb6-304"><a href="#cb6-304" aria-hidden="true" tabindex="-1"></a><span class="in">          inputting `Ctrl/Cmd+s`. By default marimo is configured</span></span>
-<span id="cb6-305"><a href="#cb6-305" aria-hidden="true" tabindex="-1"></a><span class="in">          to autosave.</span></span>
-<span id="cb6-306"><a href="#cb6-306" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-307"><a href="#cb6-307" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb6-308"><a href="#cb6-308" aria-hidden="true" tabindex="-1"></a><span class="in">    "Running": (</span></span>
-<span id="cb6-309"><a href="#cb6-309" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-310"><a href="#cb6-310" aria-hidden="true" tabindex="-1"></a><span class="in">        1. _Run a cell_ by clicking the play ( ▷ ) button on the bottom</span></span>
-<span id="cb6-311"><a href="#cb6-311" aria-hidden="true" tabindex="-1"></a><span class="in">        right of a cell, or by inputting `Ctrl/Cmd+Enter`.</span></span>
-<span id="cb6-312"><a href="#cb6-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-313"><a href="#cb6-313" aria-hidden="true" tabindex="-1"></a><span class="in">        2. _Run a stale cell_  by clicking the yellow run button to the</span></span>
-<span id="cb6-314"><a href="#cb6-314" aria-hidden="true" tabindex="-1"></a><span class="in">        right of the cell, or by inputting `Ctrl/Cmd+Enter`. A cell is</span></span>
-<span id="cb6-315"><a href="#cb6-315" aria-hidden="true" tabindex="-1"></a><span class="in">        stale when its code has been modified but not run.</span></span>
-<span id="cb6-316"><a href="#cb6-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-317"><a href="#cb6-317" aria-hidden="true" tabindex="-1"></a><span class="in">        3. _Run all stale cells_ by clicking the play ( ▷ ) button on</span></span>
-<span id="cb6-318"><a href="#cb6-318" aria-hidden="true" tabindex="-1"></a><span class="in">        the bottom right of the screen, or input `Ctrl/Cmd+Shift+r`.</span></span>
-<span id="cb6-319"><a href="#cb6-319" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-320"><a href="#cb6-320" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb6-321"><a href="#cb6-321" aria-hidden="true" tabindex="-1"></a><span class="in">    "Console Output": (</span></span>
-<span id="cb6-322"><a href="#cb6-322" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-323"><a href="#cb6-323" aria-hidden="true" tabindex="-1"></a><span class="in">        Console output (e.g., `print()` statements) is shown below a</span></span>
-<span id="cb6-324"><a href="#cb6-324" aria-hidden="true" tabindex="-1"></a><span class="in">        cell.</span></span>
-<span id="cb6-325"><a href="#cb6-325" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-326"><a href="#cb6-326" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb6-327"><a href="#cb6-327" aria-hidden="true" tabindex="-1"></a><span class="in">    "Creating, Moving, and Deleting Cells": (</span></span>
-<span id="cb6-328"><a href="#cb6-328" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-329"><a href="#cb6-329" aria-hidden="true" tabindex="-1"></a><span class="in">        1. _Create_ a new cell above or below a given one by clicking</span></span>
-<span id="cb6-330"><a href="#cb6-330" aria-hidden="true" tabindex="-1"></a><span class="in">            the plus button to the left of the cell, which appears on</span></span>
-<span id="cb6-331"><a href="#cb6-331" aria-hidden="true" tabindex="-1"></a><span class="in">            mouse hover.</span></span>
-<span id="cb6-332"><a href="#cb6-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-333"><a href="#cb6-333" aria-hidden="true" tabindex="-1"></a><span class="in">        2. _Move_ a cell up or down by dragging on the handle to the</span></span>
-<span id="cb6-334"><a href="#cb6-334" aria-hidden="true" tabindex="-1"></a><span class="in">            right of the cell, which appears on mouse hover.</span></span>
-<span id="cb6-335"><a href="#cb6-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-336"><a href="#cb6-336" aria-hidden="true" tabindex="-1"></a><span class="in">        3. _Delete_ a cell by clicking the trash bin icon. Bring it</span></span>
-<span id="cb6-337"><a href="#cb6-337" aria-hidden="true" tabindex="-1"></a><span class="in">            back by clicking the undo button on the bottom right of the</span></span>
-<span id="cb6-338"><a href="#cb6-338" aria-hidden="true" tabindex="-1"></a><span class="in">            screen, or with `Ctrl/Cmd+Shift+z`.</span></span>
-<span id="cb6-339"><a href="#cb6-339" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-340"><a href="#cb6-340" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb6-341"><a href="#cb6-341" aria-hidden="true" tabindex="-1"></a><span class="in">    "Disabling Cells": (</span></span>
-<span id="cb6-342"><a href="#cb6-342" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-343"><a href="#cb6-343" aria-hidden="true" tabindex="-1"></a><span class="in">        You can disable a cell via the cell context menu (open it</span></span>
-<span id="cb6-344"><a href="#cb6-344" aria-hidden="true" tabindex="-1"></a><span class="in">        by clicking the icon to the right of a cell). marimo will</span></span>
-<span id="cb6-345"><a href="#cb6-345" aria-hidden="true" tabindex="-1"></a><span class="in">        never run a disabled cell or any cells that depend on it. This</span></span>
-<span id="cb6-346"><a href="#cb6-346" aria-hidden="true" tabindex="-1"></a><span class="in">        can help prevent accidental execution of expensive computations</span></span>
-<span id="cb6-347"><a href="#cb6-347" aria-hidden="true" tabindex="-1"></a><span class="in">        when editing a notebook.</span></span>
-<span id="cb6-348"><a href="#cb6-348" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-349"><a href="#cb6-349" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb6-350"><a href="#cb6-350" aria-hidden="true" tabindex="-1"></a><span class="in">    "Code Folding": (</span></span>
-<span id="cb6-351"><a href="#cb6-351" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-352"><a href="#cb6-352" aria-hidden="true" tabindex="-1"></a><span class="in">        You can collapse or fold the code in a cell by clicking the arrow</span></span>
-<span id="cb6-353"><a href="#cb6-353" aria-hidden="true" tabindex="-1"></a><span class="in">        icons in the line number column to the left, or by using keyboard</span></span>
-<span id="cb6-354"><a href="#cb6-354" aria-hidden="true" tabindex="-1"></a><span class="in">        shortcuts.</span></span>
-<span id="cb6-355"><a href="#cb6-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-356"><a href="#cb6-356" aria-hidden="true" tabindex="-1"></a><span class="in">        Use the command palette (`Ctrl/Cmd+k`) or a keyboard shortcut to</span></span>
-<span id="cb6-357"><a href="#cb6-357" aria-hidden="true" tabindex="-1"></a><span class="in">        quickly fold or unfold all cells.</span></span>
-<span id="cb6-358"><a href="#cb6-358" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-359"><a href="#cb6-359" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb6-360"><a href="#cb6-360" aria-hidden="true" tabindex="-1"></a><span class="in">    "Code Formatting": (</span></span>
-<span id="cb6-361"><a href="#cb6-361" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-362"><a href="#cb6-362" aria-hidden="true" tabindex="-1"></a><span class="in">        If you have [black](https://github.com/psf/black) installed, you can format a cell with</span></span>
-<span id="cb6-363"><a href="#cb6-363" aria-hidden="true" tabindex="-1"></a><span class="in">        the keyboard shortcut `Ctrl/Cmd+b`.</span></span>
-<span id="cb6-364"><a href="#cb6-364" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-365"><a href="#cb6-365" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb6-366"><a href="#cb6-366" aria-hidden="true" tabindex="-1"></a><span class="in">    "Command Palette": (</span></span>
-<span id="cb6-367"><a href="#cb6-367" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-368"><a href="#cb6-368" aria-hidden="true" tabindex="-1"></a><span class="in">        Use `Ctrl/Cmd+k` to open the command palette.</span></span>
-<span id="cb6-369"><a href="#cb6-369" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-370"><a href="#cb6-370" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb6-371"><a href="#cb6-371" aria-hidden="true" tabindex="-1"></a><span class="in">    "Keyboard Shortcuts": (</span></span>
-<span id="cb6-372"><a href="#cb6-372" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-373"><a href="#cb6-373" aria-hidden="true" tabindex="-1"></a><span class="in">        Click the keyboard button on the bottom left of the screen (or</span></span>
-<span id="cb6-374"><a href="#cb6-374" aria-hidden="true" tabindex="-1"></a><span class="in">        input `Ctrl/Cmd+Shift+h`) to view a list of all keyboard</span></span>
-<span id="cb6-375"><a href="#cb6-375" aria-hidden="true" tabindex="-1"></a><span class="in">        shortcuts.</span></span>
-<span id="cb6-376"><a href="#cb6-376" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
-<span id="cb6-377"><a href="#cb6-377" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb6-378"><a href="#cb6-378" aria-hidden="true" tabindex="-1"></a><span class="in">    "Configuration": (</span></span>
-<span id="cb6-379"><a href="#cb6-379" aria-hidden="true" tabindex="-1"></a><span class="in">       """</span></span>
-<span id="cb6-380"><a href="#cb6-380" aria-hidden="true" tabindex="-1"></a><span class="in">       Configure the editor by clicking the gears icon near the top-right</span></span>
-<span id="cb6-381"><a href="#cb6-381" aria-hidden="true" tabindex="-1"></a><span class="in">       of the screen.</span></span>
-<span id="cb6-382"><a href="#cb6-382" aria-hidden="true" tabindex="-1"></a><span class="in">       """</span></span>
-<span id="cb6-383"><a href="#cb6-383" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
-<span id="cb6-384"><a href="#cb6-384" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb6-385"><a href="#cb6-385" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-386"><a href="#cb6-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-389"><a href="#cb6-389" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
-<span id="cb6-390"><a href="#cb6-390" aria-hidden="true" tabindex="-1"></a><span class="in">import marimo as mo</span></span>
-<span id="cb6-391"><a href="#cb6-391" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Intro</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - marimo/quarto</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="in">import marimo as mo</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="in">mo.md("# Welcome to marimo! 🌊🍃")</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="in">slider = mo.ui.slider(1, 22)</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="in">mo.md(</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="in">    f"""</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="in">    marimo is a **reactive** Python notebook.</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="in">    This means that unlike traditional notebooks, marimo notebooks **run</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="in">    automatically** when you modify them or</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="in">    interact with UI elements, like this slider: {slider}.</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="in">    {"##" + "🍃" * slider.value}</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="in">    """</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="in">mo.md(</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="in">    """</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="in">    Tip: This is a tutorial notebook. You can create your own notebooks</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="in">    by entering `marimo edit` at the command line.</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="in">    """</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="in">).callout()</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Reactive execution</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>A marimo notebook is made up of small blocks of Python code called</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>cells.</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>marimo reads your cells and models the dependencies among them: whenever</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>a cell that defines a global variable  is run, marimo</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>**automatically runs** all cells that reference that variable.</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>Reactivity keeps your program state and outputs in sync with your code,</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>making for a dynamic programming environment that prevents bugs before they</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>happen.</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="in">(</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="in">    mo.md(</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="in">        f"""</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="in">        **✨ Nice!** The value of `changed` is now {changed}.</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="in">        When you updated the value of the variable `changed`, marimo</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="in">        **reacted** by running this cell automatically, because this cell</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="in">        references the global variable `changed`.</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="in">        Reactivity ensures that your notebook state is always</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="in">        consistent, which is crucial for doing good science; it's also what</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="in">        enables marimo notebooks to double as tools and  apps.</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="in">    if changed</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="in">    else mo.md(</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="in">        **🌊 See it in action.** In the next cell, change the value of the</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="in">        variable  `changed` to `True`, then click the run button.</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="in">changed = False</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="in">mo.accordion(</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="in">    {</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="in">        "Tip: execution order": (</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="in">            The order of cells on the page has no bearing on</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="in">            the order in which cells are executed: marimo knows that a cell</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="in">            reading a variable must run after the cell that  defines it. This</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="in">            frees you to organize your code in the way that makes the most</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="in">            sense for you.</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="in">        )</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>**Global names must be unique.** To enable reactivity, marimo imposes a</span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>constraint on how names appear in cells: no two cells may define the same</span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>variable.</span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="in">mo.accordion(</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="in">    {</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="in">        "Tip: encapsulation": (</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="in">            By encapsulating logic in functions, classes, or Python modules,</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a><span class="in">            you can minimize the number of global variables in your notebook.</span></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="in">        )</span></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a><span class="in">mo.accordion(</span></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="in">    {</span></span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="in">        "Tip: private variables": (</span></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="in">            Variables prefixed with an underscore are "private" to a cell, so</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="in">            they can be defined by multiple cells.</span></span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a><span class="in">            """</span></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a><span class="in">        )</span></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. UI elements</span></span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>Cells can output interactive UI elements. Interacting with a UI</span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>element **automatically triggers notebook execution**: when</span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a>you interact with a UI element, its value is sent back to Python, and</span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>every cell that references that element is re-run.</span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>marimo provides a library of UI elements to choose from under</span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a><span class="in">`marimo.ui`</span>.</span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>**🌊 Some UI elements.** Try interacting with the below elements.</span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a><span class="in">icon = mo.ui.dropdown(["🍃", "🌊", "✨"], value="🍃")</span></span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a><span class="in">repetitions = mo.ui.slider(1, 16, label=f"number of {icon.value}: ")</span></span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a><span class="in">icon, repetitions</span></span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a><span class="in">mo.md("# " + icon.value * repetitions.value)</span></span>
+<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. marimo is just Python</span></span>
+<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a>marimo cells parse Python (and only Python), and marimo notebooks are</span>
+<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a>stored as pure Python files — outputs are _not_ included. There's no</span>
+<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a>magical syntax.</span>
+<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a>The Python files generated by marimo are:</span>
+<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>easily versioned with git, yielding minimal diffs</span>
+<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>legible for both humans and machines</span>
+<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>formattable using your tool of choice,</span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>usable as Python  scripts, with UI  elements taking their default</span>
+<span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a>values, and</span>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>importable by other modules (more on that in the future).</span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4. Running notebooks as apps</span></span>
+<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a>marimo notebooks can double as apps. Click the app window icon in the</span>
+<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a>bottom-left to see this notebook in "app view."</span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a>Serve a notebook as an app with <span class="in">`marimo run`</span> at the command-line.</span>
+<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a>Of course, you can use marimo just to level-up your</span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a>notebooking, without ever making apps.</span>
+<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## 5. The `marimo` command-line tool</span></span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a>**Creating and editing notebooks.** Use</span>
+<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a><span class="in">marimo edit</span></span>
+<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a>in a terminal to start the marimo notebook server. From here</span>
+<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a>you can create a new notebook or edit existing ones.</span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a>**Running as apps.** Use</span>
+<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a><span class="in">marimo run notebook.py</span></span>
+<span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a>to start a webserver that serves your notebook as an app in read-only mode,</span>
+<span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a>with code cells hidden.</span>
+<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a>**Convert a Jupyter notebook.** Convert a Jupyter notebook to a marimo</span>
+<span id="cb5-216"><a href="#cb5-216" aria-hidden="true" tabindex="-1"></a>notebook using <span class="in">`marimo convert`</span>:</span>
+<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a><span class="in">marimo convert your_notebook.ipynb &gt; your_app.py</span></span>
+<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a>**Tutorials.** marimo comes packaged with tutorials:</span>
+<span id="cb5-221"><a href="#cb5-221" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`dataflow`</span>: more on marimo's automatic execution</span>
+<span id="cb5-222"><a href="#cb5-222" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ui`</span>: how to use UI elements</span>
+<span id="cb5-223"><a href="#cb5-223" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`markdown`</span>: how to write markdown, with interpolated values and</span>
+<span id="cb5-224"><a href="#cb5-224" aria-hidden="true" tabindex="-1"></a>   LaTeX</span>
+<span id="cb5-225"><a href="#cb5-225" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`plots`</span>: how plotting works in marimo</span>
+<span id="cb5-226"><a href="#cb5-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fileformat`</span>: how marimo's file format works</span>
+<span id="cb5-227"><a href="#cb5-227" aria-hidden="true" tabindex="-1"></a>Start a tutorial with <span class="in">`marimo tutorial`</span>; for example,</span>
+<span id="cb5-228"><a href="#cb5-228" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-229"><a href="#cb5-229" aria-hidden="true" tabindex="-1"></a><span class="in">marimo tutorial dataflow</span></span>
+<span id="cb5-230"><a href="#cb5-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-231"><a href="#cb5-231" aria-hidden="true" tabindex="-1"></a>In addition to tutorials, we have examples in our</span>
+<span id="cb5-232"><a href="#cb5-232" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">our GitHub repo</span><span class="co">](https://www.github.com/marimo-team/marimo/tree/main/examples)</span>.</span>
+<span id="cb5-233"><a href="#cb5-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a><span class="fu">## 6. The marimo editor</span></span>
+<span id="cb5-235"><a href="#cb5-235" aria-hidden="true" tabindex="-1"></a>Here are some tips to help you get started with the marimo editor.</span>
+<span id="cb5-236"><a href="#cb5-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-237"><a href="#cb5-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-238"><a href="#cb5-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-241"><a href="#cb5-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-242"><a href="#cb5-242" aria-hidden="true" tabindex="-1"></a><span class="in">mo.accordion(tips)</span></span>
+<span id="cb5-243"><a href="#cb5-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-244"><a href="#cb5-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-245"><a href="#cb5-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## Finally, a fun fact</span></span>
+<span id="cb5-246"><a href="#cb5-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-247"><a href="#cb5-247" aria-hidden="true" tabindex="-1"></a>The name "marimo" is a reference to a type of algae that, under</span>
+<span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a>the right conditions, clumps together to form a small sphere</span>
+<span id="cb5-249"><a href="#cb5-249" aria-hidden="true" tabindex="-1"></a>called a "marimo moss ball". Made of just strands of algae, these</span>
+<span id="cb5-250"><a href="#cb5-250" aria-hidden="true" tabindex="-1"></a>beloved assemblages are greater than the sum of their parts.</span>
+<span id="cb5-251"><a href="#cb5-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-252"><a href="#cb5-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-253"><a href="#cb5-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-256"><a href="#cb5-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{marimo}</span></span>
+<span id="cb5-257"><a href="#cb5-257" aria-hidden="true" tabindex="-1"></a><span class="in">tips = {</span></span>
+<span id="cb5-258"><a href="#cb5-258" aria-hidden="true" tabindex="-1"></a><span class="in">    "Saving": (</span></span>
+<span id="cb5-259"><a href="#cb5-259" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-260"><a href="#cb5-260" aria-hidden="true" tabindex="-1"></a><span class="in">        **Saving**</span></span>
+<span id="cb5-261"><a href="#cb5-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-262"><a href="#cb5-262" aria-hidden="true" tabindex="-1"></a><span class="in">        - _Name_ your app using the box at the top of the screen, or</span></span>
+<span id="cb5-263"><a href="#cb5-263" aria-hidden="true" tabindex="-1"></a><span class="in">          with `Ctrl/Cmd+s`. You can also create a named app at the</span></span>
+<span id="cb5-264"><a href="#cb5-264" aria-hidden="true" tabindex="-1"></a><span class="in">          command line, e.g., `marimo edit app_name.py`.</span></span>
+<span id="cb5-265"><a href="#cb5-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-266"><a href="#cb5-266" aria-hidden="true" tabindex="-1"></a><span class="in">        - _Save_ by clicking the save icon on the bottom left, or by</span></span>
+<span id="cb5-267"><a href="#cb5-267" aria-hidden="true" tabindex="-1"></a><span class="in">          inputting `Ctrl/Cmd+s`. By default marimo is configured</span></span>
+<span id="cb5-268"><a href="#cb5-268" aria-hidden="true" tabindex="-1"></a><span class="in">          to autosave.</span></span>
+<span id="cb5-269"><a href="#cb5-269" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-270"><a href="#cb5-270" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
+<span id="cb5-271"><a href="#cb5-271" aria-hidden="true" tabindex="-1"></a><span class="in">    "Running": (</span></span>
+<span id="cb5-272"><a href="#cb5-272" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-273"><a href="#cb5-273" aria-hidden="true" tabindex="-1"></a><span class="in">        1. _Run a cell_ by clicking the play ( ▷ ) button on the bottom</span></span>
+<span id="cb5-274"><a href="#cb5-274" aria-hidden="true" tabindex="-1"></a><span class="in">        right of a cell, or by inputting `Ctrl/Cmd+Enter`.</span></span>
+<span id="cb5-275"><a href="#cb5-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-276"><a href="#cb5-276" aria-hidden="true" tabindex="-1"></a><span class="in">        2. _Run a stale cell_  by clicking the yellow run button to the</span></span>
+<span id="cb5-277"><a href="#cb5-277" aria-hidden="true" tabindex="-1"></a><span class="in">        right of the cell, or by inputting `Ctrl/Cmd+Enter`. A cell is</span></span>
+<span id="cb5-278"><a href="#cb5-278" aria-hidden="true" tabindex="-1"></a><span class="in">        stale when its code has been modified but not run.</span></span>
+<span id="cb5-279"><a href="#cb5-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-280"><a href="#cb5-280" aria-hidden="true" tabindex="-1"></a><span class="in">        3. _Run all stale cells_ by clicking the play ( ▷ ) button on</span></span>
+<span id="cb5-281"><a href="#cb5-281" aria-hidden="true" tabindex="-1"></a><span class="in">        the bottom right of the screen, or input `Ctrl/Cmd+Shift+r`.</span></span>
+<span id="cb5-282"><a href="#cb5-282" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-283"><a href="#cb5-283" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
+<span id="cb5-284"><a href="#cb5-284" aria-hidden="true" tabindex="-1"></a><span class="in">    "Console Output": (</span></span>
+<span id="cb5-285"><a href="#cb5-285" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-286"><a href="#cb5-286" aria-hidden="true" tabindex="-1"></a><span class="in">        Console output (e.g., `print()` statements) is shown below a</span></span>
+<span id="cb5-287"><a href="#cb5-287" aria-hidden="true" tabindex="-1"></a><span class="in">        cell.</span></span>
+<span id="cb5-288"><a href="#cb5-288" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-289"><a href="#cb5-289" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
+<span id="cb5-290"><a href="#cb5-290" aria-hidden="true" tabindex="-1"></a><span class="in">    "Creating, Moving, and Deleting Cells": (</span></span>
+<span id="cb5-291"><a href="#cb5-291" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-292"><a href="#cb5-292" aria-hidden="true" tabindex="-1"></a><span class="in">        1. _Create_ a new cell above or below a given one by clicking</span></span>
+<span id="cb5-293"><a href="#cb5-293" aria-hidden="true" tabindex="-1"></a><span class="in">            the plus button to the left of the cell, which appears on</span></span>
+<span id="cb5-294"><a href="#cb5-294" aria-hidden="true" tabindex="-1"></a><span class="in">            mouse hover.</span></span>
+<span id="cb5-295"><a href="#cb5-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-296"><a href="#cb5-296" aria-hidden="true" tabindex="-1"></a><span class="in">        2. _Move_ a cell up or down by dragging on the handle to the </span></span>
+<span id="cb5-297"><a href="#cb5-297" aria-hidden="true" tabindex="-1"></a><span class="in">            right of the cell, which appears on mouse hover.</span></span>
+<span id="cb5-298"><a href="#cb5-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-299"><a href="#cb5-299" aria-hidden="true" tabindex="-1"></a><span class="in">        3. _Delete_ a cell by clicking the trash bin icon. Bring it</span></span>
+<span id="cb5-300"><a href="#cb5-300" aria-hidden="true" tabindex="-1"></a><span class="in">            back by clicking the undo button on the bottom right of the</span></span>
+<span id="cb5-301"><a href="#cb5-301" aria-hidden="true" tabindex="-1"></a><span class="in">            screen, or with `Ctrl/Cmd+Shift+z`.</span></span>
+<span id="cb5-302"><a href="#cb5-302" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-303"><a href="#cb5-303" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
+<span id="cb5-304"><a href="#cb5-304" aria-hidden="true" tabindex="-1"></a><span class="in">    "Disabling Cells": (</span></span>
+<span id="cb5-305"><a href="#cb5-305" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-306"><a href="#cb5-306" aria-hidden="true" tabindex="-1"></a><span class="in">        You can disable a cell via the cell context menu (open it</span></span>
+<span id="cb5-307"><a href="#cb5-307" aria-hidden="true" tabindex="-1"></a><span class="in">        by clicking the icon to the right of a cell). marimo will</span></span>
+<span id="cb5-308"><a href="#cb5-308" aria-hidden="true" tabindex="-1"></a><span class="in">        never run a disabled cell or any cells that depend on it. This</span></span>
+<span id="cb5-309"><a href="#cb5-309" aria-hidden="true" tabindex="-1"></a><span class="in">        can help prevent accidental execution of expensive computations</span></span>
+<span id="cb5-310"><a href="#cb5-310" aria-hidden="true" tabindex="-1"></a><span class="in">        when editing a notebook.</span></span>
+<span id="cb5-311"><a href="#cb5-311" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-312"><a href="#cb5-312" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
+<span id="cb5-313"><a href="#cb5-313" aria-hidden="true" tabindex="-1"></a><span class="in">    "Code Folding": (</span></span>
+<span id="cb5-314"><a href="#cb5-314" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-315"><a href="#cb5-315" aria-hidden="true" tabindex="-1"></a><span class="in">        You can collapse or fold the code in a cell by clicking the arrow</span></span>
+<span id="cb5-316"><a href="#cb5-316" aria-hidden="true" tabindex="-1"></a><span class="in">        icons in the line number column to the left, or by using keyboard</span></span>
+<span id="cb5-317"><a href="#cb5-317" aria-hidden="true" tabindex="-1"></a><span class="in">        shortcuts.</span></span>
+<span id="cb5-318"><a href="#cb5-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-319"><a href="#cb5-319" aria-hidden="true" tabindex="-1"></a><span class="in">        Use the command palette (`Ctrl/Cmd+k`) or a keyboard shortcut to</span></span>
+<span id="cb5-320"><a href="#cb5-320" aria-hidden="true" tabindex="-1"></a><span class="in">        quickly fold or unfold all cells.</span></span>
+<span id="cb5-321"><a href="#cb5-321" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-322"><a href="#cb5-322" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
+<span id="cb5-323"><a href="#cb5-323" aria-hidden="true" tabindex="-1"></a><span class="in">    "Code Formatting": (</span></span>
+<span id="cb5-324"><a href="#cb5-324" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-325"><a href="#cb5-325" aria-hidden="true" tabindex="-1"></a><span class="in">        If you have [black](https://github.com/psf/black) installed, you can format a cell with</span></span>
+<span id="cb5-326"><a href="#cb5-326" aria-hidden="true" tabindex="-1"></a><span class="in">        the keyboard shortcut `Ctrl/Cmd+b`.</span></span>
+<span id="cb5-327"><a href="#cb5-327" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-328"><a href="#cb5-328" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
+<span id="cb5-329"><a href="#cb5-329" aria-hidden="true" tabindex="-1"></a><span class="in">    "Command Palette": (</span></span>
+<span id="cb5-330"><a href="#cb5-330" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-331"><a href="#cb5-331" aria-hidden="true" tabindex="-1"></a><span class="in">        Use `Ctrl/Cmd+k` to open the command palette.</span></span>
+<span id="cb5-332"><a href="#cb5-332" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-333"><a href="#cb5-333" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
+<span id="cb5-334"><a href="#cb5-334" aria-hidden="true" tabindex="-1"></a><span class="in">    "Keyboard Shortcuts": (</span></span>
+<span id="cb5-335"><a href="#cb5-335" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-336"><a href="#cb5-336" aria-hidden="true" tabindex="-1"></a><span class="in">        Click the keyboard button on the bottom left of the screen (or</span></span>
+<span id="cb5-337"><a href="#cb5-337" aria-hidden="true" tabindex="-1"></a><span class="in">        input `Ctrl/Cmd+Shift+h`) to view a list of all keyboard</span></span>
+<span id="cb5-338"><a href="#cb5-338" aria-hidden="true" tabindex="-1"></a><span class="in">        shortcuts.</span></span>
+<span id="cb5-339"><a href="#cb5-339" aria-hidden="true" tabindex="-1"></a><span class="in">        """</span></span>
+<span id="cb5-340"><a href="#cb5-340" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
+<span id="cb5-341"><a href="#cb5-341" aria-hidden="true" tabindex="-1"></a><span class="in">    "Configuration": (</span></span>
+<span id="cb5-342"><a href="#cb5-342" aria-hidden="true" tabindex="-1"></a><span class="in">       """</span></span>
+<span id="cb5-343"><a href="#cb5-343" aria-hidden="true" tabindex="-1"></a><span class="in">       Configure the editor by clicking the gears icon near the top-right</span></span>
+<span id="cb5-344"><a href="#cb5-344" aria-hidden="true" tabindex="-1"></a><span class="in">       of the screen.</span></span>
+<span id="cb5-345"><a href="#cb5-345" aria-hidden="true" tabindex="-1"></a><span class="in">       """</span></span>
+<span id="cb5-346"><a href="#cb5-346" aria-hidden="true" tabindex="-1"></a><span class="in">    ),</span></span>
+<span id="cb5-347"><a href="#cb5-347" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb5-348"><a href="#cb5-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.4.3/dist/main.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.4.3/dist/style.css" rel="stylesheet" crossorigin="anonymous">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Lora&amp;family=PT+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
-
-<marimo-version data-version="0.4.3" hidden=""></marimo-version>
-<marimo-mode data-mode="island" hidden=""></marimo-mode>
-
-<!-- Required to silence marimo expectations, but not actively used
-right now -->
-<marimo-user-config data-config="{}" hidden=""> </marimo-user-config>
-<marimo-app-config data-config="{}"> </marimo-app-config>
 
 
 

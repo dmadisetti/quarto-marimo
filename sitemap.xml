@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>github:dmadisetti/quarto-marimo.git/plots.html</loc>
-    <lastmod>2024-04-24T04:11:02.632Z</lastmod>
+    <loc>github:dmadisetti/quarto-marimo.git/tutorials/for_jupyter_users.html</loc>
+    <lastmod>2024-05-19T19:27:07.012Z</lastmod>
   </url>
   <url>
-    <loc>github:dmadisetti/quarto-marimo.git/island.html</loc>
-    <lastmod>2024-04-23T20:50:17.836Z</lastmod>
+    <loc>github:dmadisetti/quarto-marimo.git/tutorials/markdown_format.html</loc>
+    <lastmod>2024-05-19T19:34:59.991Z</lastmod>
   </url>
   <url>
-    <loc>github:dmadisetti/quarto-marimo.git/intro.html</loc>
-    <lastmod>2024-04-24T05:30:02.590Z</lastmod>
+    <loc>github:dmadisetti/quarto-marimo.git/tutorials/markdown.html</loc>
+    <lastmod>2024-05-19T19:27:32.747Z</lastmod>
   </url>
   <url>
-    <loc>github:dmadisetti/quarto-marimo.git/ui.html</loc>
-    <lastmod>2024-04-23T20:07:15.990Z</lastmod>
+    <loc>github:dmadisetti/quarto-marimo.git/tutorials/fileformat.html</loc>
+    <lastmod>2024-05-19T19:27:04.600Z</lastmod>
+  </url>
+  <url>
+    <loc>github:dmadisetti/quarto-marimo.git/tutorials/index.html</loc>
+    <lastmod>2024-05-01T20:29:35.265Z</lastmod>
+  </url>
+  <url>
+    <loc>github:dmadisetti/quarto-marimo.git/index.html</loc>
+    <lastmod>2024-05-19T04:42:31.774Z</lastmod>
+  </url>
+  <url>
+    <loc>github:dmadisetti/quarto-marimo.git/tutorials/layout.html</loc>
+    <lastmod>2024-05-19T19:27:20.825Z</lastmod>
+  </url>
+  <url>
+    <loc>github:dmadisetti/quarto-marimo.git/tutorials/plots.html</loc>
+    <lastmod>2024-05-19T19:27:42.208Z</lastmod>
+  </url>
+  <url>
+    <loc>github:dmadisetti/quarto-marimo.git/tutorials/dataflow.html</loc>
+    <lastmod>2024-05-19T19:26:01.172Z</lastmod>
+  </url>
+  <url>
+    <loc>github:dmadisetti/quarto-marimo.git/tutorials/ui.html</loc>
+    <lastmod>2024-05-19T19:27:56.541Z</lastmod>
+  </url>
+  <url>
+    <loc>github:dmadisetti/quarto-marimo.git/tutorials/intro.html</loc>
+    <lastmod>2024-05-19T19:27:11.564Z</lastmod>
   </url>
 </urlset>
