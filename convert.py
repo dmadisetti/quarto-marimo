@@ -4,9 +4,30 @@
 import sys
 import os
 import ast
+import re
 
 from marimo._ast import codegen
+from marimo._cli.ipynb_to_marimo import convert_from_path
 import textwrap
+import tempfile
+
+
+def get_code_guard(code):
+    guard = "```"
+    while guard in code:
+        guard += "`"
+    return guard
+
+
+def format_filename(filename):
+    base_name = os.path.basename(filename)
+    name, ext = os.path.splitext(base_name)
+    if ext in [".ipynb", ".py"]:
+        name = re.sub("[-_]", " ", name)
+        name = name.title()
+    else:
+        name = "Marimo Notebook"
+    return name
 
 
 def const_string(args):
@@ -44,7 +65,11 @@ def get_markdown(cell, code, native_callout=False):
         else:
             return None
         assert value.func.value.id == "mo"
-        md = textwrap.dedent(const_string(value.args))
+        # Dedent behavior is a little different that in marimo js, so handle
+        # accordingly.
+        md = const_string(value.args).split("\n")
+        md = [line.rstrip() for line in md]
+        md = textwrap.dedent(md[0]) + "\n" + textwrap.dedent("\n".join(md[1:]))
         if callout:
             md = f"""
 ::: {{.callout-{callout}}}
@@ -55,20 +80,10 @@ def get_markdown(cell, code, native_callout=False):
         return None
 
 
-def main():
-    if len(sys.argv) < 2 or len(sys.argv) > 3:
-        print("Usage: python script.py <filename> [--native-callout]")
-        sys.exit(1)
-
-    filename = sys.argv[1]
-    if not os.path.isfile(filename):
-        print(f"Error: File '{filename}' does not exist.")
-        sys.exit(1)
-    native_callout = sys.argv[-1] == "--native-callout"
-
+def to_markdown(filename, native_callout=False):
     app = codegen.get_app(filename)
-
-    document = """---
+    document = f"""---
+title: {format_filename(filename)}
 format: html
 filters:
   - marimo/quarto
@@ -77,16 +92,47 @@ filters:
     for cell_data in app._cell_manager.cell_data():
         cell = cell_data.cell
         code = cell_data.code
-        markdown = get_markdown(cell, code, native_callout)
-        if markdown:
-            document += markdown + "\n"
-        else:
-            document += f"""
-```{{marimo}}
+        if cell:
+            markdown = get_markdown(cell, code, native_callout)
+            if markdown:
+                document += markdown + "\n"
+            else:
+                guard = get_code_guard(code)
+                document += f"""
+{guard}{{marimo}}
 {code}
-```
+{guard}
 """
     return document
+
+
+def main():
+    if len(sys.argv) < 2 or len(sys.argv) > 4:
+        print("Usage: convert <filename> [--to-marimo|--native-callout]?")
+        sys.exit(1)
+
+    filename = sys.argv[1]
+    # Exists captures file descriptors in addition to just files.
+    if not os.path.exists(filename):
+        print(f"Error: File '{filename}' does not exist.")
+        sys.exit(1)
+
+    to_app = "--to-marimo" in sys.argv[2:]
+    native_callout = "--native-callout" in sys.argv[2:]
+
+    if filename.endswith(".py"):
+        assert not to_app, "Cannot convert a Python file to Marimo"
+        return to_markdown(filename, native_callout)
+
+    # Fallback to ipynb or whatever else marimo can do
+    app = convert_from_path(filename)
+    if to_app:
+        return app
+    # marimo requires a file for parsing.
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".py") as f:
+        f.write(app)
+        f.seek(0)
+        return to_markdown(f.name, native_callout)
 
 
 if __name__ == "__main__":

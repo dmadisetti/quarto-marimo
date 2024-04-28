@@ -1,5 +1,5 @@
 ---
-title: UI Elements
+title: Ui
 format: html
 filters:
   - marimo/quarto
@@ -12,6 +12,7 @@ support for interactive user interface (UI) elements: interacting
 with a UI element will automatically run cells that reference it.
 
 ## `marimo.ui`
+
 
 ```{marimo}
 slider = mo.ui.slider(start=1, stop=10, step=1)
@@ -32,8 +33,8 @@ mo.md(f"and here's its value: **{slider.value}**.")
 
 ### How interactions run cells
 
-Whenever you interact with a UI element, its value is sent back to 
-Python. When this happens, all cells that reference the global variable 
+Whenever you interact with a UI element, its value is sent back to
+Python. When this happens, all cells that reference the global variable
 bound to the UI element, but don't define it, will run.
 
 This simple rule lets you use UI elements to
@@ -121,6 +122,7 @@ documentation(composite_elements.value)
 ```
 ## State
 
+
 ```{marimo}
 mo.md(
     """
@@ -130,21 +132,21 @@ mo.md(
     to return here later, if or when you find yourself
     limited in building interactive stateful apps.
     """
-).callout("warn")
+).callout(kind="warn")
 ```
 
 You can build powerful interactive notebooks and apps using just
 `mo.ui` and reactivity.
 
-Sometimes, however, you might want interactions to mutate **state**. 
+Sometimes, however, you might want interactions to mutate **state**.
 Maybe you're building a checklist, and you want to maintain a list
-of action items. Or maybe you want to tie two different UI elements, so 
-that updating one updates the other. 
+of action items. Or maybe you want to tie two different UI elements, so
+that updating one updates the other.
 
 For these and other cases, marimo provides the function `mo.state`, which
-creates state returns a getter function and a setter function. When you 
-call the setter function in one cell, all other 
-cells that reference the getter via a global variable are automatically 
+creates state returns a getter function and a setter function. When you
+call the setter function in one cell, all other
+cells that reference the getter via a global variable are automatically
 run (similar to UI elements).
 
 
@@ -205,17 +207,17 @@ mo.md(
 Set an element's state by calling its setter function.
 
 - Call it with a new value: `set_counter(1)`
-- Call it with a function that takes the current value and returns a new 
+- Call it with a function that takes the current value and returns a new
   one: `set_counter(lambda count: count + 1)`
 
 **State updates are reactive.** When you call a state's setter in one
-cell, _all other cells that reference the state getter via a global 
+cell, _all other cells that reference the state getter via a global
 variable_ are automatically
 run with the new state value. This is similar to how interacting with
 a UI element automatically runs all cells that use the element.
 
 
-**The `on_change` callback.** Every UI element takes an optional 
+**The `on_change` callback.** Every UI element takes an optional
 `on_change` callback, a function
 that takes the new value of the element and does anything with it. You can
 use the setter function in an `on_change` callback to mutate state.
@@ -263,6 +265,7 @@ mo.accordion(
 )
 ```
 ### Tied elements
+
 
 Use state to tie two UI elements to the same value.
 
@@ -375,7 +378,7 @@ mo.as_html(task_list) if task_list.value else mo.md("No tasks! 🎉")
 
 ## Appendix
 The remaining cells are helper data structures and functions.
-You can look at their code if you're curious how certain parts of this 
+You can look at their code if you're curious how certain parts of this
 tutorial were implemented.
 
 
@@ -407,6 +410,7 @@ basic_ui_elements = mo.ui.dropdown(
                 "multiselect": mo.ui.multiselect,
                 "number": mo.ui.number,
                 "radio": mo.ui.radio,
+                "range_slider": mo.ui.range_slider,
                 "slider": mo.ui.slider,
                 "switch": mo.ui.switch,
                 "tabs": mo.ui.tabs,
@@ -420,7 +424,6 @@ basic_ui_elements = mo.ui.dropdown(
 ```
 
 ```{marimo}
-# FIXME: Dedent hack
 def construct_element(value):
     if value == mo.ui.array:
         return mo.ui.array(
@@ -467,6 +470,8 @@ def construct_element(value):
         return mo.ui.number(start=1, stop=10, step=0.5)
     elif value == mo.ui.radio:
         return mo.ui.radio(["a", "b", "c"], value="a")
+    elif value == mo.ui.range_slider:
+        return mo.ui.range_slider(start=1, stop=10, step=0.5)
     elif value == mo.ui.slider:
         return mo.ui.slider(start=1, stop=10, step=0.5)
     elif value == mo.ui.switch:
@@ -500,14 +505,12 @@ def construct_element(value):
 ```
 
 ```{marimo}
-# FIXME: Dedent hack
 def show_element(element):
     if element is not None:
         return mo.hstack([element], "center")
 ```
 
 ```{marimo}
-# FIXME: Dedent hack
 def value(element):
     if element is not None:
         v = (
@@ -523,7 +526,6 @@ def value(element):
 ```
 
 ```{marimo}
-# FIXME: Dedent hack
 def documentation(element):
     if element is not None:
         return mo.accordion(

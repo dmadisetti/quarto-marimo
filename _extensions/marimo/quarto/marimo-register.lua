@@ -1,14 +1,16 @@
-local file_path = debug.getinfo(1, "S").source:sub(2)
-local file_dir = file_path:match("(.*[/\\])")
-local endpoint_script = file_dir .. "endpoint.py"
 local missingMarimoCell = true
+local from_endpoint = require 'marimo-utils'.endpoint_fn(quarto.doc)
+local default_meta = {}
 
-function from_endpoint(endpoint, text)
-  text = text or ""
-  return pandoc.pipe("python", {endpoint_script, key, endpoint}, text)
+-- Meta runs prior to CodeBlock, so we pass on info in Pandoc
+function Meta(meta)
+  if meta.execute == nil then
+    return
+  end
+  for key, value in pairs(meta.execute) do
+    default_meta[key] = value
+  end
 end
-
-key = quarto.doc.input_file
 
 -- Hook functions to pandoc
 function CodeBlock(el)
@@ -23,14 +25,13 @@ end
 
 function Pandoc(doc)
 
-  -- Do not attach webR as the page lacks any active webR cells
+  -- If no marimo cell is found, return the document as is.
   if missingMarimoCell then
     return doc
   end
 
   -- Set the marimo app runnning after each cell
   -- is visited and we have collected all the content.
-  from_endpoint("execute")
-
+  from_endpoint("execute", quarto.json.encode(default_meta))
   return doc
 end

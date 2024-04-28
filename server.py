@@ -3,23 +3,12 @@
 
 from flask import Flask, request, jsonify
 
+import sys
 import re
 import os
-import tempfile
-import urllib.parse
+import json
 
-from marimo._ast import codegen
-from marimo._ast.cell import CellConfig
-
-from marimo._output.formatters.formatters import (
-    register_formatters,
-)
-from marimo._output.formatting import try_format
-import marimo as mo
-
-from marimo import (
-    experimental_MarimoIslandGenerator as MarimoIslandGenerator
-)
+from marimo import experimental_MarimoIslandGenerator as MarimoIslandGenerator
 
 import asyncio
 
@@ -31,6 +20,35 @@ app = Flask(__name__)
 # Just need globals
 stubs = {}
 apps = {}
+options = {}
+
+# See https://quarto.org/docs/computations/execution-options.html
+default_config = {
+    "eval": True,
+    "echo": False,
+    "output": True,
+    "warning": True,
+    "error": True,
+    "include": True,
+    # Particular to marimo
+    "editor": False,
+}
+
+
+def extract_and_strip_quarto_config(block):
+    pattern = r"^\s*\#\|\s*(.*?)\s*:\s*(.*?)(?=\n|\Z)"
+    config = {}
+    lines = block.split("\n")
+    for i, line in enumerate(lines):
+        line = line.strip()
+        if not line:
+            continue
+        source_match = re.search(pattern, line)
+        if not source_match:
+            break
+        key, value = source_match.groups()
+        config[key] = json.loads(value)
+    return config, "\n".join(lines[i:])
 
 
 @app.route("/run", methods=["POST"])
@@ -42,12 +60,19 @@ def run():
     app_id = data.get("app", None).strip()
 
     if app_id not in apps:
-      apps[app_id] = MarimoIslandGenerator()
+        apps[app_id] = MarimoIslandGenerator()
 
     if code is None or key is None:
         return jsonify({"error": "No code provided"}), 400
 
-    stubs[key] = apps[app_id].add_code(code)
+    config, code = extract_and_strip_quarto_config(code)
+    stubs[key] = (
+        config,
+        apps[app_id].add_code(
+            code,
+            is_raw=True,
+        ),
+    )
     return ""
 
 
@@ -55,40 +80,82 @@ def run():
 def lookup():
     data = request.get_json()
     key = data.get("key", None).strip()
+    mime_sensitive = data.get("mime_sensitive", False)
+    app_id = data.get("app", None).strip()
     if key is None or key not in stubs:
         return jsonify({"type": "html", "value": "error: No key provided"}), 400
 
-    response = stubs[key].render()
+    config, stub = stubs[key]
+    global_options = options.get(app_id, {})
+    # Local supersede global supersedes default options
+    config = {**default_config, **global_options, **config}
+    if not config["include"]:
+        return jsonify({"type": "html", "value": ""})
+
     del stubs[key]
-    return jsonify({"type": "html", "value": response})
+    output = stub.output
+    render_options = {
+        "display_code": config["echo"],
+        "reactive": config["eval"] and not mime_sensitive,
+        "code": stub.code,
+    }
+    if config["output"] and mime_sensitive:
+        if output.mimetype.startswith("image"):
+            return jsonify({"type": "figure", "value": f"{output.data}"} | render_options)
+        if output.mimetype.startswith("text/plain"):
+            return jsonify({"type": "para", "value": f"{output.data}"} | render_options)
+        if output.mimetype == "application/vnd.marimo+error":
+            if config["error"]:
+                return jsonify({"type": "blockquote", "value": f"{output.data}"} | render_options)
+            # Suppress errors otherwise
+            return jsonify({"type": "para", "value": ""} | render_options)
 
-    ## TODO: Add back mimetype switching
-    # data = lookups[key]
-    # # output = try_format(data)
-    # # Ideally handle this client side, but just a sanity check
-    # if output.mimetype == "image/png":
-    #     return jsonify({"type": "figure", "value": f"{output.data}"})
+    elif output.mimetype == "application/vnd.marimo+error":
+        if config["warning"]:
+            print("Error", output.data, file=sys.stderr)
+        if not config["error"]:
+            return jsonify({"type": "html", "value": ""})
 
-    # # Default to whatever the output was, assuming html
-    # return jsonify({"type": "html", "value": f"{mo.as_html(data)}"})
+    # HTML as catch all default
+    return jsonify(
+        {
+            "type": "html",
+            "value": stub.render(
+                display_code=config["echo"],
+                display_output=config["output"],
+                is_reactive=render_options["reactive"],
+            ),
+        } | render_options
+    )
 
 
 @app.route("/execute", methods=["POST"])
 def execute():
     data = request.get_json()
     app_id = data.get("app", None).strip()
-    app = asyncio.run(apps[app_id].build())
+    options[app_id] = data.get("options", {})
+    _ = asyncio.run(apps[app_id].build())
     return ""
 
 
-@app.route("/assets", methods=["POST"])
+@app.route("/assets-and-flush", methods=["POST"])
 def assets():
     data = request.get_json()
     app_id = data.get("app", None).strip()
     dev_server = os.environ.get("QUARTO_MARIMO_DEBUG_ENDPOINT")
-    header = apps[app_id].render_head(_development_url=dev_server)
+    header = apps[app_id].render_head(
+        _development_url=dev_server, version_override="0.4.9-dev1"
+    )
     del apps[app_id]
     return header
+
+
+@app.route("/flush", methods=["POST"])
+def flush():
+    data = request.get_json()
+    app_id = data.get("app", None).strip()
+    del apps[app_id]
+    return ""
 
 
 if __name__ == "__main__":

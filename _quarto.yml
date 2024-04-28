@@ -1,26 +1,42 @@
 project:
   type: website
   output-dir: _site
+  preview:
+    port: 7777
 
 website:
   title: "marimo-quarto"
   page-navigation: true
   back-to-top-navigation: true
   open-graph: true
+  site-path: /marimo-quarto/
   sidebar:
     title: false
     style: "docked"
     search: true
     background: "#f8f9fa"
+    id: get-started
     contents:
-    - href: intro.qmd
-    - href: plots.qmd
-    - href: ui.qmd
+      - href: index.qmd
+        id: guide
+      - section: "Tutorials"
+        href: tutorials/index.qmd
+        title: Tutorials
+        contents:
+          - href: tutorials/intro.qmd
+          - href: tutorials/dataflow.qmd
+          - href: tutorials/ui.qmd
+          - href: tutorials/markdown.qmd
+          - href: tutorials/plots.qmd
+          - href: tutorials/layout.qmd
+          - href: tutorials/fileformat.qmd
+          - href: tutorials/marimo_for_jupyter_users.qmd
+      - href: tutorials/island.qmd
+      - href: tutorials/example-pdf.qmd
 
 format:
   html:
-    theme: cosmo
-    css: _quarto.css
+    theme: zephyr
     toc: true
     code-tools: true
     code-fold: true

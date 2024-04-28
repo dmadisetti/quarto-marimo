@@ -1,14 +1,6 @@
-local file_path = debug.getinfo(1, "S").source:sub(2)
-local file_dir = file_path:match("(.*[/\\])")
-local endpoint_script = file_dir .. "endpoint.py"
 local missingMarimoCell = true
-
--- needs to be unique to process
-key = quarto.doc.input_file
-function from_endpoint(endpoint, text)
-  text = text or ""
-  return pandoc.pipe("python", {endpoint_script, key, endpoint}, text)
-end
+local from_endpoint = require 'marimo-utils'.endpoint_fn(quarto.doc)
+local is_mime_sensitive = require 'marimo-utils'.is_mime_sensitive(quarto.doc)
 
 -- Hook functions to pandoc
 function CodeBlock(el)
@@ -16,12 +8,36 @@ function CodeBlock(el)
       missingMarimoCell = false
       cell_output = from_endpoint("lookup", el.text)
       cell_table = quarto.json.decode(cell_output)
-      if cell_table.type == "figure" then
-        -- for latex/pdf, has to be run with --extract-media=media flag
-        -- can also set this in qmd header
-        image = pandoc.Image("Generated Figure", cell_table.value)
-        return pandoc.Figure(pandoc.Para{image})
+
+      -- A type will be returned if the output type is mime sensitive (e.g. pdf,
+      -- or latex).
+      if is_mime_sensitive then
+        local response = {} -- empty
+        if cell_table.display_code then
+          table.insert(response, pandoc.CodeBlock(cell_table.code, "python"))
+        end
+
+        if cell_table.type == "figure" then
+          -- for latex/pdf, has to be run with --extract-media=media flag
+          -- can also set this in qmd header
+          image = pandoc.Image("Generated Figure", cell_table.value)
+          table.insert(response, pandoc.Figure(pandoc.Para{image}))
+          return response
+        end
+        if cell_table.type == "para" then
+          table.insert(response, pandoc.Para(cell_table.value))
+          return response
+        end
+        if cell_table.type == "blockquote" then
+          table.insert(response, pandoc.BlockQuote(cell_table.value))
+          return response
+        end
+        local code_block = response[1]
+        response = pandoc.read(cell_table.value, cell_table.type).blocks
+        table.insert(response, code_block)
+        return response
       end
+
       return pandoc.RawBlock(cell_table.type, cell_table.value)
   end
 end
@@ -36,12 +52,9 @@ function Pandoc(doc)
 
   -- Don't add assets to non-html documents
   if not quarto.doc.is_format("html") then
+    from_endpoint("flush")
     return doc
   end
-
-  quarto.doc.include_text(
-      "in-header",
-      "<base href='/' />")
 
   -- For local testing we can connect to the frontend webserver
   local dev_server = os.getenv("QUARTO_MARIMO_DEBUG_ENDPOINT")
@@ -58,9 +71,9 @@ function Pandoc(doc)
   end
 
   -- Web assets, seems best way
-  assets = from_endpoint("assets")
+  assets = from_endpoint("assets-and-flush")
   quarto.doc.include_text(
-    "after-body", assets
+    "in-header", assets
   )
   return doc
 end

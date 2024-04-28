@@ -1,0 +1,100 @@
+---
+title: PDF example
+format: pdf
+filters:
+  - marimo/quarto
+extract-media: _site/media
+---
+
+# PDF Output
+
+```{marimo}
+check = """
+Quarto can handle images and tables in PDF output, but not rich HTML outputs.
+Here's an example of what can be acccomplished with the `marimo` exports to pdf.
+"""
+
+if missing_packages:
+  check = """
+Normally you would see plots and tables in this pdf, but the required packages are not installed.
+"""
+
+check
+```
+
+## Images
+
+We can still do plots!
+
+```python3
+# create the plot in the last line of the cell
+import matplotlib.pyplot as plt
+plt.plot([1, 2])
+```
+
+```{marimo}
+plt.plot([1, 2])
+plt.gca()
+```
+
+## Tables
+
+We can also do tables!
+
+```python3
+import pandas as pd
+df = pd.DataFrame({
+    'A': [1, 2, 3],
+    'B': [4, 5, 6]
+})
+df
+```
+
+```{marimo}
+df = pd.DataFrame({
+    'A': [1, 2, 3],
+    'B': [4, 5, 6]
+})
+df
+```
+
+## Text / Markdown
+
+```{marimo}
+f"""You can also include text or markdown in the PDF output.
+Which can be useful for embedding computed values like the fact
+that this was rendered by Marimo {mo.__version__} on {datetime.datetime.now()}.
+"""
+```
+
+
+```{marimo}
+plt_show_explainer = {
+    "Using `plt.show()`": """
+    You can use `plt.show()` or `figure.show()` to display
+    plots in the console area of a cell. Keep in mind that console
+    outputs are not shown in the app view.
+    """
+}
+```
+
+
+```{marimo}
+try:
+    import matplotlib
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import pandas as pd
+    import datetime
+    missing_packages = False
+except ModuleNotFoundError:
+    missing_packages = True
+
+if not missing_packages:
+    matplotlib.rcParams['figure.figsize'] = (6, 2.4)
+```
+
+
+```{marimo}
+import marimo as mo
+```

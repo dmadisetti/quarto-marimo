@@ -1,0 +1,25 @@
+---
+title: marimo tutorials
+format: html
+filters:
+  - marimo/quarto
+---
+
+Open a tutorial.
+
+marimo is a powerful library for making reactive notebooks and apps. To get
+the most out of marimo, get started with a few tutorials, starting with the
+intro:
+
+        marimo tutorial intro
+
+Recommended sequence:
+
+- [intro](intro.html)
+- [dataflow](dataflow.html)
+- [ui](ui.html)
+- [markdown](markdown.html)
+- [plots](plots.html)
+- [layout](layout.html)
+- [fileformat](fileformat.html)
+- [for-jupyter-users](marimo_for_jupyter_users.html)

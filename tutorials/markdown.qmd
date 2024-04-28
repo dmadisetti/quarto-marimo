@@ -1,0 +1,279 @@
+---
+title: Markdown
+format: html
+filters:
+  - marimo/quarto
+---
+
+# Hello, Markdown!
+
+Use marimo's "`md`" function to embed rich text into your marimo
+apps. This function compiles Markdown into HTML that marimo
+can display.
+
+For example, here's the code that rendered the above title and
+paragraph:
+
+```python3
+mo.md(
+    '''
+    # Hello, Markdown!
+
+    Use marimo's "`md`" function to embed rich text into your marimo
+    apps. This function compiles your Markdown into HTML that marimo
+    can display.
+    '''
+)
+```
+
+
+## LaTeX
+You can embed LaTeX in Markdown.
+
+For example,
+
+```python3
+mo.md(r'$f : \mathbf{R} \to \mathbf{R}$')
+```
+
+renders $f : \mathbf{R} \to \mathbf{R}$, while
+
+```python3
+mo.md(
+    r'''
+    \[
+    f: \mathbf{R} \to \mathbf{R}
+    \]
+    '''
+)
+```
+
+renders the display math
+
+\[
+f: \mathbf{R} \to \mathbf{R}.
+\]
+
+
+```{marimo}
+mo.accordion(
+    {
+        "Tip: `r''` strings": mo.md(
+            "Use `r''` strings to remove the need to escape backslashes"
+            " when writing LaTeX."
+        )
+    }
+)
+```
+
+## Interpolating Python values
+
+You can interpolate Python values into markdown using
+`f-strings` and marimo's ` as_html` function. This lets you create
+markdown whose contents depend on data that changes at runtime.
+
+Here are some examples.
+
+
+````{marimo}
+def _sine_plot():
+    if not numpy_installed:
+        return missing_numpy_msg
+    if not matplotlib_installed:
+        return missing_matplotlib_msg
+    _x = np.linspace(start=0, stop=2 * np.pi)
+    plt.plot(_x, np.sin(_x))
+    return plt.gca()
+
+
+mo.md(
+    f"""
+    ### Plots
+    A matplotlib figure:
+
+    ```python3
+    _x = np.linspace(start=0, stop=2*np.pi)
+    sine_plot = plt.plot(_x, np.sin(_x))
+    mo.md(f"{{mo.as_html(sine_plot)}}")
+    ```
+    yields
+
+    {mo.as_html(_sine_plot())}
+    """
+)
+````
+
+````{marimo}
+leaves = mo.ui.slider(1, 32, label="🍃: ")
+
+mo.md(
+    f"""
+    ### UI elements
+
+    A `marimo.ui` object:
+
+    ```python3
+    leaves = mo.ui.slider(1, 16, label="🍃: ")
+    mo.md(f"{{leaves}}")
+    ```
+
+    yields
+
+    {leaves}
+    """
+)
+````
+
+```{marimo}
+mo.md(f"Your leaves: {'🍃' * leaves.value}")
+```
+
+```{marimo}
+mo.accordion(
+    {
+        "Tip: UI elements can format themselves": """
+        marimo objects know how to format themselves, so you can omit the 
+        call to `as_html`.
+        """
+    }
+)
+```
+
+```{marimo}
+def make_dataframe():
+    try:
+        import pandas as pd
+    except ModuleNotFoundError:
+        return mo.md("Oops! Looks like you don't have `pandas` installed.")
+
+    if not numpy_installed:
+        return missing_numpy_msg
+
+    x = np.linspace(0, 2 * np.pi, 10)
+    y = np.sin(x)
+    return pd.DataFrame({"x": x, "sin(x)": y})
+
+
+mo.md(
+    f"""
+    ### Other objects
+
+    Use `mo.as_html` to convert objects to HTML. This function
+    generates rich HTML for many Python types, including:
+
+    - lists, dicts, and tuples,
+    - `pandas` dataframes and series,
+    - `seaborn` figures,
+    - `plotly` figures, and
+    - `altair` figures.
+
+    For example, here's a pandas dataframe:
+
+    {mo.as_html(make_dataframe())}
+    """
+)
+```
+
+```{marimo}
+mo.accordion(
+    {
+        "Tip: outputs are automatically converted to HTML": """
+        `mo.as_html` is only needed when interpolating objects into 
+        markdown; the last expression of a cell (its output) is 
+        converted to HTML automatically.
+        """
+    }
+)
+```
+
+## Putting it all together
+
+Here's a more interesting example that puts together
+everything we've learned: rendering markdown with LaTeX that depends on
+the values of Python objects.
+
+
+```{marimo}
+amplitude = mo.ui.slider(1, 2, step=0.1, label="amplitude: ")
+period = mo.ui.slider(
+    math.pi / 4,
+    4 * math.pi,
+    value=2 * math.pi,
+    step=math.pi / 8,
+    label="period: ",
+)
+```
+
+```{marimo}
+import functools
+
+
+@functools.cache
+def plotsin(amplitude, period):
+    if not numpy_installed:
+        return missing_numpy_msg
+    elif not matplotlib_installed:
+        return missing_matplotlib_msg
+    x = np.linspace(0, 2 * np.pi, 256)
+    plt.plot(x, amplitude * np.sin(2 * np.pi / period * x))
+    plt.ylim(-2.2, 2.2)
+    return plt.gca()
+```
+
+```{marimo}
+mo.md(
+    f"""
+
+      **A sin curve.**
+
+      - {amplitude}
+      - {period}
+      """
+)
+```
+
+```{marimo}
+mo.md(
+    rf"""
+
+    You're viewing the graph of
+
+    \[
+    f(x) = {amplitude.value}\sin((2\pi/{period.value:0.2f})x),
+    \]
+
+    with $x$ ranging from $0$ to $2\pi$.
+    {mo.as_html(plotsin(amplitude.value, period.value))}
+    """
+)
+```
+
+```{marimo}
+matplotlib_installed = False
+numpy_installed = False
+missing_numpy_msg = mo.md("Oops! Looks like you don't have `numpy` installed.")
+missing_matplotlib_msg = mo.md(
+    "Oops! Looks like you don't have `matplotlib` installed."
+)
+
+try:
+    import matplotlib.pyplot as plt
+
+    matplotlib_installed = True
+except ModuleNotFoundError:
+    pass
+
+try:
+    import numpy as np
+
+    numpy_installed = True
+except ModuleNotFoundError:
+    pass
+```
+
+```{marimo}
+import math
+
+import marimo as mo
+```
+
