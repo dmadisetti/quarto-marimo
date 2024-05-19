@@ -14,7 +14,7 @@ This repository provides a framework for integrating
 enabling markdown documents to be executed in a `marimo` environment, and
 reactive in page.
 
-```{marimo}
+```{.python.marimo}
 #| echo: true
 # Woops, I think I inverted the default such that every editor cell is runnable.
 # See last cell for bug
@@ -59,7 +59,7 @@ result,
 
 produces the following output:
 
-```{marimo}
+```{.python.marimo}
 print("remember that stdout is not shown")
 result = "Only outputs!"
 result,
@@ -77,7 +77,7 @@ editor_result,
 ```
 ````
 
-```{marimo}
+```{.python.marimo}
 #| echo: true
 editor_result = "Change me" + ("!" * 3)
 editor_result,
@@ -87,7 +87,7 @@ but the default is to show the output only.
 
 ---
 
-```{marimo}
+```{.python.marimo}
 mo.md(
   f"The value of `editor_result` in the previous cell: **{editor_result}**")
 ```
@@ -102,7 +102,7 @@ Use the repo and do some reading! This documentation is TODO.
 
 ## Background cells shown for illustration
 
-```{marimo}
+```{.python.marimo}
 #| echo: true
 # Bug: Cells are not runnable if no output
 import marimo as mo
