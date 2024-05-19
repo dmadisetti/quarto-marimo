@@ -10,26 +10,22 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-        python = pkgs.python3.withPackages (ps: with ps; [ jupyter ]);
+        python = pkgs.python3.withPackages (ps: with ps; [ ]);
+        marimoQuarto = { tex ? false, ... }@opts:
+          pkgs.writeShellScriptBin ''marimo-quarto${if tex then "-tex" else ""}'' (''
+            PATH_EXTRA=${
+            if tex then "${pkgs.texliveFull}/bin" else ""
+          } ${run}/bin/run $@'');
+        run = pkgs.writeShellScriptBin "run" ''
+          PATH=$PATH:${pkgs.toybox}/bin:${python}/bin:${pkgs.quarto}/bin:$PATH_EXTRA $BASH ${pkgs.copyPathToStore ./run.sh} $@
+        '';
       in
       {
         packages = rec {
-          run = pkgs.writeShellScriptBin "run" ''
-            SERVER_SCRIPT=${server}/bin/server \
-            PATH=$PATH:${python}/bin:${pkgs.quarto}/bin:${pkgs.texliveFull}/bin ${./run.sh};
-          '';
-          server = pkgs.writers.writePython3Bin "server"
-            {
-              libraries = with
-                pkgs.python3Packages; [ flask marimo matplotlib ];
-              flakeIgnore = [ "E501" "E265" ];
-            } ./server.py;
-          convert = pkgs.writers.writePython3Bin "convert"
-            {
-              libraries = with
-                pkgs.python3Packages; [ marimo ];
-              flakeIgnore = [ "E265" ];
-            } ./convert.py;
+          inherit run;
+          marimo-quarto = marimoQuarto {};
+          marimo-quarto-tex = marimoQuarto {tex = true;};
+          default = marimo-quarto;
         };
       });
 }

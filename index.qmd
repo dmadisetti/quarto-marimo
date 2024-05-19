@@ -1,0 +1,109 @@
+---
+title: marimo + quarto
+format: html
+filters:
+  - marimo/quarto
+---
+
+# 🟢 🔵 🏝️
+---
+
+
+This repository provides a framework for integrating
+[`Quarto`](https://quarto.org) with [`marimo`](https://marimo.io),
+enabling markdown documents to be executed in a `marimo` environment, and
+reactive in page.
+
+```{.python.marimo}
+#| echo: true
+# Woops, I think I inverted the default such that every editor cell is runnable.
+# See last cell for bug
+mo.md('''
+  # Hello from marimo!
+
+  This is a raw, reactive python cell.
+  You can edit it, and the output will change on run.
+''').callout("info")
+```
+
+## What?
+
+First, aquaint yourself with the [`marimo`](https://marimo.io)! One you've
+digested the basics, and maybe [even written a few `marimo`
+notebooks](https://marimo.app), start to consider the possibilities of exporting
+`marimo` cells to be standalone, Web Assembly modules, embeddable anywhere.
+
+That's where Quarto comes in with the `qmd` format.
+
+`qmd` is a markdown format that allows for the extraction and execution of code
+cells in a markdown document. It's a great way to maintain readable documents
+exportable to a variety of formats, while still being able to execute code.
+
+This page, and the `marimo` tutorials in the sidebar are `qmd` documents, to get
+a sense of what's possible,
+[look at their source](javascript:document.getElementById("quarto-code-tools-source").click()).
+
+## Getting started
+
+Write a `qmd` document with `{marimo}` cells.
+
+For instance the following cell
+
+````python
+```{{marimo}}
+print("remember that stdout is not shown")
+result = "Only outputs!"
+result,
+```
+````
+
+produces the following output:
+
+```{.python.marimo}
+print("remember that stdout is not shown")
+result = "Only outputs!"
+result,
+```
+
+---
+
+We can make it editable:
+
+````python
+```{{marimo}}
+#| editor: true
+editor_result = "Change me" + ("!" * 3)
+editor_result,
+```
+````
+
+```{.python.marimo}
+#| echo: true
+editor_result = "Change me" + ("!" * 3)
+editor_result,
+```
+
+but the default is to show the output only.
+
+---
+
+```{.python.marimo}
+mo.md(
+  f"The value of `editor_result` in the previous cell: **{editor_result}**")
+```
+
+---
+
+Hold `ctrl` to manually run a stale cell.
+
+### but how do I run this?
+
+Use the repo and do some reading! This documentation is TODO.
+
+## Background cells shown for illustration
+
+```{.python.marimo}
+#| echo: true
+# Bug: Cells are not runnable if no output
+import marimo as mo
+```

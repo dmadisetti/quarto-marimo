@@ -1,0 +1,36 @@
+---
+title: Islands
+format: html
+filters:
+  - marimo/quarto
+---
+
+# Islands
+
+
+# **TODO**
+# https://quarto.org/docs/computations/execution-options.html
+
+```{marimo}
+#| echo: true
+#| output: true
+None, 1, 2, 3, 4, 5
+```
+
+```{marimo}
+#| echo: true
+print("Hello, World!")
+```
+
+```{marimo}
+# handle stdout? Food for thought
+print("Hello, World!")
+"Hello, World!"
+```
+
+# Fix dedent
+
+#####################
+
+# Once in
+# intermediate

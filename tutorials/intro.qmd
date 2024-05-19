@@ -1,22 +1,25 @@
 ---
-title: Marimo Tutorial
+title: Intro
 format: html
 filters:
   - marimo/quarto
 ---
 
-# Welcome to marimo! 🌊🍃
+```{marimo}
+import marimo as mo
 
-marimo is a **reactive** Python notebook.
+mo.md("# Welcome to marimo! 🌊🍃")
+```
 
 ```{marimo}
 slider = mo.ui.slider(1, 22)
 ```
 
-
 ```{marimo}
 mo.md(
     f"""
+    marimo is a **reactive** Python notebook.
+
     This means that unlike traditional notebooks, marimo notebooks **run
     automatically** when you modify them or
     interact with UI elements, like this slider: {slider}.
@@ -35,7 +38,6 @@ mo.md(
 ).callout()
 ```
 
-
 ## 1. Reactive execution
 
 A marimo notebook is made up of small blocks of Python code called
@@ -48,6 +50,7 @@ a cell that defines a global variable  is run, marimo
 Reactivity keeps your program state and outputs in sync with your code,
 making for a dynamic programming environment that prevents bugs before they
 happen.
+
 
 ```{marimo}
 (
@@ -78,7 +81,6 @@ happen.
 changed = False
 ```
 
-
 ```{marimo}
 mo.accordion(
     {
@@ -95,10 +97,10 @@ mo.accordion(
 )
 ```
 
-
 **Global names must be unique.** To enable reactivity, marimo imposes a
 constraint on how names appear in cells: no two cells may define the same
 variable.
+
 
 ```{marimo}
 mo.accordion(
@@ -113,7 +115,6 @@ mo.accordion(
 )
 ```
 
-
 ```{marimo}
 mo.accordion(
     {
@@ -126,7 +127,6 @@ mo.accordion(
     }
 )
 ```
-
 ## 2. UI elements
 
 Cells can output interactive UI elements. Interacting with a UI
@@ -137,7 +137,7 @@ every cell that references that element is re-run.
 marimo provides a library of UI elements to choose from under
 `marimo.ui`.
 
-🌊 Some UI elements.** Try interacting with the below elements.
+**🌊 Some UI elements.** Try interacting with the below elements.
 
 
 ```{marimo}
@@ -148,16 +148,13 @@ icon = mo.ui.dropdown(["🍃", "🌊", "✨"], value="🍃")
 repetitions = mo.ui.slider(1, 16, label=f"number of {icon.value}: ")
 ```
 
-
 ```{marimo}
 icon, repetitions
 ```
 
-
 ```{marimo}
 mo.md("# " + icon.value * repetitions.value)
 ```
-
 
 ## 3. marimo is just Python
 
@@ -184,7 +181,6 @@ Serve a notebook as an app with `marimo run` at the command-line.
 Of course, you can use marimo just to level-up your
 notebooking, without ever making apps.
 
-
 ## 5. The `marimo` command-line tool
 
 **Creating and editing notebooks.** Use
@@ -193,13 +189,9 @@ notebooking, without ever making apps.
 marimo edit
 ```
 
-in a terminal to create a new marimo notebook, or
+in a terminal to start the marimo notebook server. From here
+you can create a new notebook or edit existing ones.
 
-```
-marimo edit notebook.py
-```
-
-to create/edit a notebook called `notebook.py`.
 
 **Running as apps.** Use
 
@@ -244,8 +236,6 @@ Here are some tips to help you get started with the marimo editor.
 ```{marimo}
 mo.accordion(tips)
 ```
-
-
 ## Finally, a fun fact
 
 
@@ -253,6 +243,7 @@ The name "marimo" is a reference to a type of algae that, under
 the right conditions, clumps together to form a small sphere
 called a "marimo moss ball". Made of just strands of algae, these
 beloved assemblages are greater than the sum of their parts.
+
 
 ```{marimo}
 tips = {
@@ -294,7 +285,7 @@ tips = {
             the plus button to the left of the cell, which appears on
             mouse hover.
 
-        2. _Move_ a cell up or down by dragging on the handle to the
+        2. _Move_ a cell up or down by dragging on the handle to the 
             right of the cell, which appears on mouse hover.
 
         3. _Delete_ a cell by clicking the trash bin icon. Bring it
@@ -346,9 +337,5 @@ tips = {
        """
     ),
 }
-```
-
-```{marimo}
-import marimo as mo
 ```
 

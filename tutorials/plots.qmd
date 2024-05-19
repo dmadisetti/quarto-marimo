@@ -1,12 +1,11 @@
 ---
-title: Plots PDF example
-format: pdf
+title: Plots
+format: html
 filters:
   - marimo/quarto
-extract-media: _site/media
 ---
-
 # Plotting
+
 
 ```{marimo}
 check_dependencies()
@@ -20,6 +19,7 @@ used similarly.
 
 ## Matplotlib
 
+
 To show a plot, include it in the last expression of a cell (just
 like any other output).
 
@@ -29,9 +29,9 @@ import matplotlib.pyplot as plt
 plt.plot([1, 2])
 ```
 
+
 ```{marimo}
 plt.plot([1, 2])
-plt.gca()
 ```
 
 ```python3
@@ -42,10 +42,12 @@ plt.plot([1, 2])
 plt.gca()
 ```
 
+
 ```{marimo}
 plt.plot([1, 2])
 # ... do some work ...
 # make plt.gca() the last line of the cell
+plt.gca()
 ```
 
 ```{marimo}
@@ -60,7 +62,6 @@ the imperative `pyplot` API.
 x = np.linspace(start=-4, stop=4, num=100, dtype=float)
 ```
 
-
 ```{marimo}
 plt.plot(x, x)
 plt.plot(x, x**2)
@@ -71,7 +72,6 @@ plt.gca()
 plt.plot(x, x**3)
 ```
 
-
 To build a figure over multiple cells, use the object-oriented API and
 create your own axis:
 
@@ -80,14 +80,13 @@ create your own axis:
 _, axis = plt.subplots()
 axis.plot(x, x)
 axis.plot(x, x**2)
+axis
 ```
-
 
 ```{marimo}
 axis.plot(x, x**3)
 axis
 ```
-
 
 ### Draw plots interactively
 
@@ -105,7 +104,6 @@ mo.md(
     """
 )
 ```
-
 
 ```{marimo}
 import functools
@@ -130,16 +128,14 @@ mo.md(
     """
 )
 ```
-
-
 ## Other libraries
 
 
 marimo also supports these other plotting libraries:
 
- - Plotly
- - Seaborn
- - Altair
+- Plotly
+- Seaborn
+- Altair
 
 Just output their figure objects as the last expression of a cell,
 or embed them in markdown with `mo.as_html`.
@@ -148,16 +144,15 @@ If you would like another library to be integrated into marimo, please
 get in touch.
 
 
-
-```{marimo}
+````{marimo}
 module_not_found_explainer = mo.md(
     """
     ## Oops!
 
-    It looks like you're missing a package that this tutorial
+    It looks like you're missing a package that this tutorial 
     requires.
 
-    Close marimo, install **`numpy`** and **`matplotlib`**, then
+    Close marimo, install **`numpy`** and **`matplotlib`**, then 
     open this tutorial once more.
 
     If you use `pip`, run
@@ -173,8 +168,7 @@ module_not_found_explainer = mo.md(
 def check_dependencies():
     if missing_packages:
         return module_not_found_explainer
-```
-
+````
 
 ```{marimo}
 plt_show_explainer = {
@@ -185,7 +179,6 @@ plt_show_explainer = {
     """
 }
 ```
-
 
 ```{marimo}
 try:
@@ -200,7 +193,7 @@ if not missing_packages:
     matplotlib.rcParams['figure.figsize'] = (6, 2.4)
 ```
 
-
 ```{marimo}
 import marimo as mo
 ```
+
