@@ -26,7 +26,7 @@ jobs:
 
       - name: build
         run: |
-          ./run.sh render
+          ./nix-entry.sh render
 
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@releases/v4
