@@ -1,15 +1,16 @@
 ---
 title: Fileformat
+marimo-version: 0.5.2
 format: html
 filters:
   - marimo/quarto
 ---
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.md(intro)
 ```
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.accordion(
     {
         "Tip: hide this tutorial's code": (
@@ -22,11 +23,11 @@ mo.accordion(
 )
 ```
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.md(example_program)
 ```
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.md(file_contents)
 ```
 
@@ -39,12 +40,11 @@ editor, and format the file with your favorite code formatter.
 
 We explain some properties of marimo's file format below.
 
-
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.accordion(properties)
 ```
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 intro = """
 # File Format
 
@@ -59,7 +59,7 @@ These files are:
 """
 ```
 
-````{marimo}
+````{.python.marimo hide_code="true"}
 file_contents = f"""
     For the above example, marimo would generate the following file 
     contents:
@@ -97,7 +97,7 @@ file_contents = f"""
 """
 ````
 
-````{marimo}
+````{.python.marimo hide_code="true"}
 example_program = """
 ## Example
 
@@ -121,7 +121,7 @@ import marimo as mo
 """
 ````
 
-````{marimo}
+````{.python.marimo hide_code="true"}
 properties = {
     "Cells are functions": """
     In the `dataflow` tutorial, we saw that cells are like functions mapping 
@@ -224,7 +224,6 @@ properties = {
 }
 ````
 
-```{marimo}
+```{.python.marimo}
 import marimo as mo
 ```
-

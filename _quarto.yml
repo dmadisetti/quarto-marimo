@@ -30,8 +30,8 @@ website:
           - href: tutorials/plots.qmd
           - href: tutorials/layout.qmd
           - href: tutorials/fileformat.qmd
-          - href: tutorials/marimo_for_jupyter_users.qmd
-      - href: tutorials/island.qmd
+          - href: tutorials/markdown_format.qmd
+          - href: tutorials/for_jupyter_users.qmd
       - href: tutorials/example-pdf.qmd
 
 format:

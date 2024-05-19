@@ -1,5 +1,6 @@
 ---
 title: Markdown
+marimo-version: 0.5.2
 format: html
 filters:
   - marimo/quarto
@@ -25,8 +26,7 @@ mo.md(
     '''
 )
 ```
-
-
+<!---->
 ## LaTeX
 You can embed LaTeX in Markdown.
 
@@ -54,8 +54,7 @@ renders the display math
 f: \mathbf{R} \to \mathbf{R}.
 \]
 
-
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.accordion(
     {
         "Tip: `r''` strings": mo.md(
@@ -74,8 +73,7 @@ markdown whose contents depend on data that changes at runtime.
 
 Here are some examples.
 
-
-````{marimo}
+````{.python.marimo hide_code="true"}
 def _sine_plot():
     if not numpy_installed:
         return missing_numpy_msg
@@ -103,7 +101,7 @@ mo.md(
 )
 ````
 
-````{marimo}
+````{.python.marimo hide_code="true"}
 leaves = mo.ui.slider(1, 32, label="🍃: ")
 
 mo.md(
@@ -124,11 +122,11 @@ mo.md(
 )
 ````
 
-```{marimo}
+```{.python.marimo}
 mo.md(f"Your leaves: {'🍃' * leaves.value}")
 ```
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.accordion(
     {
         "Tip: UI elements can format themselves": """
@@ -139,7 +137,7 @@ mo.accordion(
 )
 ```
 
-```{marimo}
+```{.python.marimo}
 def make_dataframe():
     try:
         import pandas as pd
@@ -174,7 +172,7 @@ mo.md(
 )
 ```
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.accordion(
     {
         "Tip: outputs are automatically converted to HTML": """
@@ -192,8 +190,7 @@ Here's a more interesting example that puts together
 everything we've learned: rendering markdown with LaTeX that depends on
 the values of Python objects.
 
-
-```{marimo}
+```{.python.marimo}
 amplitude = mo.ui.slider(1, 2, step=0.1, label="amplitude: ")
 period = mo.ui.slider(
     math.pi / 4,
@@ -204,7 +201,7 @@ period = mo.ui.slider(
 )
 ```
 
-```{marimo}
+```{.python.marimo}
 import functools
 
 
@@ -220,7 +217,7 @@ def plotsin(amplitude, period):
     return plt.gca()
 ```
 
-```{marimo}
+```{.python.marimo}
 mo.md(
     f"""
 
@@ -232,7 +229,7 @@ mo.md(
 )
 ```
 
-```{marimo}
+```{.python.marimo}
 mo.md(
     rf"""
 
@@ -248,7 +245,7 @@ mo.md(
 )
 ```
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 matplotlib_installed = False
 numpy_installed = False
 missing_numpy_msg = mo.md("Oops! Looks like you don't have `numpy` installed.")
@@ -271,9 +268,8 @@ except ModuleNotFoundError:
     pass
 ```
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 import math
 
 import marimo as mo
 ```
-

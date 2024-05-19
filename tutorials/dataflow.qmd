@@ -1,5 +1,6 @@
 ---
 title: Dataflow
+marimo-version: 0.5.2
 format: html
 filters:
   - marimo/quarto
@@ -13,8 +14,7 @@ automatically.
 
 To provide reactive execution, marimo creates a dataflow graph out of your
 cells.
-
-
+<!---->
 ## References and definitions
 
 A marimo notebook is a directed acyclic graph in which nodes represent
@@ -29,15 +29,13 @@ global variables defined by the former cell.
 
 The rule for reactive execution can be restated in terms of the graph: when
 a cell is run, its descendants are run automatically.
-
-
+<!---->
 ### Example
 
 The next four cells plot a sine wave with a given period and amplitude.
 Each cell is labeled with its refs and defs.
 
-
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.accordion(
     {
         "Tip: inspecting refs and defs": f"""
@@ -52,7 +50,7 @@ mo.accordion(
 )
 ```
 
-```{marimo}
+```{.python.marimo}
 mo.md(
     f"""
     {mo.as_html(plot_wave(amplitude, period))}
@@ -63,7 +61,7 @@ mo.md(
 )
 ```
 
-```{marimo}
+```{.python.marimo}
 period = 2 * 3.14159
 
 mo.md(
@@ -74,7 +72,7 @@ mo.md(
 )
 ```
 
-```{marimo}
+```{.python.marimo}
 amplitude = 1
 
 mo.md(
@@ -85,7 +83,7 @@ mo.md(
 )
 ```
 
-```{marimo}
+```{.python.marimo}
 def plot_wave(amplitude, period):
     if not numpy_installed:
         return mo.md(
@@ -118,8 +116,7 @@ mo.md(
 🌊 **Try it!** In the above cells, try changing the value `period` or
 `ampltitude`, then click the run button ( ▷ ) to register your changes.
 See what happens to the sine wave.
-
-
+<!---->
 Here is the dataflow graph for the cells that make the sine wave plot, plus
 the cells that import libraries. Each cell is labeled with its defs.
 
@@ -141,23 +138,20 @@ the cells that import libraries. Each cell is labeled with its defs.
 ```
 
 The last cell, which doesn't define anything, produces the plot.
-
-
+<!---->
 ## Dataflow programming
 
 marimo's runtime rule has some important consequences that may seem
 surprising if you are not used to dataflow programming. We list these
 below.
-
-
+<!---->
 ### Execution order is not cell order
 
 The order in which cells are executed is determined entirely by the
 dataflow graph. This makes marimo notebooks more reproducible than
 traditional notebooks. It also lets you place boilerplate, like
 imports or long markdown strings, at the bottom of the editor.
-
-
+<!---->
 ### Global variable names must be unique
 
 Every global variable can be defined by only one cell. Without this
@@ -167,21 +161,19 @@ execute cells in.
 If you violate this constraint, marimo provides a helpful
 error message, like below:
 
-
-```{marimo}
+```{.python.marimo}
 planet = "Mars"
 planet
 ```
 
-```{marimo}
+```{.python.marimo}
 planet = "Earth"
 planet
 ```
 
 **🌊 Try it!** In the previous cell, change the name `planet` to `home`,
 then run the cell.
-
-
+<!---->
 Because defs must be unique, global variables cannot be modified with
 operators like `+=` or `-=` in cells other than the one that created
 them; these operators count as redefinitions of a name.
@@ -189,12 +181,11 @@ them; these operators count as redefinitions of a name.
 **🌊 Try it!** Get rid of the following errors by merging the next two
 cells into a single cell.
 
-
-```{marimo}
+```{.python.marimo}
 count = 0
 ```
 
-```{marimo}
+```{.python.marimo}
 count += 1
 ```
 
@@ -207,18 +198,17 @@ made available to other cells.
 
 **Example**.
 
-
-```{marimo}
+```{.python.marimo}
 _private_variable, _ = 1, 2
 _private_variable, _
 ```
 
-```{marimo}
+```{.python.marimo}
 _private_variable, _ = 3, 4
 _private_variable, _
 ```
 
-```{marimo}
+```{.python.marimo}
 # `_private_variable` and `_` are not defined in this cell
 _private_variable, _
 ```
@@ -230,8 +220,7 @@ then runs all cells that reference them. This prevents severe bugs that
 can arise when state has been deleted from the editor but not from the
 program memory.
 
-
-```{marimo}
+```{.python.marimo}
 to_be_deleted = "variable still exists"
 
 mo.md(
@@ -243,7 +232,7 @@ mo.md(
 )
 ```
 
-```{marimo}
+```{.python.marimo}
 to_be_deleted
 ```
 
@@ -251,12 +240,11 @@ to_be_deleted
 
 Cycles among cells are not allowed. For example:
 
-
-```{marimo}
+```{.python.marimo}
 one = two - 1
 ```
 
-```{marimo}
+```{.python.marimo}
 two = one + 1
 ```
 
@@ -268,16 +256,15 @@ trigger reactive execution.
 **🌊 Example**. Change the value of `state.number` in the next cell, then
 run the cell. Notice how the subsequent cell isn't updated.
 
-
-```{marimo}
+```{.python.marimo}
 state.number = 1
 ```
 
-```{marimo}
+```{.python.marimo}
 state.number
 ```
 
-```{marimo}
+```{.python.marimo}
 class namespace:
     pass
 
@@ -285,12 +272,12 @@ state = namespace()
 state.number = 0
 ```
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.accordion(
     {
         "Why not track attributes?": """
-        marimo can't reliably trace attributes 
-        to cells that define them. For example, attributes are routinely 
+        marimo can't reliably trace attributes
+        to cells that define them. For example, attributes are routinely
         created or modified by library code.
         """
     }
@@ -303,13 +290,12 @@ In Python, it's impossible to know whether code will
 mutate an object without running it. So: mutations (such as
 appending to a list) will not trigger reactive execution.
 
-
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.accordion(
     {
         "Tip (advanced): mutable state": (
             """
-        You can use the fact that marimo does not track attributes or 
+        You can use the fact that marimo does not track attributes or
         mutations to implement mutable state in marimo. An example of
         this is shown in the `ui` tutorial.
         """
@@ -330,10 +316,10 @@ and apps, and they'll encourage you to write clean, reproducible code.
 
 Follow these tips to stay on the marimo way:
 
-
-```{marimo}
+```{.python.marimo}
 mo.accordion(tips)
 ```
+
 ## What's next?
 
 Check out the tutorial on interactivity for a tour of UI elements:
@@ -342,8 +328,7 @@ Check out the tutorial on interactivity for a tour of UI elements:
 marimo tutorial ui
 ```
 
-
-```{marimo}
+```{.python.marimo hide_code="true"}
 matplotlib_installed = False
 numpy_installed = False
 
@@ -362,14 +347,14 @@ except ModuleNotFoundError:
     pass
 ```
 
-````{marimo}
+````{.python.marimo hide_code="true"}
 tips = {
     "Use global variables sparingly": (
         """
         Keep the number of global variables in your program small to avoid
-        name collisions across cells. Keep the number of global variables 
+        name collisions across cells. Keep the number of global variables
         defined by any one cell small to make sure that the units of
-        reactive execution are small. 
+        reactive execution are small.
         """
     ),
     "Use descriptive names": (
@@ -425,7 +410,7 @@ tips = {
         """
     ),
     "Write idempotent cells": (
-        """  
+        """
         Write cells whose outputs and behavior are the same when given
         the same inputs (refs); such cells are called _idempotent_. This will
         help you avoid bugs, and let you cache expensive intermediate
@@ -451,14 +436,13 @@ tips = {
         Whenever `compute_predictions` is called with a value of
         `problem_parameters` it has not seen, it will compute the predictions
         and store them in a cache. The next time it is called with the same
-        parameters, instead of recomputing the predictions, it will just 
+        parameters, instead of recomputing the predictions, it will just
         fetch the previously computed ones from the cache.
         """
     ),
 }
 ````
 
-```{marimo}
+```{.python.marimo}
 import marimo as mo
 ```
-

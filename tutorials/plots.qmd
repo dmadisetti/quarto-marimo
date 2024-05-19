@@ -1,13 +1,14 @@
 ---
 title: Plots
+marimo-version: 0.5.2
 format: html
 filters:
   - marimo/quarto
 ---
+
 # Plotting
 
-
-```{marimo}
+```{.python.marimo hide_code="true"}
 check_dependencies()
 ```
 
@@ -16,10 +17,9 @@ plotly, seaborn, and altair.
 
 This tutorial gives examples using matplotlib; other libraries are
 used similarly.
-
+<!---->
 ## Matplotlib
-
-
+<!---->
 To show a plot, include it in the last expression of a cell (just
 like any other output).
 
@@ -29,8 +29,7 @@ import matplotlib.pyplot as plt
 plt.plot([1, 2])
 ```
 
-
-```{marimo}
+```{.python.marimo}
 plt.plot([1, 2])
 ```
 
@@ -42,48 +41,45 @@ plt.plot([1, 2])
 plt.gca()
 ```
 
-
-```{marimo}
+```{.python.marimo}
 plt.plot([1, 2])
 # ... do some work ...
 # make plt.gca() the last line of the cell
 plt.gca()
 ```
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 mo.accordion(plt_show_explainer)
 ```
 
 **A new figure every cell.** Every cell starts with an empty figure for
 the imperative `pyplot` API.
 
-
-```{marimo}
+```{.python.marimo}
 x = np.linspace(start=-4, stop=4, num=100, dtype=float)
 ```
 
-```{marimo}
+```{.python.marimo}
 plt.plot(x, x)
 plt.plot(x, x**2)
 plt.gca()
 ```
 
-```{marimo}
+```{.python.marimo}
 plt.plot(x, x**3)
 ```
 
 To build a figure over multiple cells, use the object-oriented API and
 create your own axis:
 
-
-```{marimo}
+```{.python.marimo}
 _, axis = plt.subplots()
 axis.plot(x, x)
 axis.plot(x, x**2)
 axis
 ```
 
-```{marimo}
+```{.python.marimo}
 axis.plot(x, x**3)
 axis
 ```
@@ -92,8 +88,7 @@ axis
 
 Draw plots interactively by parametrizing them with UI elements.
 
-
-```{marimo}
+```{.python.marimo}
 exponent = mo.ui.slider(1, 5, value=1, step=1, label='exponent')
 
 mo.md(
@@ -105,7 +100,7 @@ mo.md(
 )
 ```
 
-```{marimo}
+```{.python.marimo}
 import functools
 
 
@@ -128,9 +123,9 @@ mo.md(
     """
 )
 ```
+
 ## Other libraries
-
-
+<!---->
 marimo also supports these other plotting libraries:
 
 - Plotly
@@ -143,8 +138,7 @@ or embed them in markdown with `mo.as_html`.
 If you would like another library to be integrated into marimo, please
 get in touch.
 
-
-````{marimo}
+````{.python.marimo hide_code="true"}
 module_not_found_explainer = mo.md(
     """
     ## Oops!
@@ -170,7 +164,7 @@ def check_dependencies():
         return module_not_found_explainer
 ````
 
-```{marimo}
+```{.python.marimo hide_code="true"}
 plt_show_explainer = {
     "Using `plt.show()`": """
     You can use `plt.show()` or `figure.show()` to display
@@ -180,7 +174,7 @@ plt_show_explainer = {
 }
 ```
 
-```{marimo}
+```{.python.marimo}
 try:
     import matplotlib
     import matplotlib.pyplot as plt
@@ -193,7 +187,6 @@ if not missing_packages:
     matplotlib.rcParams['figure.figsize'] = (6, 2.4)
 ```
 
-```{marimo}
+```{.python.marimo}
 import marimo as mo
 ```
-

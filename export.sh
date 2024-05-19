@@ -13,7 +13,19 @@ for py in "$TUTORIALS"/_tutorials/*.py; do
   # ignore hidden cases
   if [[ $py != *_tutorials/_* ]]; then
     echo $py
-    marimo export md "$py" > "$(basename "$py" .py).md"
+    marimo export md "$py" > "$(basename "$py" .py).qmd"
+  fi
+done
+
+for md in "$TUTORIALS"/_tutorials/*.md; do
+  # Somehow the literal *.md can be globbed.
+  if [ "$md" == '*.md' ] || [ $(basename "$md") == "README.md" ]; then
+    continue
+  fi
+  # ignore hidden cases
+  if [[ $md != *_tutorials/_* ]]; then
+    echo $md
+    cp "$md" "$(basename "$md" .md).qmd"
   fi
 done
 

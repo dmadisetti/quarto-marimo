@@ -1,7 +1,7 @@
 #!/home/dylan/downloads/manim/bin/python
-
-#/usr/bin/env nix-shell
-## nix-shell -i python3 -p python3Packages.marimo python3Packages.flask python3Packages.matplotlib
+# Only works with latest marimo version
+# #!/usr/bin/env nix-shell
+# #! nix-shell -i python3 -p python3Packages.marimo python3Packages.numpy python3Packages.pandas python3Packages.matplotlib
 
 import sys
 import re
