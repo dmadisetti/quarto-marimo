@@ -7,7 +7,7 @@ Documents that specify the `marimo/quarto` extension e.g.
 title: Marimo Tutorial
 format: html
 filters:
-  - marimo/quarto
+  - dmadisetti/quarto-marimo/marimo/quarto
 ---
 ```
 
