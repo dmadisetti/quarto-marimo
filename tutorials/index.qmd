@@ -2,7 +2,7 @@
 title: marimo tutorials
 format: html
 filters:
-  - marimo/quarto
+  - marimo
 ---
 
 Open a tutorial.

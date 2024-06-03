@@ -2,7 +2,7 @@
 title: marimo + quarto
 format: html
 filters:
-  - marimo/quarto
+  - marimo
 ---
 
 # 🟢 🔵 🏝️

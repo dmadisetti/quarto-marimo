@@ -3,7 +3,7 @@ title: Markdown
 marimo-version: 0.4.11
 format: html
 filters:
-  - marimo/quarto
+  - marimo
 ---
 
 # marimo in Markdown!
