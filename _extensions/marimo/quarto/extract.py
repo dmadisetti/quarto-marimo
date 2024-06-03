@@ -1,7 +1,5 @@
-#!/home/dylan/downloads/manim/bin/python
-# Only works with latest marimo version
-# #!/usr/bin/env nix-shell
-# #! nix-shell -i python3 -p python3Packages.marimo python3Packages.numpy python3Packages.pandas python3Packages.matplotlib
+#! /usr/bin/env nix-shell
+#! nix-shell -i python3 -p python3Packages.pyyaml python3Packages.marimo python3Packages.numpy python3Packages.pandas python3Packages.matplotlib
 
 import sys
 import re
@@ -9,6 +7,10 @@ import os
 import json
 
 import marimo
+
+# TODO: Cleanup codebase upstream
+from marimo._ast import codegen  # Load to prevent circular import
+
 from marimo import MarimoIslandGenerator
 from marimo._cli.convert.markdown import (
     MarimoParser,
