@@ -102,8 +102,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.5.2/dist/main.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.5.2/dist/style.css" rel="stylesheet" crossorigin="anonymous">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.6.11/dist/main.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.6.11/dist/style.css" rel="stylesheet" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Lora&amp;family=PT+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
@@ -274,13 +274,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Try updating the value of x in the next cell, then run it.</p>
 <marimo-island data-app-id="main" data-cell-id="Hbol" data-reactive="true">
     <marimo-cell-output>
-    0
+    <pre style="font-size: 12px">0</pre>
     </marimo-cell-output>
     <marimo-cell-code hidden="">x%20%3D%200%3B%20x</marimo-cell-code>
 </marimo-island>
 <marimo-island data-app-id="main" data-cell-id="MJUe" data-reactive="true">
     <marimo-cell-output>
-    1
+    <pre style="font-size: 12px">1</pre>
     </marimo-cell-output>
     <marimo-cell-code hidden="">y%20%3D%20x%20%2B%201%3B%20y</marimo-cell-code>
 </marimo-island>
@@ -302,13 +302,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </marimo-island>
 <marimo-island data-app-id="main" data-cell-id="bkHC" data-reactive="true">
     <marimo-cell-output>
-    <marimo-ui-element object-id="bkHC-0" random-id="3c121647-9feb-4668-8a32-4ff3e5b90be1"><marimo-slider data-initial-value="1" data-label="&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;><marimo-tex class=\&quot;arithmatex\&quot;>||(x||)</marimo-tex></span></span>&quot;" data-start="1" data-stop="10" data-steps="[]" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false" data-full-width="false"></marimo-slider></marimo-ui-element>
+    <marimo-ui-element object-id="bkHC-0" random-id="ad2257bb-b9fd-4487-9d93-8f820864b50c"><marimo-slider data-initial-value="1" data-label="&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;><marimo-tex class=\&quot;arithmatex\&quot;>||(x||)</marimo-tex></span></span>&quot;" data-start="1" data-stop="10" data-steps="[]" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false" data-full-width="false"></marimo-slider></marimo-ui-element>
     </marimo-cell-output>
     <marimo-cell-code hidden="">slider%20%3D%20mo.ui.slider(start%3D1%2C%20stop%3D10%2C%20label%3D%22%24x%24%22)%0Aslider</marimo-cell-code>
 </marimo-island>
 <marimo-island data-app-id="main" data-cell-id="lEQa" data-reactive="true">
     <marimo-cell-output>
-    1
+    <pre style="font-size: 12px">1</pre>
     </marimo-cell-output>
     <marimo-cell-code hidden="">slider.value</marimo-cell-code>
 </marimo-island>
@@ -322,13 +322,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In marimo, cells can be arranged in any order —&nbsp;marimo figures out the one true way to execute them based on variable declarations and references (in a <a href="https://en.wikipedia.org/wiki/Topological_sorting#:~:text=In%20computer%20science%2C%20a%20topological,before%20v%20in%20the%20ordering.">“topologically sorted”</a> order)</p>
 <marimo-island data-app-id="main" data-cell-id="PKri" data-reactive="true">
     <marimo-cell-output>
-    1
+    <pre style="font-size: 12px">1</pre>
     </marimo-cell-output>
     <marimo-cell-code hidden="">z.value</marimo-cell-code>
 </marimo-island>
 <marimo-island data-app-id="main" data-cell-id="Xref" data-reactive="true">
     <marimo-cell-output>
-    <marimo-ui-element object-id="Xref-0" random-id="cac66699-4f31-4170-b46f-62c421475637"><marimo-slider data-initial-value="1" data-label="&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;><marimo-tex class=\&quot;arithmatex\&quot;>||(z||)</marimo-tex></span></span>&quot;" data-start="1" data-stop="10" data-steps="[]" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false" data-full-width="false"></marimo-slider></marimo-ui-element>
+    <marimo-ui-element object-id="Xref-0" random-id="e8bfa0fd-c724-4258-a3bc-8df8e75a3dc0"><marimo-slider data-initial-value="1" data-label="&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;><marimo-tex class=\&quot;arithmatex\&quot;>||(z||)</marimo-tex></span></span>&quot;" data-start="1" data-stop="10" data-steps="[]" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false" data-full-width="false"></marimo-slider></marimo-ui-element>
     </marimo-cell-output>
     <marimo-cell-code hidden="">z%20%3D%20mo.ui.slider(1%2C%2010%2C%20label%3D%22%24z%24%22)%3B%20z</marimo-cell-code>
 </marimo-island>
@@ -363,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>marimo only has Python cells, but you can still write Markdown: <code>import marimo as mo</code> and use <code>mo.md</code> to write Markdown.</p>
 <marimo-island data-app-id="main" data-cell-id="Kclp" data-reactive="true">
     <marimo-cell-output>
-    <span class="markdown"><span class="paragraph">The value of <marimo-ui-element object-id="bkHC-0" random-id="3c121647-9feb-4668-8a32-4ff3e5b90be1"><marimo-slider data-initial-value="1" data-label="&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;><marimo-tex class=\&quot;arithmatex\&quot;>||(x||)</marimo-tex></span></span>&quot;" data-start="1" data-stop="10" data-steps="[]" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false" data-full-width="false"></marimo-slider></marimo-ui-element> is 1.</span></span>
+    <span class="markdown"><span class="paragraph">The value of <marimo-ui-element object-id="bkHC-0" random-id="ad2257bb-b9fd-4487-9d93-8f820864b50c"><marimo-slider data-initial-value="1" data-label="&quot;<span class=\&quot;markdown\&quot;><span class=\&quot;paragraph\&quot;><marimo-tex class=\&quot;arithmatex\&quot;>||(x||)</marimo-tex></span></span>&quot;" data-start="1" data-stop="10" data-steps="[]" data-debounce="false" data-orientation="&quot;horizontal&quot;" data-show-value="false" data-full-width="false"></marimo-slider></marimo-ui-element> is 1.</span></span>
     </marimo-cell-output>
     <marimo-cell-code hidden="">mo.md(%0A%20%20%20%20f%22%22%22%0A%20%20%20%20The%20value%20of%20%7Bslider%7D%20is%20%7Bslider.value%7D.%0A%20%20%20%20%22%22%22%0A)</marimo-cell-code>
 </marimo-island>
@@ -525,7 +525,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("github:dmadisetti\/quarto-marimo\.git");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -870,7 +870,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">marimo-version:</span><span class="co"> 0.5.2</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - marimo/quarto</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - marimo</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># marimo for Jupyter users</span></span>

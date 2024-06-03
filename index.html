@@ -101,8 +101,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.5.2/dist/main.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.5.2/dist/style.css" rel="stylesheet" crossorigin="anonymous">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.6.11/dist/main.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.6.11/dist/style.css" rel="stylesheet" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&amp;family=Lora&amp;family=PT+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <marimo-cell-output>
     <marimo-callout-output data-html="&quot;<span class=\&quot;markdown\&quot;><h1 id=\&quot;hello-from-marimo\&quot;>Hello from marimo!</h1>\n<span class=\&quot;paragraph\&quot;>This is a raw, reactive python cell.\nYou can edit it, and the output will change on run.</span></span>&quot;" data-kind="&quot;info&quot;"></marimo-callout-output>
     </marimo-cell-output>
-    <marimo-ui-element object-id="d96654f5-24b9-44a4-a1c4-821b0400649f" random-id="d96654f5-24b9-44a4-a1c4-821b0400649f"><marimo-code-editor data-initial-value="&quot;# Woops, I think I inverted the default such that every editor cell is runnable.\n# See last cell for bug\nmo.md('''\n  # Hello from marimo!\n\n  This is a raw, reactive python cell.\n  You can edit it, and the output will change on run.\n''').callout(\&quot;info\&quot;)&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="a6aa5c4a-e704-4252-a0a6-d3a99f61064b" random-id="a6aa5c4a-e704-4252-a0a6-d3a99f61064b"><marimo-code-editor data-initial-value="&quot;# Woops, I think I inverted the default such that every editor cell is runnable.\n# See last cell for bug\nmo.md('''\n  # Hello from marimo!\n\n  This is a raw, reactive python cell.\n  You can edit it, and the output will change on run.\n''').callout(\&quot;info\&quot;)&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 <section id="what" class="level2">
 <h2 class="anchored" data-anchor-id="what">What?</h2>
@@ -313,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <marimo-cell-output>
     <marimo-json-output data-json-data="[&quot;text/plain:\&quot;Change me!!!\&quot;&quot;]"></marimo-json-output>
     </marimo-cell-output>
-    <marimo-ui-element object-id="f45ef7f4-001c-45cd-8dae-38d9d16e5be5" random-id="f45ef7f4-001c-45cd-8dae-38d9d16e5be5"><marimo-code-editor data-initial-value="&quot;editor_result = \&quot;Change me\&quot; + (\&quot;!\&quot; * 3)\neditor_result,&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="076b4de7-8044-42f1-b06b-18c2bfcad88e" random-id="076b4de7-8044-42f1-b06b-18c2bfcad88e"><marimo-code-editor data-initial-value="&quot;editor_result = \&quot;Change me\&quot; + (\&quot;!\&quot; * 3)\neditor_result,&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 <p>but the default is to show the output only.</p>
 <hr>
@@ -335,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <marimo-island data-app-id="main" data-cell-id="lEQa" data-reactive="true">
     <marimo-cell-output>
     </marimo-cell-output>
-    <marimo-ui-element object-id="bf034b53-9c12-4e1b-9eaf-19c64ae56d21" random-id="bf034b53-9c12-4e1b-9eaf-19c64ae56d21"><marimo-code-editor data-initial-value="&quot;# Bug: Cells are not runnable if no output\nimport marimo as mo&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false"></marimo-code-editor></marimo-ui-element>
+    <marimo-ui-element object-id="020cb725-cc80-4893-9f6c-6712d90b2a77" random-id="020cb725-cc80-4893-9f6c-6712d90b2a77"><marimo-code-editor data-initial-value="&quot;# Bug: Cells are not runnable if no output\nimport marimo as mo&quot;" data-label="null" data-language="&quot;python&quot;" data-placeholder="&quot;&quot;" data-disabled="false"></marimo-code-editor></marimo-ui-element>
 </marimo-island>
 
 
@@ -477,7 +477,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("github:dmadisetti\/quarto-marimo\.git");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -818,7 +818,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> marimo + quarto</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - marimo/quarto</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - marimo</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🟢 🔵 🏝️</span></span>
